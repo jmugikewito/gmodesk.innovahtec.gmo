@@ -66,9 +66,38 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
     private int ROW2 = 0;
 
     private JMTableModel tablemodelTRABAJADORES;
-    private String[] TITLES_TRABAJADORES = {"idtareo", "dni", "nombres", "itemid", "item", "hora_inicio", "hora_fin", "idmotivo", "motivo", "esjor", "esrend", "JOR", "REND", "AVA", "JOREX", "RENDEX", "tipoconcepto", "conceptobono", "bono", "observaciones", "editado"};
-    private int[] TAM_TRABAJADORES = {0, 90, 360, 0, 50, 80, 80, 80, 100, 70, 70, 80, 90, 90, 90, 90, 0, 0, 0, 240, 0};
-
+    private String[] TITLES_TRABAJADORES = new String[]{"idtareo", "dni", "nombres", "itemid", "item", "hora_inicio", "hora_fin", "inicio_pausa", "fin_pausa", "idmotivo", "motivo", "esjor", "esrend", "JOR", "REND", "AVA", "JOREX", "RENDEX", "tipoconcepto", "conceptobono", "bono", "observaciones", "editado"};
+   private int[] TAM_TRABAJADORES = new int[]{0, 90, 360, 0, 50, 80, 80, 80, 80, 80, 100, 70, 70, 80, 90, 90, 90, 90, 0, 0, 0, 240, 0};
+   
+   /*
+   Columnas de ddtareo de la tabla2
+    0	idtareo,
+    1	dni,
+    2	nombres,
+    3	itemid,
+    4	item,
+    5	hora_inicio,
+    6	hora_fin,
+    7	iniciorefrigerio,
+    8	finrefrigerio,
+    9	idmotivo,
+    10	motivo,
+    11	esjor,
+    12	esrend,
+    13	JOR,
+    14	REND,
+    15	AVA,
+    16	JORNO,
+    17	JOR_COMP,
+    18	RENDEX,
+    19	tipoconcepto,
+    20	conceptobono,
+    21	bono,
+    22	observaciones,
+    23	diasiguiente,
+    24	0 editado
+*/
+   
     BuscarDialog buscarCultivoVariedad;
     BuscarDialog buscarLaborActividad;
     BuscarDialog buscarConsumidores;
@@ -135,6 +164,8 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
 
         jmethods.cargarPlanillas(cboPlanilla, " 'u','9' ");
         GetParameterEstados();
+        
+        sm_corregirdni.setVisible(false); //MVS cree que esta de más
     }
 
     public AdminSubTareos(String title, Frame w, boolean isNisira) {
@@ -179,6 +210,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
 
         jmethods.cargarPlanillas(cboPlanilla, " 'u','9' ");
         GetParameterEstados();
+        sm_corregirdni.setVisible(false); //MVS cree que esta de más
     }
 
     private void GetParameterEstados() {
@@ -186,6 +218,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
         for (int i = 0; i < jvalues.LIST_PARAMETROS.size(); i++) {
             if (jvalues.LIST_PARAMETROS.get(i).getIdparametro().equals("ESTADOS_SUBTAREO")) {
                 p = jvalues.LIST_PARAMETROS.get(i);
+                System.out.println("ESTADO DTAREO: "+p.getValor1());
                 cboEstado.setModel(new javax.swing.DefaultComboBoxModel(p.getValor1().split(",")));
             }
         }
@@ -238,7 +271,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                                 "idtareo, item, idusuario, horas, personas, jornal_fisico, rendimiento, promedio, idcultivovariedad, cultivo, variedad, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, detalle, editado",
                                 "idtareo, item, idusuario, horas, personas, jornal_fisico, rendimiento, promedio, idcultivovariedad, cultivo, variedad, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, detalle, editado",
                                 "Stringx3,Doublex5,Stringx10,Integerx1",
-                                RunMain.gettin_pages.GetQuery() + "exec GetDetalleSubTareoSwift "
+                                RunMain.gettin_pages.GetQuery() + "exec GetDetalleSubTareoSwift2022 "
                                 + "'" + jkeys.IDDATABASE + "',"
                                 + "'" + jkeys.IDEMPRESA + "',"
                                 + "'" + (chooserFecha.getDate() == null ? "" : DateTimeUtil.getDate_yyyyMMdd(chooserFecha.getDate()).replace("-", "")) + "',"
@@ -249,11 +282,11 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                                 + (chkCargaTrab.isSelected() ? 0 : 1) + ";"
                         );
                         tablaSubTareos.GetDatosHTTP();
-                        TITLES_TRABAJADORES = new String[]{
-                            "idtareo", "dni", "nombres", "itemid", "item", "hora_inicio", "hora_fin", "idmotivo",
-                            "motivo", "esjor", "esrend", "JOR", "REND", "AVA", "JORNO", "RENDEX", "tipoconcepto",
-                            "conceptobono", "bono", "observaciones", "editado"};
-                        TAM_TRABAJADORES = new int[]{0, 85, 280, 0, 50, 80, 80, 80, 100, 60, 60, 70, 80, 80, 80, 0, 0, 0, 0, 240, 0};
+                        TITLES_TRABAJADORES = new String[]{"idtareo", "dni", "nombres", "itemid", 
+                            "item", "hora_inicio", "hora_fin", "inicio_pausa", "fin_pausa", "idmotivo", 
+                            "motivo", "esjor", "esrend", "JOR", "REND", "AVA", "JORNO", "JOR_COMP", "RENDEX", 
+                            "tipoconcepto", "conceptobono", "bono", "observaciones", "diasiguiente", "editado"};
+                        TAM_TRABAJADORES = new int[]{0, 85, 280, 0, 50, 80, 80, 80, 80, 80, 100, 60, 60, 70, 80, 80, 80, 110, 0, 0, 0, 0, 200, 100, 0};
 
                     }
                     tablaSubTareos.setDefaultRenderer(Object.class, new FormatSubTareo());
@@ -1019,8 +1052,10 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
             switch (tabla2.getSelectedColumn()) {
                 case 5:
                 case 6:
+                case 7:
+                case 8:
                     if (!jvalues.USUARIO.getTipousuario().getIdtipousuario().equals("SUPERCAMP_AVA")) {
-                        String x = JOptionPane.showInputDialog(this.getContentPane(), "Ingrese el Nuevo Valor");
+                        String x = JOptionPane.showInputDialog(this.getContentPane(), "Ingrese el Nuevo Horario");
                         if (x != null) {
                             for (int i = 0; i < sel.length; i++) {
                                 tabla2.setValueAt(x, sel[i], tabla2.getSelectedColumn());
@@ -1031,7 +1066,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                         }
                     }
                     break;
-                case 19:
+                case 22:
                     PDialogInputArea.PDialogShow(Frame, "Modifique las Observaciones",
                             () -> {
                                 String obs = PDialogInputArea.input;
@@ -1048,7 +1083,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                                 System.out.println("");
                             });
                     break;
-                case 7:
+                case 9:
                     if (!jvalues.USUARIO.getTipousuario().getIdtipousuario().equals("SUPERCAMP_AVA")) {
                         JDialog.setDefaultLookAndFeelDecorated(false);
                         JMethods.settingGlassPane((JFrame) Frame, buscarMotivos, principalvalues.colorAccent, 0.6f);
@@ -1065,25 +1100,25 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                         JDialog.setDefaultLookAndFeelDecorated(true);
                     }
                     break;
-                case 9:
-                case 10:
+                case 11:
+                case 12:
                     if (!jvalues.USUARIO.getTipousuario().getIdtipousuario().equals("SUPERCAMP_AVA")) {
                         int a = JOptionPane_methods.Input_Integer((Component) this.getContentPane(), (String) "Ingrese el Nuevo Valor");
                         if (a >= 0) {
                             for (int i = 0; i < sel.length; i++) {
 
-                                if (a == 0 && tabla2.getSelectedColumn() == 9) {
-                                    tabla2.setValueAt("0", sel[i], 9);
-                                    tabla2.setValueAt("1", sel[i], 10);
-                                } else if (a == 0 && tabla2.getSelectedColumn() == 10) {
+                                if (a == 0 && tabla2.getSelectedColumn() == 11) {
+                                    tabla2.setValueAt("0", sel[i], 11);
+                                    tabla2.setValueAt("1", sel[i], 12);
+                                } else if (a == 0 && tabla2.getSelectedColumn() == 12) {
                                     tabla2.setValueAt("1", sel[i], 9);
+                                    tabla2.setValueAt("0", sel[i], 12);
+                                } else if (a == 1 && tabla2.getSelectedColumn() == 11) {
+                                    tabla2.setValueAt("1", sel[i], 11);
                                     tabla2.setValueAt("0", sel[i], 10);
-                                } else if (a == 1 && tabla2.getSelectedColumn() == 9) {
-                                    tabla2.setValueAt("1", sel[i], 9);
-                                    tabla2.setValueAt("0", sel[i], 10);
-                                } else if (a == 1 && tabla2.getSelectedColumn() == 10) {
-                                    tabla2.setValueAt("0", sel[i], 9);
-                                    tabla2.setValueAt("1", sel[i], 10);
+                                } else if (a == 1 && tabla2.getSelectedColumn() == 12) {
+                                    tabla2.setValueAt("0", sel[i], 11);
+                                    tabla2.setValueAt("1", sel[i], 12);
                                 }
                                 if (tabla2.getValueAt(sel[i], tabla2.getColumnCount() - 1).toString().equals("0"))
                                     tabla2.setValueAt("1", sel[i], tabla2.getColumnCount() - 1);
@@ -1093,7 +1128,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                     }
 
                     break;
-                case 12://RENDIM
+                case 14://RENDIM
                     double bx = JOptionPane_methods.Input_Double((Component) this.getContentPane(), (String) "Esta a punto de Modificar los Siguientes Items\nIngrese el Nuevo Valor");
                     if (bx >= 0) {
                         for (int i = 0; i < sel.length; i++) {
@@ -1104,11 +1139,11 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                         setEditDelete();
                     }
                     break;
-                case 11://JORNAL
-                case 13://AVANCE
-                case 14://JORNEX
-                case 15://JORNEX
-                case 17://BONO
+                case 13://JORNAL
+                case 15://AVANCE
+                case 16://JORNO
+                case 17://JOR_COMP               
+                case 21://BONO
                     if (!jvalues.USUARIO.getTipousuario().getIdtipousuario().equals("SUPERCAMP_AVA")) {
                         double b = JOptionPane_methods.Input_Double((Component) this.getContentPane(), (String) "Esta a punto de Modificar los Siguientes Items\nIngrese el Nuevo Valor");
                         if (b >= 0) {
@@ -1119,6 +1154,20 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                             }
                             setEditDelete();
                         }
+                    }
+                    break;    
+                case 23:    
+                    if (!jvalues.USUARIO.getTipousuario().getIdtipousuario().equals("SUPERCAMP_AVA")) {
+                     JOptionPane_methods.MostrarConfirmacion(Frame, (Window frame1) -> {                        
+                            for (int i = 0; i < sel.length; i++) {                                    
+                                if ( tabla2.getSelectedColumn() == 23) {
+                                    String d = tabla2.getValueAt( sel[i], 23).toString();
+                                    d = (d.equals("0"))?"1":"0";
+                                    tabla2.setValueAt(d, sel[i], 23);                                    
+                                } 
+                            }
+                            setEditDelete();                            
+                                    }, "¿Desea cambiar el valor del día siguiente?");   
                     }
                     break;
             }
@@ -1311,6 +1360,8 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                         JMethods.completar_item(Integer.parseInt(tabla2.getValueAt(tabla2.getRowCount() - 1, 4).toString()) + 1),
                         "00:00:00",
                         "00:00:00",
+                        "00:00:00",
+                        "00:00:00",
                         "-",
                         "-",
                         1,
@@ -1320,10 +1371,12 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                         0.0,
                         0.0,
                         0.0,
+                        0.0,
                         "-",
                         "-",
                         0.0,
                         "...",
+                        0,
                         2
                     });
                     estaAgregando = true;
@@ -1418,22 +1471,26 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                                 case "1":
                                     LISTACHANGES.add(new Object[]{
                                         tabla2.getValueAt(i, 0),// idtareo
-                                        tabla2.getValueAt(i, 3),// itemid
-                                        tabla2.getValueAt(i, 4),// item
-                                        tabla2.getValueAt(i, 1),// idtrabajador
-                                        tabla2.getValueAt(i, 9),// esjornal
-                                        tabla2.getValueAt(i, 10),// esrendimiento
-                                        tabla2.getValueAt(i, 5),// inicio
-                                        tabla2.getValueAt(i, 6),// fin
-                                        tabla2.getValueAt(i, 11),// jornal
-                                        tabla2.getValueAt(i, 12),// rendimiento
-                                        tabla2.getValueAt(i, 13),// avance
-                                        tabla2.getValueAt(i, 14),// jornalextra
-                                        tabla2.getValueAt(i, 15),// rendimientoextra
-                                        tabla2.getValueAt(i, 16),// conceptobono
-                                        tabla2.getValueAt(i, 18),// bono
-                                        tabla2.getValueAt(i, 7),// idmotivo
-                                        tabla2.getValueAt(i, 19)// observaciones
+                                            tabla2.getValueAt(i, 3),// itemid
+                                            tabla2.getValueAt(i, 4),// item
+                                            tabla2.getValueAt(i, 1),// idtrabajador
+                                            tabla2.getValueAt(i, 11),// esjornal
+                                            tabla2.getValueAt(i, 12),// esrendimiento
+                                            tabla2.getValueAt(i, 5),// inicio
+                                            tabla2.getValueAt(i, 7),// inicio_ref
+                                            tabla2.getValueAt(i, 8),// fi_ref
+                                            tabla2.getValueAt(i, 6),//fin
+                                            tabla2.getValueAt(i, 13),// jornal
+                                            tabla2.getValueAt(i, 14),// rendimiento
+                                            tabla2.getValueAt(i, 15),// avance
+                                            tabla2.getValueAt(i, 16),// JORNAL_NO
+                                            tabla2.getValueAt(i, 17),//JOR_COMP
+                                            tabla2.getValueAt(i, 18),// rendimientoextra
+                                            tabla2.getValueAt(i, 20),// conceptobono
+                                            tabla2.getValueAt(i, 21),// bono
+                                            tabla2.getValueAt(i, 9),// idmotivo
+                                            tabla2.getValueAt(i, 22),// observaciones
+                                            tabla2.getValueAt(i, 23)// diasiguiente
                                     });
                                     break;
                                 case "2":
@@ -1443,19 +1500,24 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                                             tabla2.getValueAt(i, 3),// itemid
                                             tabla2.getValueAt(i, 4),// item
                                             tabla2.getValueAt(i, 1),// idtrabajador
-                                            tabla2.getValueAt(i, 9),// esjornal
-                                            tabla2.getValueAt(i, 10),// esrendimiento
+                                            tabla2.getValueAt(i, 11),// esjornal
+                                            tabla2.getValueAt(i, 12),// esrendimiento
                                             tabla2.getValueAt(i, 5),// inicio
-                                            tabla2.getValueAt(i, 6),// fin
-                                            tabla2.getValueAt(i, 11),// jornal
-                                            tabla2.getValueAt(i, 12),// rendimiento
-                                            tabla2.getValueAt(i, 13),// avance
-                                            tabla2.getValueAt(i, 14),// jornalextra
-                                            tabla2.getValueAt(i, 15),// rendimientoextra
-                                            tabla2.getValueAt(i, 16),// conceptobono
-                                            tabla2.getValueAt(i, 18),// bono
-                                            tabla2.getValueAt(i, 7),// idmotivo
-                                            tabla2.getValueAt(i, 19)// observaciones
+                                            tabla2.getValueAt(i, 7),// inicio_ref
+                                            tabla2.getValueAt(i, 8),// fi_ref
+                                            tabla2.getValueAt(i, 6),//fin
+                                            tabla2.getValueAt(i, 13),// jornal
+                                            tabla2.getValueAt(i, 14),// rendimiento
+                                            tabla2.getValueAt(i, 15),// avance
+                                            tabla2.getValueAt(i, 16),// JORNAL_NO
+                                            tabla2.getValueAt(i, 17),//JOR_COMP
+                                            tabla2.getValueAt(i, 18),// rendimientoextra
+                                            tabla2.getValueAt(i, 20),// conceptobono
+                                            tabla2.getValueAt(i, 21),// bono
+                                            tabla2.getValueAt(i, 9),// idmotivo
+                                            tabla2.getValueAt(i, 22),// observaciones
+                                            tabla2.getValueAt(i, 23)// diasiguiente
+                                            
                                         });
                                     break;
                             }
@@ -1465,7 +1527,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                         String DETALLEENVIAR = JMethods.getDETALLE_Object_XML("ddtareo", "item", LISTACHANGES);
                         System.out.println(DETALLEENVIAR);
 
-                        aplicarCambios(DETALLEENVIAR, "UpTrabajadoresSmart2020");
+                        aplicarCambios(DETALLEENVIAR, "UpTrabajadoresSmart2022");
                     } else {
                         JOptionPane.showMessageDialog(this, "No encontramos Modificaciones 2");
                     }
@@ -1650,7 +1712,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                     new String[]{"iddatabase2", "query"},
                     new Object[]{
                         jkeys.BD2,
-                        ExecHTTP.parseQL("exec UpNuevosTrabajadores ",
+                        ExecHTTP.parseQL("exec UpNuevosTrabajadores2022 ",
                                 new Object[]{
                                     jkeys.IDDATABASE,
                                     jkeys.IDEMPRESA,
@@ -1658,7 +1720,8 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                                     (isNisira ? 1 : 0),
                                     IDTAREO,
                                     RunMain.HOST,
-                                    RunMain.INFO_HOST
+                                    RunMain.INFO_HOST,
+                                    jkeys.IDUSUARIO
                                 }
                         )
                     },
@@ -1682,7 +1745,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
             hizeCambios2 = false;
 
         } else {
-            System.out.println("No se encontraron datos para Agregar");
+            System.out.println("No se encontraron datos para Agregar");            
         }
     }
 
@@ -1834,14 +1897,24 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             setEnabled(table == null || table.isEnabled());
             switch (column) {
-                case 11:
-                case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
                     setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                     if (value.toString().equals("0.00")) {
                         setBackground(MaterialColor.RED_500);
                     } else {
                         setBackground(defaults.colorPrimaryDark);
+                    }
+                    setForeground(Color.WHITE);
+                    break;
+                case 17:
+                    setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                    if (value.toString().equals("0.00")) {
+                        setBackground(MaterialColor.RED_500);
+                    } else {
+                        setBackground(Color.ORANGE);
                     }
                     setForeground(Color.WHITE);
                     break;

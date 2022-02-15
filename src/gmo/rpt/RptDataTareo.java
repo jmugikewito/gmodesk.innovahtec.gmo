@@ -146,12 +146,12 @@ public class RptDataTareo extends GMOInternalFrame {
         load = new SmartLoader((java.awt.Frame) Frame, true,
                 "Descargando Datos",
                 "Actualizando Datos Exportados de los Tareos del " + chooserDate1.toStringDate() + " hacia " + chooserDate2.toStringDate(), (Window frame) -> {
-            tabla.initHttp("0,90,0,110,90,360,0,0,90,90,90,90,90,200,90,200,90,200,60,120,80,80,80,80,80,80,160",
-                    "idtareo, fecha, numero, idusuario, dni, nombres, itemid, item, hora_inicio,ref_inicio,ref_fin, hora_fin, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, idmotivo, motivo, JOR, JOREX, JOR_NOC, JORNAL, RENDIM, AVANCE, observaciones",
-                    "idtareo, fecha, numero, idusuario, dni, nombres, itemid, item, hora_inicio,ref_inicio,ref_fin, hora_fin, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, idmotivo, motivo, JOR, JOREX, JOR_NOC, JORNAL, RENDIM, AVANCE, observaciones",
-                    "Stringx1,DateSQLx1,Stringx18,Doublex6,Stringx1",
+            tabla.initHttp("0,100,100,150,100,200,100,100,200,80,200,80,80,100,100,100,100,100,100,150,100,150,100,150,100,100,100,100,100,100,100,100,100,120",
+                    "idtareo, fecha, numero, idusuario, dnisupervisor, supervisor, codigosap, dni, nombres, sexo, cargo, itemid, item, hora_inicio,ref_inicio,ref_fin, hora_fin, horas_cal, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, idmotivo, motivo, JOR, JOREX, JOR_NOC, JORNAL, JOR_COMP, RENDIM, AVANCE, observaciones",
+                    "idtareo, fecha, numero, idusuario, dnisupervisor, supervisor, codigosap, dni, nombres, sexo, cargo, itemid, item, hora_inicio,ref_inicio,ref_fin, hora_fin, horas_cal, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, idmotivo, motivo, JOR, JOREX, JOR_NOC, JORNAL, JOR_COMP, RENDIM, AVANCE, observaciones",
+                    "Stringx1,DateSQLx1,Stringx24,Doublex7,Stringx1",
                     RunMain.gettin_pages.GetQuery()
-                    + ExecHTTP.parseQL("exec GetListDataTareoftHorario ",
+                    + ExecHTTP.parseQL("exec GetListDataTareo2022 ",
                             jkeys.IDDATABASE,
                             jkeys.IDEMPRESA,
                             chooserDate1.toStringDate(),
@@ -534,11 +534,16 @@ class FormatDataTareo extends DefaultTableCellRenderer {
                 setBackground(Color.WHITE);
                 setForeground(defaults.colorPrimaryDark);
                 break;
-            case 21:
-            case 22:
-            case 23:
+            case 26:
+            case 28:
+            case 29:
                 setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 setBackground(defaults.colorPrimary);
+                setForeground(Color.WHITE);
+                break;
+            case 30:
+                setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                setBackground(Color.ORANGE);
                 setForeground(Color.WHITE);
                 break;
             default:
