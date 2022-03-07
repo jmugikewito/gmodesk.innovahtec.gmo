@@ -64,7 +64,7 @@ public class SincronizacionPanel extends javax.swing.JPanel {
         });
         window.setLayout(new BorderLayout());
         window.add(panelContenido);
-        window.setSize(380, 640);
+        window.setSize(520, 660);
         window.setIconImage(new ImageIcon(window.getClass().getResource("/img/htec.png")).getImage());
         window.fadeIn();
 
@@ -75,6 +75,9 @@ public class SincronizacionPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnAsistenciasExternas = new kevin.component.button.Button();
+        jPanel1 = new javax.swing.JPanel();
+        etDirBD = new kevin.component.label.Etiqueta();
+        cboPlanilla = new kevin.component.combobox.ComboBox();
         border = new javax.swing.JPanel();
         btnContruirBD = new kevin.component.button.Button();
         btnParametros = new kevin.component.button.Button();
@@ -98,11 +101,20 @@ public class SincronizacionPanel extends javax.swing.JPanel {
         btnCosechaLabor = new kevin.component.button.Button();
         btnMotivos = new kevin.component.button.Button();
         btnUniNegocios = new kevin.component.button.Button();
-        btnSubAreas = new kevin.component.button.Button();
+        btnSubareas = new kevin.component.button.Button();
+        btnUbigeo = new kevin.component.button.Button();
+        btnGenero = new kevin.component.button.Button();
+        btnNacionalidad = new kevin.component.button.Button();
+        btnEstadoCivil = new kevin.component.button.Button();
+        btnEstadoTrabajador = new kevin.component.button.Button();
+        btnVia = new kevin.component.button.Button();
+        btnZona = new kevin.component.button.Button();
+        btnVinculoFamiliar = new kevin.component.button.Button();
+        btnMoneda = new kevin.component.button.Button();
+        btnBanco = new kevin.component.button.Button();
+        btnCargo = new kevin.component.button.Button();
+        btnTipoDocumentos = new kevin.component.button.Button();
         buttonMaterialIcon1 = new kevin.component.button.ButtonMaterialIcon();
-        jPanel1 = new javax.swing.JPanel();
-        etDirBD = new kevin.component.label.Etiqueta();
-        cboPlanilla = new kevin.component.combobox.ComboBox();
 
         btnAsistenciasExternas.setBackground(new java.awt.Color(0, 182, 134));
         btnAsistenciasExternas.setText("Asistencias Externas");
@@ -114,10 +126,44 @@ public class SincronizacionPanel extends javax.swing.JPanel {
         });
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setLayout(new java.awt.BorderLayout());
+        setPreferredSize(new java.awt.Dimension(400, 400));
+        setLayout(new java.awt.BorderLayout(0, 5));
 
+        jPanel1.setOpaque(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(371, 82));
+
+        etDirBD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etDirBD.setText("");
+        etDirBD.setMaximumSize(new java.awt.Dimension(240, 18));
+        etDirBD.setMinimumSize(new java.awt.Dimension(240, 18));
+        etDirBD.setPreferredSize(new java.awt.Dimension(240, 18));
+
+        cboPlanilla.setPreferredSize(new java.awt.Dimension(23, 42));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cboPlanilla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(etDirBD, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(etDirBD, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(cboPlanilla, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        border.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
         border.setOpaque(false);
-        border.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 3));
+        border.setLayout(new java.awt.GridLayout(10, 4));
 
         btnContruirBD.setBackground(new java.awt.Color(236, 64, 122));
         btnContruirBD.setText("Constuir BD");
@@ -336,15 +382,195 @@ public class SincronizacionPanel extends javax.swing.JPanel {
         });
         border.add(btnUniNegocios);
 
-        btnSubAreas.setBackground(new java.awt.Color(63, 81, 181));
-        btnSubAreas.setText("SubAreas");
-        btnSubAreas.setPreferredSize(new java.awt.Dimension(100, 36));
-        btnSubAreas.addActionListener(new java.awt.event.ActionListener() {
+        btnSubareas.setBackground(new java.awt.Color(63, 81, 181));
+        btnSubareas.setText("SubAreas");
+        btnSubareas.setPreferredSize(new java.awt.Dimension(100, 36));
+        btnSubareas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubAreasActionPerformed(evt);
+                btnSubareasActionPerformed(evt);
             }
         });
-        border.add(btnSubAreas);
+        border.add(btnSubareas);
+
+        btnUbigeo.setBackground(new java.awt.Color(63, 81, 181));
+        btnUbigeo.setText("Ubigeo");
+        btnUbigeo.setPreferredSize(new java.awt.Dimension(100, 36));
+        btnUbigeo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnUbigeoMouseClicked(evt);
+            }
+        });
+        btnUbigeo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUbigeoActionPerformed(evt);
+            }
+        });
+        border.add(btnUbigeo);
+
+        btnGenero.setBackground(new java.awt.Color(63, 81, 181));
+        btnGenero.setText("Genero");
+        btnGenero.setPreferredSize(new java.awt.Dimension(100, 36));
+        btnGenero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGeneroMouseClicked(evt);
+            }
+        });
+        btnGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGeneroActionPerformed(evt);
+            }
+        });
+        border.add(btnGenero);
+
+        btnNacionalidad.setBackground(new java.awt.Color(63, 81, 181));
+        btnNacionalidad.setText("Nacionalidad");
+        btnNacionalidad.setPreferredSize(new java.awt.Dimension(100, 36));
+        btnNacionalidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnNacionalidadMouseClicked(evt);
+            }
+        });
+        btnNacionalidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNacionalidadActionPerformed(evt);
+            }
+        });
+        border.add(btnNacionalidad);
+
+        btnEstadoCivil.setBackground(new java.awt.Color(63, 81, 181));
+        btnEstadoCivil.setText("Estado civil");
+        btnEstadoCivil.setPreferredSize(new java.awt.Dimension(100, 36));
+        btnEstadoCivil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEstadoCivilMouseClicked(evt);
+            }
+        });
+        btnEstadoCivil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEstadoCivilActionPerformed(evt);
+            }
+        });
+        border.add(btnEstadoCivil);
+
+        btnEstadoTrabajador.setBackground(new java.awt.Color(63, 81, 181));
+        btnEstadoTrabajador.setText("Estado trabajador");
+        btnEstadoTrabajador.setPreferredSize(new java.awt.Dimension(100, 36));
+        btnEstadoTrabajador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEstadoTrabajadorMouseClicked(evt);
+            }
+        });
+        btnEstadoTrabajador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEstadoTrabajadorActionPerformed(evt);
+            }
+        });
+        border.add(btnEstadoTrabajador);
+
+        btnVia.setBackground(new java.awt.Color(63, 81, 181));
+        btnVia.setText("Via");
+        btnVia.setPreferredSize(new java.awt.Dimension(100, 36));
+        btnVia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViaMouseClicked(evt);
+            }
+        });
+        btnVia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViaActionPerformed(evt);
+            }
+        });
+        border.add(btnVia);
+
+        btnZona.setBackground(new java.awt.Color(63, 81, 181));
+        btnZona.setText("Zona");
+        btnZona.setPreferredSize(new java.awt.Dimension(100, 36));
+        btnZona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnZonaMouseClicked(evt);
+            }
+        });
+        btnZona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnZonaActionPerformed(evt);
+            }
+        });
+        border.add(btnZona);
+
+        btnVinculoFamiliar.setBackground(new java.awt.Color(63, 81, 181));
+        btnVinculoFamiliar.setText("Vinculo familiar");
+        btnVinculoFamiliar.setPreferredSize(new java.awt.Dimension(100, 36));
+        btnVinculoFamiliar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVinculoFamiliarMouseClicked(evt);
+            }
+        });
+        btnVinculoFamiliar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVinculoFamiliarActionPerformed(evt);
+            }
+        });
+        border.add(btnVinculoFamiliar);
+
+        btnMoneda.setBackground(new java.awt.Color(63, 81, 181));
+        btnMoneda.setText("Moneda");
+        btnMoneda.setPreferredSize(new java.awt.Dimension(100, 36));
+        btnMoneda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMonedaMouseClicked(evt);
+            }
+        });
+        btnMoneda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMonedaActionPerformed(evt);
+            }
+        });
+        border.add(btnMoneda);
+
+        btnBanco.setBackground(new java.awt.Color(63, 81, 181));
+        btnBanco.setText("Banco");
+        btnBanco.setPreferredSize(new java.awt.Dimension(100, 36));
+        btnBanco.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBancoMouseClicked(evt);
+            }
+        });
+        btnBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBancoActionPerformed(evt);
+            }
+        });
+        border.add(btnBanco);
+
+        btnCargo.setBackground(new java.awt.Color(63, 81, 181));
+        btnCargo.setText("Cargo");
+        btnCargo.setPreferredSize(new java.awt.Dimension(100, 36));
+        btnCargo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCargoMouseClicked(evt);
+            }
+        });
+        btnCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargoActionPerformed(evt);
+            }
+        });
+        border.add(btnCargo);
+
+        btnTipoDocumentos.setBackground(new java.awt.Color(63, 81, 181));
+        btnTipoDocumentos.setText("Tipos Documentos");
+        btnTipoDocumentos.setPreferredSize(new java.awt.Dimension(100, 36));
+        btnTipoDocumentos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTipoDocumentosMouseClicked(evt);
+            }
+        });
+        btnTipoDocumentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTipoDocumentosActionPerformed(evt);
+            }
+        });
+        border.add(btnTipoDocumentos);
 
         buttonMaterialIcon1.setText("buttonMaterialIcon1");
         buttonMaterialIcon1.setICO(iconfont.MATERIALICON.MATERIALICONIC.CLOSE);
@@ -357,38 +583,6 @@ public class SincronizacionPanel extends javax.swing.JPanel {
         border.add(buttonMaterialIcon1);
 
         add(border, java.awt.BorderLayout.CENTER);
-
-        jPanel1.setOpaque(false);
-        jPanel1.setPreferredSize(new java.awt.Dimension(371, 82));
-
-        etDirBD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        etDirBD.setText("");
-        etDirBD.setMaximumSize(new java.awt.Dimension(240, 18));
-        etDirBD.setMinimumSize(new java.awt.Dimension(240, 18));
-        etDirBD.setPreferredSize(new java.awt.Dimension(240, 18));
-
-        cboPlanilla.setPreferredSize(new java.awt.Dimension(23, 42));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cboPlanilla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(etDirBD, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(etDirBD, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(cboPlanilla, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        add(jPanel1, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
@@ -484,29 +678,137 @@ public class SincronizacionPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUniNegociosActionPerformed
 
-    private void btnSubAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubAreasActionPerformed
+    private void btnSubareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubareasActionPerformed
         RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.SUBAREAS);
-    }//GEN-LAST:event_btnSubAreasActionPerformed
+    }//GEN-LAST:event_btnSubareasActionPerformed
 
     private void btnAsistenciasExternasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsistenciasExternasActionPerformed
         RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.ASISEXTERNAS);
     }//GEN-LAST:event_btnAsistenciasExternasActionPerformed
 
+    private void btnUbigeoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbigeoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUbigeoActionPerformed
+
+    private void btnUbigeoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUbigeoMouseClicked
+        RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.UBIGEO);
+    }//GEN-LAST:event_btnUbigeoMouseClicked
+
+    private void btnGeneroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGeneroMouseClicked
+        RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.GENERO);
+    }//GEN-LAST:event_btnGeneroMouseClicked
+
+    private void btnGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGeneroActionPerformed
+
+    private void btnNacionalidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNacionalidadMouseClicked
+        RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.NACIONALIDAD);
+    }//GEN-LAST:event_btnNacionalidadMouseClicked
+
+    private void btnNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNacionalidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNacionalidadActionPerformed
+
+    private void btnEstadoCivilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstadoCivilMouseClicked
+        RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.ESTADOCIVIL);
+    }//GEN-LAST:event_btnEstadoCivilMouseClicked
+
+    private void btnEstadoCivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadoCivilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEstadoCivilActionPerformed
+
+    private void btnEstadoTrabajadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstadoTrabajadorMouseClicked
+        RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.ESTADOTRABAJADOR);
+    }//GEN-LAST:event_btnEstadoTrabajadorMouseClicked
+
+    private void btnEstadoTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadoTrabajadorActionPerformed
+        
+    }//GEN-LAST:event_btnEstadoTrabajadorActionPerformed
+
+    private void btnViaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViaMouseClicked
+        RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.VIA);
+    }//GEN-LAST:event_btnViaMouseClicked
+
+    private void btnViaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViaActionPerformed
+
+    private void btnZonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnZonaMouseClicked
+        RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.ZONA);
+    }//GEN-LAST:event_btnZonaMouseClicked
+
+    private void btnZonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnZonaActionPerformed
+
+    private void btnVinculoFamiliarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVinculoFamiliarMouseClicked
+        RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.VINCULOFAMILIAR);
+    }//GEN-LAST:event_btnVinculoFamiliarMouseClicked
+
+    private void btnVinculoFamiliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVinculoFamiliarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVinculoFamiliarActionPerformed
+
+    private void btnMonedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMonedaMouseClicked
+        RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.MONEDA);
+    }//GEN-LAST:event_btnMonedaMouseClicked
+
+    private void btnMonedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMonedaActionPerformed
+        
+    }//GEN-LAST:event_btnMonedaActionPerformed
+
+    private void btnBancoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBancoMouseClicked
+        RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.BANCO);
+    }//GEN-LAST:event_btnBancoMouseClicked
+
+    private void btnBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBancoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBancoActionPerformed
+
+    private void btnCargoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCargoMouseClicked
+        RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.CARGO);
+    }//GEN-LAST:event_btnCargoMouseClicked
+
+    private void btnCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCargoActionPerformed
+
+    private void btnTipoDocumentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTipoDocumentosMouseClicked
+        RunMain.SINC_SQLITE.download(SincTareo.TYPEDOWN.TIPODOCUMENTOS);
+    }//GEN-LAST:event_btnTipoDocumentosMouseClicked
+
+    private void btnTipoDocumentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoDocumentosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTipoDocumentosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel border;
     private kevin.component.button.Button btnAsistenciasExternas;
+    private kevin.component.button.Button btnBanco;
+    private kevin.component.button.Button btnCargo;
     private kevin.component.button.Button btnContruirBD;
     private kevin.component.button.Button btnCosechaLabor;
     private kevin.component.button.Button btnCultivosVariedades;
+    private kevin.component.button.Button btnEstadoCivil;
+    private kevin.component.button.Button btnEstadoTrabajador;
     private kevin.component.button.Button btnEtapaCampoTurno;
+    private kevin.component.button.Button btnGenero;
+    private kevin.component.button.Button btnMoneda;
     private kevin.component.button.Button btnMotivos;
+    private kevin.component.button.Button btnNacionalidad;
     private kevin.component.button.Button btnParametros;
     private kevin.component.button.Button btnResponsables;
     private kevin.component.button.Button btnSemanasLocales;
-    private kevin.component.button.Button btnSubAreas;
+    private kevin.component.button.Button btnSubareas;
+    private kevin.component.button.Button btnTipoDocumentos;
     private kevin.component.button.Button btnTransportistas;
+    private kevin.component.button.Button btnUbigeo;
     private kevin.component.button.Button btnUniNegocios;
+    private kevin.component.button.Button btnVia;
+    private kevin.component.button.Button btnVinculoFamiliar;
+    private kevin.component.button.Button btnZona;
     private kevin.component.button.Button button1;
     private kevin.component.button.Button button10;
     private kevin.component.button.Button button11;
