@@ -63,7 +63,7 @@ public class RptDesconocidos extends javax.swing.JInternalFrame {
                             "doc,idusuario,fecha,dni,nombres,itemid,item,jor,rend,ava",
                             "doc,idusuario,fecha,dni,nombres,itemid,item,jor,rend,ava",
                             "Stringx2,DateSQLx1,Stringx4,Doublex3",
-                            RunMain.gettin_pages.GetQuery() + ExecHTTP.parseQL("exec GetLisTareoTrabajadoresUnknow  ", "", jkeys.IDEMPRESA, inicio.toStringDate(), fin.toStringDate(), 1));
+                            RunMain.gettin_pages.api_get() + ExecHTTP.parseQL("exec GetLisTareoTrabajadoresUnknow  ", "", jkeys.IDEMPRESA, inicio.toStringDate(), fin.toStringDate(), 1));
                     tabla.GetDatosHTTP();
                     JMethods.updateInternalJTable(this, tabla);
 

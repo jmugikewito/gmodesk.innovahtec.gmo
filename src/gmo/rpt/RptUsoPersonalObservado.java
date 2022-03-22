@@ -57,7 +57,7 @@ public class RptUsoPersonalObservado extends javax.swing.JInternalFrame {
                             "fecha, tareo, subtareo, dni, nombres",
                             "fecha, tareo, subtareo, dni, nombres",
                             "DateSQLx1,Stringx4",
-                            RunMain.gettin_pages.GetQuery() + "EXEC GetRptUsoPersonalObservado '" + jkeys.IDEMPRESA + "','" + chooserFecha1.toStringDate() + "', '" + chooserFecha2.toStringDate() + "';");
+                            RunMain.gettin_pages.api_get() + "EXEC GetRptUsoPersonalObservado '" + jkeys.IDEMPRESA + "','" + chooserFecha1.toStringDate() + "', '" + chooserFecha2.toStringDate() + "';");
                     tabla.GetDatosHTTP();
                     JMethods.updateInternalJTable(this, tabla);
                     load.dispose();

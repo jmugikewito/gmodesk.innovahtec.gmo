@@ -1,6 +1,8 @@
 package gmo.dialog;
 
 import app.RunMain;
+import color.MaterialColor;
+import static gmo.core.MainLite.*;
 import gmo.utils.jkeys;
 import java.awt.Frame;
 import java.util.Calendar;
@@ -70,10 +72,10 @@ public class DuplicarTareo extends javax.swing.JDialog {
             case "DUPLI_TAREO":
 
                 ExecHTTP.ExecPostProcedure(Frame,
-                        RunMain.gettin_pages.SetQuery(),
+                        gettin_pages.api_set(),
                         new String[]{"iddatabase2", "query"},
                         new Object[]{
-                            jkeys.BD2,
+                            jkeys.IDDATABASE2,
                             ExecHTTP.parseQL("exec SetTareoNiDu ",
                                     IDTAREO,
                                     chooserFecha.toStringDate(),
@@ -94,10 +96,10 @@ public class DuplicarTareo extends javax.swing.JDialog {
                 break;
             case "CHANGEDATE_COSECHA":
                 ExecHTTP.ExecPostProcedure(Frame,
-                        RunMain.gettin_pages.SetQuery(),
+                        gettin_pages.api_set(),
                         new String[]{"iddatabase2", "query"},
                         new Object[]{
-                            jkeys.BD2,
+                            jkeys.IDDATABASE2,
                             ExecHTTP.parseQL("exec upChangeDate  ",
                                     jkeys.IDDATABASE,
                                     jkeys.IDEMPRESA,

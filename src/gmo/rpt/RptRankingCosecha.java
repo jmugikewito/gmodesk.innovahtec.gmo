@@ -113,7 +113,7 @@ public class RptRankingCosecha extends javax.swing.JInternalFrame implements Imp
                             "Dni, FechaIngreso, Nombres, Sexo, Edad, Jabas, Kilos, PromJabas, PromKilos, Asistencias, Inasistencias, Observado, Motivo, ActivoPlanilla, ActivoCosecha",
                             "Dni, FechaIngreso, Nombres, Sexo, Edad, Jabas, Kilos, PromJabas, PromKilos, Asistencias, Inasistencias, Observado, Motivo, ActivoPlanilla, ActivoCosecha",
                             "Stringx1,DateSQLx1,Stringx2,Integerx1,Doublex4,Integerx2,Stringx4",
-                            RunMain.gettin_pages.GetQuery()
+                            RunMain.gettin_pages.api_get()
                             + "EXEC GetRptRankingCosechaResumen "
                             + "'" + jkeys.IDEMPRESA + "' , '" + IDCULTIVO + "', '', '', '', 0, 0, 0, '','" + cboOrden.getSelectedItem() + " desc', " + Integer.parseInt(edtAsistencias.getText()) + "," + Integer.parseInt(edtJabas.getText()) + "," + Integer.parseInt(edtEdad.getText()) + ",0;"
                     );

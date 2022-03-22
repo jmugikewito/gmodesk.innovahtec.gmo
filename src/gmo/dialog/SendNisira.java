@@ -1,6 +1,7 @@
 package gmo.dialog;
 
 import app.RunMain;
+import static gmo.core.MainLite.*;
 import color.MaterialColor;
 import gmo.utils.jkeys;
 import java.awt.Color;
@@ -48,7 +49,7 @@ public class SendNisira extends javax.swing.JDialog {
                 "idtareo, idusuario, documento, idestado, fecha, semana, idplanilla, idturno,estado",
                 "idtareo, idusuario, documento, idestado, fecha, semana, idplanilla, idturno,estado",
                 "Stringx4,DateSQLx1,Integerx1,Stringx2,Integerx1",
-                RunMain.gettin_pages.GetQuery() + "exec GetListTareoFilter '" + this.idtareos + "';");
+                gettin_pages.api_get() + "exec GetListTareoFilter '" + this.idtareos + "';");
         tabla.GetDatosHTTP();
         tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatSendNisira());
 
@@ -159,9 +160,8 @@ public class SendNisira extends javax.swing.JDialog {
         for (int i = 0; i < tabla.getRowCount(); i++) {
 
             Object[] RESULT = jsonmethods.GetData2(w,
-                    RunMain.gettin_pages.GetQuery()
+                    gettin_pages.api_get()
                     + ExecHTTP.parseQL("exec SetTareoExport  ",
-                            //                    + ExecHTTP.parseQL("exec SetTareoExterno  ",
                             new Object[]{tabla.getValueAt(i, 0).toString(),
                                          tabla.getValueAt(i, 4).toString(),
                                          tabla.getValueAt(i, 1).toString(),

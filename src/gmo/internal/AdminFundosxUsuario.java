@@ -2,8 +2,9 @@ package gmo.internal;
 
 import app.RunMain;
 import gmo.dialog.BuscarDialog;
-import gmo.core.Main;
 import java.awt.CardLayout;
+import color.MaterialColor;
+import static gmo.core.MainLite.*;
 import java.awt.Window;
 import java.util.ArrayList;
 import jmugi.voids.JMethods;
@@ -75,7 +76,7 @@ public class AdminFundosxUsuario extends javax.swing.JInternalFrame {
                             "idusuario, nombres, idfundo, fundo",
                             "idusuario, nombres, idfundo, fundo",
                             "Stringx4",
-                            RunMain.gettin_pages.GetQuery() + ExecHTTP.parseQuery("exec GetListFundoUsuario ", false, jkeys.IDDATABASE, "1")
+                            gettin_pages.api_get() + ExecHTTP.parseQuery("exec GetListFundoUsuario ", false, jkeys.IDDATABASE, "1")
                     );
                     tabla.GetDatosHTTP();
                     load.dispose();
@@ -95,10 +96,10 @@ public class AdminFundosxUsuario extends javax.swing.JInternalFrame {
 
         if (!LISTA_DATA.isEmpty()) {
             ExecHTTP.ExecPostProcedure(Frame,
-                    RunMain.gettin_pages.SetQuery(),
+                    gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
                     new Object[]{
-                        jkeys.BD2,
+                        jkeys.IDDATABASE2,
                         ExecHTTP.parseQL("exec UpFundoUsuario", new Object[]{DETALLEENVIAR}
                         )
                     },
@@ -187,7 +188,7 @@ public class AdminFundosxUsuario extends javax.swing.JInternalFrame {
         int key = evt.getKeyCode();
         if (key == KeyEvent.VK_F2) {
             JDialog.setDefaultLookAndFeelDecorated(false);
-            JMethods.settingGlassPane((JFrame) Frame, buscarFundos, Main.colorAccent, 0.6f);
+            JMethods.settingGlassPane((JFrame) Frame, buscarFundos, colorAccent, 0.6f);
             if (buscarFundos.DATA_SELECT != null) {
                 int[] sel = tabla.getSelectedRows();
                 for (int i = 0; i < sel.length; i++) {

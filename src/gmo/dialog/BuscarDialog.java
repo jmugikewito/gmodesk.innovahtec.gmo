@@ -1,7 +1,8 @@
 package gmo.dialog;
 
 import app.RunMain;
-import gmo.core.Main;
+import color.MaterialColor;
+import static gmo.core.MainLite.*;
 import java.awt.Frame;
 import java.awt.Window;
 import java.sql.Connection;
@@ -86,7 +87,7 @@ public class BuscarDialog extends javax.swing.JDialog {
                 SMART_TITLES,
                 SMART_TITLESJSON,
                 SMART_TYPES,
-                RunMain.gettin_pages.GetQuery() + SMART_CONSULTA);
+                gettin_pages.api_get() + SMART_CONSULTA);
         tabla.GetDatosHTTP();
 
 //        tamsColumns(tabla.getTAMS());
@@ -117,7 +118,7 @@ public class BuscarDialog extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(Main.colorPrimaryDark);
+        jPanel2.setBackground(colorPrimaryDark);
 
         jLabel1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

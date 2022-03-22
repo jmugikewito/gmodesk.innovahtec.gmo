@@ -1,13 +1,14 @@
 package gmo.dialog;
 
 import app.RunMain;
+import color.MaterialColor;
+import static gmo.core.MainLite.*;
 import gmo.utils.jkeys;
 import iconfont.MATERIALICON;
 import java.awt.Window;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import jmugi.component.MaterialColor;
 import jmugi.voids.JMethods;
 import jmugi.voids.JOptionPane_methods;
 import kevin.component.defaults;
@@ -49,7 +50,7 @@ public class GenerarAsistencia extends javax.swing.JDialog {
                 "xITEM,IDCODIGOGENERAL,NOMBRECOMPLETO,MENSAJE,vienedecruce,CANTMARCA,IDEMPRESA,IDTAREO,IDCODIGOGENERAL,TOTALHORASTAREO,MINIMAMARCA,MAXMARCA,DIFHORAMARCA,VIENEDECRUCE,MENSAJE,TIPOERROR",
                 "xITEM,IDCODIGOGENERAL,NOMBRECOMPLETO,MENSAJE,vienedecruce,CANTMARCA,IDEMPRESA,IDTAREO,IDCODIGOGENERAL,TOTALHORASTAREO,MINIMAMARCA,MAXMARCA,DIFHORAMARCA,VIENEDECRUCE,MENSAJE,TIPOERROR",
                 "tipes",
-                RunMain.gettin_pages.GetQuery() + "exec sptareo_getValidacionGenerarAsistencia '" + jkeys.IDEMPRESA + "','" + IDTAREO + "';"
+                gettin_pages.api_get() + "exec sptareo_getValidacionGenerarAsistencia '" + jkeys.IDEMPRESA + "','" + IDTAREO + "';"
         );
         tabla.GetDatosHTTP();
 
@@ -77,7 +78,7 @@ public class GenerarAsistencia extends javax.swing.JDialog {
                 "ITEM;IDASISTENCIA,DOC,SERIE,NUMERO,IDPLANILLA,PLANILLA,SEMANA,IDESTADO,FECHA,REND,IDTURNO,TURNO",
                 "ITEM;IDASISTENCIA,DOC,SERIE,NUMERO,IDPLANILLA,PLANILLA,SEMANA,IDESTADO,FECHA,REND,IDTURNO,TURNO",
                 "Stringx10",
-                RunMain.gettin_pages.GetQuery() + ExecHTTP.parseQL("exec sptareo_getAsistenciaGeneradabyTareo ", jkeys.IDEMPRESA, IDTAREO)
+                gettin_pages.api_get() + ExecHTTP.parseQL("exec sptareo_getAsistenciaGeneradabyTareo ", jkeys.IDEMPRESA, IDTAREO)
         );
         tabla.GetDatosHTTP();
 
@@ -214,10 +215,10 @@ public class GenerarAsistencia extends javax.swing.JDialog {
     private void btn_DoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DoneActionPerformed
         if (TODOBIEN) {
             ExecHTTP.ExecPostProcedure(frame,
-                    RunMain.gettin_pages.SetQuery(),
+                    gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
                     new Object[]{
-                        jkeys.BD2,
+                        jkeys.IDDATABASE2,
                         ExecHTTP.parseQL("exec " + jkeys.IDDATABASE + "..generarasistencia_bytareo ", jkeys.IDEMPRESA, IDTAREO.trim())
                     },
                     () -> {//ACTION DONE
@@ -246,11 +247,7 @@ public class GenerarAsistencia extends javax.swing.JDialog {
      @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -258,60 +255,19 @@ public class GenerarAsistencia extends javax.swing.JDialog {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GenerarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GenerarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GenerarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GenerarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                GenerarAsistencia dialog = new GenerarAsistencia(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            GenerarAsistencia dialog = new GenerarAsistencia(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

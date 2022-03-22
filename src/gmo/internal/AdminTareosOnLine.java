@@ -3,6 +3,8 @@ package gmo.internal;
 import app.RunMain;
 import color.MaterialColor;
 import gmo.dialog.AprobarTareoToken;
+import color.MaterialColor;
+import static gmo.core.MainLite.*;
 import gmo.dialog.DuplicarTareo;
 import gmo.dialog.GenerarAsistencia;
 import gmo.dialog.SendNisira;
@@ -180,7 +182,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                     "idtareo, Usuario, DNI, Nombres, DNISupervisor, Supervisor, Planilla, Documento, Total, Estado, Turno, Sem, Fecha, observaciones, p1, p2, p3, p4, p5",
                     "idtareo, idusuario, idtrabajador, nombres, dnisupervisor, supervisor, idplanilla, documento, cant, idestado, idturnotrabajo, sem, fechacreacion, observaciones, p1, p2, p3, p4, p5    ",
                     "Stringx8,Integerx1,Stringx3,DateSQLx1,Stringx6",
-                    RunMain.gettin_pages.GetQuery() + "exec  " + (swi_modoLigero.isOnOff() ? "GetListTareosSwift_2 " : "GetListTareos ")
+                    gettin_pages.api_get() + "exec  " + (swi_modoLigero.isOnOff() ? "GetListTareosSwift_2 " : "GetListTareos ")
                     + VALUE + ",'"
                     + jkeys.IDDATABASE + "','"
                     + jkeys.IDEMPRESA + "','"
@@ -201,7 +203,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                     "idtareo, Usuario, DNI, Nombres, DNISupervisor, Supervisor, Planilla, Documento, cant, Estado, Turno, Sem, Fecha, observaciones, p1, p2, p3, p4, p5",
                     "idtareo, idusuario, idtrabajador, nombres, dnisupervisor, supervisor, idplanilla, documento, cant, idestado, idturnotrabajo, sem, fechacreacion, observaciones, p1, p2, p3, p4, p5    ",
                     "Stringx12,DateSQLx1,Stringx6",
-                    RunMain.gettin_pages.GetQuery() + "exec  " + (swi_modoLigero.isOnOff() ? "GetListTareosSwift_2 " : "GetListTareos ")
+                    gettin_pages.api_get() + "exec  " + (swi_modoLigero.isOnOff() ? "GetListTareosSwift_2 " : "GetListTareos ")
                     + VALUE + ",'"
                     + jkeys.IDDATABASE + "','"
                     + jkeys.IDEMPRESA + "','"
@@ -401,7 +403,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                     "idtareo, dni, nombres, itemid, item, hora_inicio, hora_fin, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, idmotivo, motivo, esjor, esrend, JOR, REND, AVA, JOREX, tipobono, conceptobono, bono, observaciones",
                     "Stringx15,Integerx2,Doublex4,Stringx2,Doublex1,Stringx1",
                     "0, 100, 360, 80, 80, 120, 120, 120, 300, 120, 300, 120, 300, 90, 160, 100, 100, 100, 100, 100, 100, 120, 240, 100, 300",
-                    RunMain.gettin_pages.GetQuery() + ExecHTTP.parseQL("exec GetDetalleTareo ", jkeys.IDDATABASE, IDTAREO, 0));
+                    gettin_pages.api_get() + ExecHTTP.parseQL("exec GetDetalleTareo ", jkeys.IDDATABASE, IDTAREO, 0));
             JMethods.settingGlassPane((JFrame) Frame, dialog, MaterialColor.BLUEGREY_700, 0.4f);
         } else {
             Toast.mostarInfo((JFrame) Frame, "Seleccione un Tareo", true);
@@ -418,7 +420,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                             "idtareo,doc,idusuario,fecha,dni,nombres,jor,rend,ava",
                             "idtareo,doc,idusuario,fecha,dni,nombres,jor,rend,ava",
                             "Stringx3,DateSQLx1,Stringx2,Doublex3",
-                            RunMain.gettin_pages.GetQuery() + ExecHTTP.parseQL("exec GetLisTareoTrabajadoresUnknow ", (""), jkeys.IDEMPRESA, chooserDate1.toStringDate(), chooserDate1.toStringDate(), 0)
+                            gettin_pages.api_get() + ExecHTTP.parseQL("exec GetLisTareoTrabajadoresUnknow ", (""), jkeys.IDEMPRESA, chooserDate1.toStringDate(), chooserDate1.toStringDate(), 0)
                     );
                     tablaUnknow.GetDatosHTTP();
                     load.dispose();
@@ -927,12 +929,12 @@ public class AdminTareosOnLine extends GMOInternalFrame {
         System.out.println("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(IDTAREO));
         if (ROW_COUNT == 1) {
             ExecHTTP.ExecPostProcedure(Frame,
-                    RunMain.gettin_pages.SetQuery(),
+                    gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
                     new Object[]{
-                        jkeys.BD2,
+                        jkeys.IDDATABASE2,
                         ExecHTTP.parseQL("exec UpCambioEstado2 ",
-                                new Object[]{IDTAREO, "TAR", idestado, OBSERVACIONES, RunMain.HOST, RunMain.INFO_HOST, jkeys.IDUSUARIO}
+                                new Object[]{IDTAREO, "TAR", idestado, OBSERVACIONES, INFO_HOST, RunMain.INFO_HOST, jkeys.IDUSUARIO}
                         )
                     },
                     () -> {//ACTION DONE
@@ -945,12 +947,12 @@ public class AdminTareosOnLine extends GMOInternalFrame {
             String idtareo = JMethods.GetColumnSelect(tabla, 0);
             System.out.println("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(idtareo));
             ExecHTTP.ExecPostProcedure(Frame,
-                    RunMain.gettin_pages.SetQuery(),
+                    gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
                     new Object[]{
-                        jkeys.BD2,
+                        jkeys.IDDATABASE2,
                         ExecHTTP.parseQL("exec UpCambioEstado2 ",
-                                new Object[]{idtareo, "TAR", idestado, OBSERVACIONES, RunMain.HOST, RunMain.INFO_HOST, jkeys.IDUSUARIO}
+                                new Object[]{idtareo, "TAR", idestado, OBSERVACIONES, INFO_HOST, RunMain.INFO_HOST, jkeys.IDUSUARIO}
                         )
                     },
                     () -> {//ACTION DONE
@@ -966,12 +968,12 @@ public class AdminTareosOnLine extends GMOInternalFrame {
         System.out.println("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(IDTAREO));
         if (ROW_COUNT == 1) {
             ExecHTTP.ExecPostProcedure(Frame,
-                    RunMain.gettin_pages.SetQuery(),
+                    gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
                     new Object[]{
-                        jkeys.BD2,
+                        jkeys.IDDATABASE2,
                         ExecHTTP.parseQL("exec UpCambioEstado2021 ",
-                                new Object[]{IDTAREO, "TAR", idestado, OBSERVACIONES, RunMain.HOST, RunMain.INFO_HOST, TOKEN, jkeys.IDUSUARIO}
+                                new Object[]{IDTAREO, "TAR", idestado, OBSERVACIONES, INFO_HOST, RunMain.INFO_HOST, TOKEN, jkeys.IDUSUARIO}
                         )
                     },
                     () -> {//ACTION DONE
@@ -984,12 +986,12 @@ public class AdminTareosOnLine extends GMOInternalFrame {
             String idtareo = JMethods.GetColumnSelect(tabla, 0);
             System.out.println("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(idtareo));
             ExecHTTP.ExecPostProcedure(Frame,
-                    RunMain.gettin_pages.SetQuery(),
+                    gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
                     new Object[]{
-                        jkeys.BD2,
+                        jkeys.IDDATABASE2,
                         ExecHTTP.parseQL("exec UpCambioEstado2021 ",
-                                new Object[]{idtareo, "TAR", idestado, OBSERVACIONES, RunMain.HOST, RunMain.INFO_HOST, TOKEN}
+                                new Object[]{idtareo, "TAR", idestado, OBSERVACIONES, INFO_HOST, RunMain.INFO_HOST, TOKEN}
                         )
                     },
                     () -> {//ACTION DONE
@@ -1008,12 +1010,12 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
                     if (ROW_COUNT == 1) {
                         ExecHTTP.ExecPostProcedure(Frame,
-                                RunMain.gettin_pages.SetQuery(),
+                                gettin_pages.api_set(),
                                 new String[]{"iddatabase2", "query"},
                                 new Object[]{
-                                    jkeys.BD2,
+                                    jkeys.IDDATABASE2,
                                     ExecHTTP.parseQL("exec UpCambioSupervisor2 ",
-                                            new Object[]{IDTAREO, "TAR", idsupervisorlinea, OBSERVACIONES2, RunMain.HOST, RunMain.INFO_HOST, jkeys.IDUSUARIO }
+                                            new Object[]{IDTAREO, "TAR", idsupervisorlinea, OBSERVACIONES2, INFO_HOST, RunMain.INFO_HOST, jkeys.IDUSUARIO}
                                     //RunMain.HOST, RunMain.INFO_HOST}
                                     )
                                 },
@@ -1027,12 +1029,12 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                         String idtareo = JMethods.GetColumnSelect(tabla, 0);
                         System.out.println("TAREO QUE SERA CAMBIADO DE SUPERVISOR: " + gmoEncript.encriptar(idtareo));
                         ExecHTTP.ExecPostProcedure(Frame,
-                                RunMain.gettin_pages.SetQuery(),
+                                gettin_pages.api_set(),
                                 new String[]{"iddatabase2", "query"},
                                 new Object[]{
-                                    jkeys.BD2,
+                                    jkeys.IDDATABASE2,
                                     ExecHTTP.parseQL("exec UpCambioSupervisor ",
-                                            new Object[]{idtareo, "TAR", idsupervisorlinea, OBSERVACIONES2, RunMain.HOST, RunMain.INFO_HOST}
+                                            new Object[]{idtareo, "TAR", idsupervisorlinea, OBSERVACIONES2, INFO_HOST, RunMain.INFO_HOST}
                                     //RunMain.HOST, RunMain.INFO_HOST}
                                     )
                                 },
@@ -1136,10 +1138,10 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                     } else {
 
                         ExecHTTP.ExecPostProcedure(Frame,
-                                RunMain.gettin_pages.SetQuery(),
+                                gettin_pages.api_set(),
                                 new String[]{"iddatabase2", "query"},
                                 new Object[]{
-                                    jkeys.BD2,
+                                    jkeys.IDDATABASE2,
                                     ExecHTTP.parseQL("exec SetTareoExport  ",
                                             //                                            "exec SetTareoExterno ",
                                             IDTAREO,
@@ -1148,8 +1150,8 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                                             jkeys.IDDATABASE,
                                             IDPLANILLA,
                                             IDTURNO,
-                                            RunMain.HOST,
-                                            RunMain.INFO_HOST
+                                            INFO_HOST,
+                                            INFO_HOST
                                     )
                                 },
                                 () -> {//ACTION DONE
@@ -1172,10 +1174,10 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
     private void mi_eliminarTareoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_eliminarTareoActionPerformed
         ExecHTTP.ExecPostProcedure(Frame,
-                RunMain.gettin_pages.SetQuery(),
+                gettin_pages.api_set(),
                 new String[]{"iddatabase2", "query"},
                 new Object[]{
-                    jkeys.BD2,
+                    jkeys.IDDATABASE2,
                     ExecHTTP.parseQL("exec SetDropTareo ",
                             IDTAREO, VALUE
                     )
@@ -1203,7 +1205,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                     "idtareo, item, cultivo, variedad, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, JORNAL, REND, AVA",
                     "Stringx10,Doublex3",
                     "0, 80, 100, 110, 100, 160, 100, 160, 100, 160, 90, 90, 90",
-                    RunMain.gettin_pages.GetQuery() + "exec GetListConsumidorbyTareo '" + IDTAREO + "';"
+                    gettin_pages.api_get() + "exec GetListConsumidorbyTareo '" + IDTAREO + "';"
             );
             JMethods.settingGlassPane((JFrame) Frame, tableDialog, MaterialColor.BLUEGREY_700, 0.4f);
 
@@ -1286,10 +1288,10 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                     } else {
 
                         ExecHTTP.ExecPostProcedure(Frame,
-                                RunMain.gettin_pages.SetQuery(),
+                                gettin_pages.api_set(),
                                 new String[]{"iddatabase2", "query"},
                                 new Object[]{
-                                    jkeys.BD2,
+                                    jkeys.IDDATABASE2,
                                     ExecHTTP.parseQL("exec setApParaExportar  ",
                                             IDTAREO,
                                             FECHAPROGRAMACION,
@@ -1297,7 +1299,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                                             jkeys.IDDATABASE,
                                             IDPLANILLA,
                                             IDTURNO,
-                                            RunMain.HOST, RunMain.INFO_HOST
+                                            INFO_HOST, RunMain.INFO_HOST
                                     )
                                 },
                                 () -> {//ACTION DONE

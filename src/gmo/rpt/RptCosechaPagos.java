@@ -75,7 +75,7 @@ public class RptCosechaPagos extends javax.swing.JInternalFrame {
                         "Fecha, Total\nJabas, Total\nTrabajadores, Promedio",
                         "fecha, total_jabas, total_trab, promedio",
                         "DateSQLx1,Doublex3",
-                        RunMain.gettin_pages.GetQuery() + "exec GetRptCosechaProduccion '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "'," + REPORT + ";"
+                        RunMain.gettin_pages.api_get() + "exec GetRptCosechaProduccion '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "'," + REPORT + ";"
                 );
                 break;
             case 2:
@@ -84,7 +84,7 @@ public class RptCosechaPagos extends javax.swing.JInternalFrame {
                         "Fecha,Variedad,Total\nJabas, Total\nTrabajadores, Promedio",
                         "fecha, descripcion, total_jabas, total_trab, promedio",
                         "DateSQLx1,Stringx1,Doublex3",
-                        RunMain.gettin_pages.GetQuery() + "exec GetRptCosechaProduccion '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "'," + REPORT + ";"
+                        RunMain.gettin_pages.api_get() + "exec GetRptCosechaProduccion '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "'," + REPORT + ";"
                 );
                 break;
             case 3:
@@ -93,7 +93,7 @@ public class RptCosechaPagos extends javax.swing.JInternalFrame {
                         "Fecha, idsupervisor, Supervisor, idapuntador, Apuntador, Variedad,Total\nJabas, Total\nTrabajadores, Promedio",
                         "fecha, idsupervisor, supervisor, idapuntador, apuntador, descripcion, total_jabas, total_trab, promedio",
                         "DateSQLx1,Stringx5,Doublex3",
-                        RunMain.gettin_pages.GetQuery() + "exec GetRptCosechaProduccion '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "'," + REPORT + ";"
+                        RunMain.gettin_pages.api_get() + "exec GetRptCosechaProduccion '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "'," + REPORT + ";"
                 );
                 break;
             case 4:
@@ -102,7 +102,7 @@ public class RptCosechaPagos extends javax.swing.JInternalFrame {
                         "idsupervisor,Supervisor,Total\nDias,Total\nJabas, Total\nTrabajadores, Promedio",
                         "idsupervisor, supervisor, total_dias, total_jabas, total_trab, promedio",
                         "Stringx2,Doublex4",
-                        RunMain.gettin_pages.GetQuery() + "exec GetRptCosechaProduccion '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "'," + REPORT + ";"
+                        RunMain.gettin_pages.api_get() + "exec GetRptCosechaProduccion '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "'," + REPORT + ";"
                 );
                 break;
             case 5:
@@ -111,7 +111,7 @@ public class RptCosechaPagos extends javax.swing.JInternalFrame {
                         "idapuntador,Apuntador,Total\nDias,Total\nJabas, Total\nTrabajadores, Promedio",
                         "idapuntador, apuntador, total_dias, total_jabas, total_trab, promedio",
                         "Stringx2,Doublex4",
-                        RunMain.gettin_pages.GetQuery() + "exec GetRptCosechaProduccion '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "'," + REPORT + ";"
+                        RunMain.gettin_pages.api_get() + "exec GetRptCosechaProduccion '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "'," + REPORT + ";"
                 );
                 break;
         }

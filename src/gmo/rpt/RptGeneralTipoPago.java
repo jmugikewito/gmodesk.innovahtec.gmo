@@ -70,7 +70,9 @@ public class RptGeneralTipoPago extends javax.swing.JInternalFrame implements Im
                             ("fecha, idtrabajador, trabajador, SEXO, fecha_ingreso, CLAMSHELL_BILOXI, CLAMSHELL_EMERALD, CLAMSHELL_OTRO, CLAMSHELL_VENTURA, GRANEL_BILOXI, GRANEL_EMERALD, GRANEL_OTRO, GRANEL_VENTURA, total_clamshell, total_granel, totaljabas").replace("_", "\n"),
                             "fecha, idtrabajador, trabajador, SEXO, fecha_ingreso, CLAMSHELL_BILOXI, CLAMSHELL_EMERALD, CLAMSHELL_OTRO, CLAMSHELL_VENTURA, GRANEL_BILOXI, GRANEL_EMERALD, GRANEL_OTRO, GRANEL_VENTURA, total_clamshell, total_granel, totaljabas",
                             "DateSQLx1,Stringx3,DateSQLx1,Doublex11",
-                            RunMain.gettin_pages.GetQuery() + ExecHTTP.parseQL("exec GetRptGeneralTipoPago", jkeys.IDDATABASE, jkeys.IDEMPRESA, cboCultivo.getSelectedItemString(), rbRendimiento.isSelected() ? "RENDIMIENTO" : "CONDICIONAL", date1.toStringDate(), date1.toStringDate())
+                            RunMain.gettin_pages.api_get() + ExecHTTP.parseQL(
+                            "exec GetRptGeneralTipoPago",
+                            jkeys.IDDATABASE, jkeys.IDEMPRESA, cboCultivo.getSelectedItemString(), rbRendimiento.isSelected() ? "RENDIMIENTO" : "CONDICIONAL", date1.toStringDate(), date1.toStringDate())
                     );
                     tabla.GetDatosHTTP();
                     load.dispose();

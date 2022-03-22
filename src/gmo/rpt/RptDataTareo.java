@@ -81,29 +81,29 @@ public class RptDataTareo extends GMOInternalFrame {
     }
 
     private void generarExcelDirecto(int rpt) {
-        if (RunMain.CONECT_JDATA == null) {
-            MaterialSmartDialog.showConfirmation(Frame, "Antes de Descargar el reporte necesitamos Conectar con el Servidor, esta seguro de Conectar??? ",
-                    () -> {
-                        RunMain.CONECT_JDATA = new Jdata_Conexion(Frame);
-                    },
-                    null
-            );
-        } else {
-            tabla.exportExcel(RunMain.CONECT_JDATA.con,
-                    (JFrame) Frame,
-                    "Exportando Reporte - " + getTitle(),
-                    ExecHTTP.parseQuery("exec GetListDataTareoSwift ?1 , ?2 , ?3 , ?4 , ?5 , ?6 , ?7 , ?8 , ?9 ;", false,
-                            jkeys.IDDATABASE,
-                            jkeys.IDEMPRESA,
-                            chooserDate1.toStringDate(),
-                            chooserDate2.toStringDate(),
-                            "",
-                            rpt,
-                            edtDni.getText(),
-                            IDACTIVIDAD,
-                            IDLABOR
-                    ), true);
-        }
+//        if (RunMain.CONECT_JDATA == null) {
+//            MaterialSmartDialog.showConfirmation(Frame, "Antes de Descargar el reporte necesitamos Conectar con el Servidor, esta seguro de Conectar??? ",
+//                    () -> {
+//                        RunMain.CONECT_JDATA = new Jdata_Conexion(Frame);
+//                    },
+//                    null
+//            );
+//        } else {
+//            tabla.exportExcel(RunMain.CONECT_JDATA.con,
+//                    (JFrame) Frame,
+//                    "Exportando Reporte - " + getTitle(),
+//                    ExecHTTP.parseQuery("exec GetListDataTareoSwift ?1 , ?2 , ?3 , ?4 , ?5 , ?6 , ?7 , ?8 , ?9 ;", false,
+//                            jkeys.IDDATABASE,
+//                            jkeys.IDEMPRESA,
+//                            chooserDate1.toStringDate(),
+//                            chooserDate2.toStringDate(),
+//                            "",
+//                            rpt,
+//                            edtDni.getText(),
+//                            IDACTIVIDAD,
+//                            IDLABOR
+//                    ), true);
+//        }
     }
 
     private void gettin_data() {
@@ -115,7 +115,7 @@ public class RptDataTareo extends GMOInternalFrame {
                     "idtareo, fecha, numero, idusuario, dni, nombres, itemid, item, hora_inicio, hora_fin, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, idmotivo, motivo, JOR, JOREX, JOR_NOC, JORNAL, RENDIM, AVANCE, observaciones",
                     "idtareo, fecha, numero, idusuario, dni, nombres, itemid, item, hora_inicio, hora_fin, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, idmotivo, motivo, JOR, JOREX, JOR_NOC, JORNAL, RENDIM, AVANCE, observaciones",
                     "Stringx1,DateSQLx1,Stringx16,Doublex6,Stringx1",
-                    RunMain.gettin_pages.GetQuery()
+                    RunMain.gettin_pages.api_get()
                     + ExecHTTP.parseQL("exec GetListDataTareo ",
                             jkeys.IDDATABASE,
                             jkeys.IDEMPRESA,
@@ -150,7 +150,7 @@ public class RptDataTareo extends GMOInternalFrame {
                     "idtareo, fecha, numero, idusuario, dnisupervisor, supervisor, codigosap, dni, nombres, sexo, cargo, itemid, item, hora_inicio,ref_inicio,ref_fin, hora_fin, horas_cal, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, idmotivo, motivo, JOR, JOREX, JOR_NOC, JORNAL, JOR_COMP, RENDIM, AVANCE, observaciones",
                     "idtareo, fecha, numero, idusuario, dnisupervisor, supervisor, codigosap, dni, nombres, sexo, cargo, itemid, item, hora_inicio,ref_inicio,ref_fin, hora_fin, horas_cal, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, idmotivo, motivo, JOR, JOREX, JOR_NOC, JORNAL, JOR_COMP, RENDIM, AVANCE, observaciones",
                     "Stringx1,DateSQLx1,Stringx24,Doublex7,Stringx1",
-                    RunMain.gettin_pages.GetQuery()
+                    RunMain.gettin_pages.api_get()
                     + ExecHTTP.parseQL("exec GetListDataTareo2022 ",
                             jkeys.IDDATABASE,
                             jkeys.IDEMPRESA,

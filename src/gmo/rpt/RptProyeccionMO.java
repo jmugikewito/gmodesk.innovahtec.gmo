@@ -101,7 +101,7 @@ public class RptProyeccionMO extends javax.swing.JInternalFrame implements ImpAd
                             "iddatabase, idempresa, anio, semana, idresponsable, responsable, cultivo, variedad, ACT, actividad, LAB, labor, ratio, um_ratio, esquema, avance, um_avance, etapa, campo, LUN_P, LUN_E, LUN_D, LUN_V, MAR_P, MAR_E, MAR_D, MAR_V, MIE_P, MIE_E, MIE_D, MIE_V, JUE_P, JUE_E, JUE_D, JUE_V, VIE_P, VIE_E, VIE_D, VIE_V, SAB_P, SAB_E, SAB_D, SAB_V, DOM_P, DOM_E, DOM_D, DOM_V, prom_p, prom_e, prom_v",
                             "iddatabase, idempresa, anio, semana, idresponsable, responsable, cultivo, variedad, ACT, actividad, LAB, labor, ratio, um_ratio, esquema, avance, um_avance, etapa, campo, LUN_P, LUN_E, LUN_D, LUN_V, MAR_P, MAR_E, MAR_D, MAR_V, MIE_P, MIE_E, MIE_D, MIE_V, JUE_P, JUE_E, JUE_D, JUE_V, VIE_P, VIE_E, VIE_D, VIE_V, SAB_P, SAB_E, SAB_D, SAB_V, DOM_P, DOM_E, DOM_D, DOM_V, prom_p, prom_e, prom_v",
                             "Stringx2,Integerx2,Stringx8,Doublex1,Stringx2,Doublex1,Stringx3,Doublex31",
-                            RunMain.gettin_pages.GetQuery() + ExecHTTP.parseQL("exec GetRptProyectadovsReal ", jkeys.IDDATABASE, jkeys.IDEMPRESA, edtAnio.getText(), cboSemana.getLabelText().replace(" ", ""), "", "", "", "", "PROVSEJE")
+                            RunMain.gettin_pages.api_get() + ExecHTTP.parseQL("exec GetRptProyectadovsReal ", jkeys.IDDATABASE, jkeys.IDEMPRESA, edtAnio.getText(), cboSemana.getLabelText().replace(" ", ""), "", "", "", "", "PROVSEJE")
                     );
                     tabla.GetDatosHTTP();
                     load.dispose();

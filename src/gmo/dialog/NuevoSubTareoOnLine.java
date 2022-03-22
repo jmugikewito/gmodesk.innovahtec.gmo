@@ -1,6 +1,8 @@
-package dialog;
+package gmo.dialog;
 
 import gmo.dialog.BuscarDialog;
+import color.MaterialColor;
+import static gmo.core.MainLite.*;
 import acore.principalvalues;
 import app.RunMain;
 import gmo.utils.jkeys;

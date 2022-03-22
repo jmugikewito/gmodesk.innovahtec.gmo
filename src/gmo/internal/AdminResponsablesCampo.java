@@ -1,6 +1,6 @@
 package gmo.internal;
 
-import app.*;
+import static gmo.core.MainLite.*;
 import gmo.utils.jkeys;
 import gmo.utils.jvalues;
 import java.awt.CardLayout;
@@ -88,7 +88,7 @@ public class AdminResponsablesCampo extends javax.swing.JInternalFrame implement
                             "iddatabase,idempresa,idvehiculo,idestado,ruc,razonsocial,dni,nombres,placa,tipomovilidad,capacidad,modelo,fechacontrato,procedencia",
                             "iddatabase,idempresa,idvehiculo,idestado,ruc,razonsocial,dni,nombres,placa,tipomovilidad,capacidad,modelo,fechacontrato,procedencia",
                             "Stringx3,Integerx1,Stringx6,Integerx1,Stringx3",
-                            RunMain.gettin_pages.GetQuery() + "exec GetRptVehiculos '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "',1;"
+                            gettin_pages.api_get() + "exec GetRptVehiculos '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "',1;"
                     );
                     tabla.GetDatosHTTP();
                     load.dispose();

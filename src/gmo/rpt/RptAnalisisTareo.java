@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gmo.rpt;
 
 import app.RunMain;
@@ -63,7 +58,7 @@ public class RptAnalisisTareo extends javax.swing.JInternalFrame {
                             "idtareo, numero, fecha, item, actividad, observacion, trabajadores",
                             "idtareo, numero, fecha, item, actividad, observacion, trabajadores",
                             "Stringx2,DateSQLx1,Stringx3,Integerx1",
-                            RunMain.gettin_pages.GetQuery() + "EXEC GetRptTareoAnalisis '" + jkeys.IDEMPRESA + "','" + chooserFecha1.toStringDate() + "', '" + chooserFecha2.toStringDate() + "';");
+                            RunMain.gettin_pages.api_get() + "EXEC GetRptTareoAnalisis '" + jkeys.IDEMPRESA + "','" + chooserFecha1.toStringDate() + "', '" + chooserFecha2.toStringDate() + "';");
                     tabla.GetDatosHTTP();
                     JMethods.updateInternalJTable(this, tabla);
                     load.dispose();

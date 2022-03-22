@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gmo.rpt;
 
 import app.RunMain;
@@ -57,7 +52,7 @@ public class RptAlertPendientes extends javax.swing.JInternalFrame {
                             "idtareo,fecha,idusuario,usuario,planilla,numero,turno,semana,periodo,e_jornal,e_rendimiento,estado",
                             "idtareo,fecha,idusuario,usuario,planilla,numero,turno,semana,periodo,e_jornal,e_rendimiento,estado",
                             "Stringx1,DateSQLx1,Stringx5,Integerx1,Stringx3,Integerx1",
-                            RunMain.gettin_pages.GetQuery() + "exec GetRptTareosOtherERP "
+                            RunMain.gettin_pages.api_get() + "exec GetRptTareosOtherERP "
                             + "'" + jkeys.IDEMPRESA + "',"
                             + "'" + chooserFecha1.toStringDate() + "',"
                             + "'" + chooserFecha2.toStringDate() + "',"

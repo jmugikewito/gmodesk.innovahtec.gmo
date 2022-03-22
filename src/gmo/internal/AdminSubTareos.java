@@ -2,9 +2,10 @@ package gmo.internal;
 
 import acore.principalvalues;
 import app.RunMain;
+import static gmo.core.MainLite.*;
 import color.MaterialColor;
 import gmo.dialog.BuscarDialog;
-import dialog.NuevoSubTareoOnLine;
+import gmo.dialog.NuevoSubTareoOnLine;
 import gmo.methods.jmethods;
 import gmo.utils.jkeys;
 import gmo.utils.jvalues;
@@ -234,7 +235,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                 "Descargando Datos",
                 "Se estan Cargando los Trabajadores y las Planillas de la Fecha Seleccionada", (Window frame) -> {
                     ArrayList<Object[]> U1 = jsonmethods.GetData2(null,
-                            RunMain.gettin_pages.GetQuery() + ExecHTTP.parseQL("exec GetListUsuarioxRegister ", jkeys.IDDATABASE, jkeys.IDEMPRESA, "TAR", chooserFecha.toStringDate(), IDPLANILLA, cboEstado.getSelectedItem().toString()),
+                            gettin_pages.api_get() + ExecHTTP.parseQL("exec GetListUsuarioxRegister ", jkeys.IDDATABASE, jkeys.IDEMPRESA, "TAR", chooserFecha.toStringDate(), IDPLANILLA, cboEstado.getSelectedItem().toString()),
                             "idusuario",
                             "Stringx1"
                     );
@@ -274,7 +275,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                                 "idtareo, item, idusuario, horas, personas, jornal_fisico, rendimiento, promedio, idcultivovariedad, cultivo, variedad, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, detalle, editado",
                                 "idtareo, item, idusuario, horas, personas, jornal_fisico, rendimiento, promedio, idcultivovariedad, cultivo, variedad, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, detalle, editado",
                                 "Stringx3,Doublex5,Stringx10,Integerx1",
-                                RunMain.gettin_pages.GetQuery() + "exec GetDetalleSubTareoSwift2022 "
+                                gettin_pages.api_get() + "exec GetDetalleSubTareoSwift2022 "
                                 + "'" + jkeys.IDDATABASE + "',"
                                 + "'" + jkeys.IDEMPRESA + "',"
                                 + "'" + (chooserFecha.getDate() == null ? "" : DateTimeUtil.getDate_yyyyMMdd(chooserFecha.getDate()).replace("-", "")) + "',"
@@ -2204,12 +2205,12 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
         if (!LISTACHANGES.isEmpty()) {
 
             ExecHTTP.ExecPostProcedure(Frame,
-                    RunMain.gettin_pages.SetQuery(),
+                    gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
                     new Object[]{
-                        jkeys.BD2,
+                        jkeys.IDDATABASE2,
                         ExecHTTP.parseQL("exec " + procedure,
-                                jkeys.IDDATABASE, jkeys.IDEMPRESA, IDPLANILLA, FECHA_DATE, jkeys.IDUSUARIO, detalleChanges, RunMain.HOST, RunMain.INFO_HOST
+                                jkeys.IDDATABASE, jkeys.IDEMPRESA, IDPLANILLA, FECHA_DATE, jkeys.IDUSUARIO, detalleChanges, INFO_HOST, INFO_HOST
                         )
                     },
                     () -> {//ACTION DONE
@@ -2241,10 +2242,10 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
             String DETALLE_AGREGAR = JMethods.getDETALLE_Object_XML("ddtareo", "item", LISTAADD);
 
             ExecHTTP.ExecPostProcedure(Frame,
-                    RunMain.gettin_pages.SetQuery(),
+                    gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
                     new Object[]{
-                        jkeys.BD2,
+                        jkeys.IDDATABASE2,
                         ExecHTTP.parseQL("exec UpNuevosTrabajadores2022 ",
                                 new Object[]{
                                     jkeys.IDDATABASE,
@@ -2252,8 +2253,8 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                                     DETALLE_AGREGAR,
                                     (isNisira ? 1 : 0),
                                     IDTAREO,
-                                    RunMain.HOST,
-                                    RunMain.INFO_HOST,
+                                    INFO_HOST,
+                                    INFO_HOST,
                                     jkeys.IDUSUARIO
                                 }
                         )
@@ -2286,12 +2287,19 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
         if (!LISTADELETES.isEmpty()) {
 
             ExecHTTP.ExecPostProcedure(Frame,
-                    RunMain.gettin_pages.SetQuery(),
+                    gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
                     new Object[]{
-                        jkeys.BD2,
+                        jkeys.IDDATABASE2,
                         ExecHTTP.parseQL("exec " + (positionContainer == 1 ? "DelSubTareo " : "DelTrabajadores "),
-                                jkeys.IDDATABASE, jkeys.IDEMPRESA, IDPLANILLA, FECHA_DATE, jkeys.IDUSUARIO, detalleEliminar, RunMain.HOST, RunMain.INFO_HOST
+                                jkeys.IDDATABASE, 
+                                jkeys.IDEMPRESA, 
+                                IDPLANILLA, 
+                                FECHA_DATE, 
+                                jkeys.IDUSUARIO, 
+                                detalleEliminar, 
+                                INFO_HOST, 
+                                INFO_HOST
                         )
                     },
                     () -> {//ACTION DONE

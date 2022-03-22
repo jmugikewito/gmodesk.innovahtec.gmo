@@ -63,7 +63,7 @@ public class RptPersonalSubTareo extends javax.swing.JInternalFrame {
                             "SEM, IDCONS, CONS, ACTIVIDAD, ACT, LABOR, LABO, LUN, MAR, MIE, JUE, VIE, SAB, DOM, TOTAL",
                             "SEM, IDCONS, CONS, ACTIVIDAD, ACT, LABOR, LABO, LUN, MAR, MIE, JUE, VIE, SAB, DOM, TOTAL",
                             "Stringx7,Integerx8",
-                            RunMain.gettin_pages.GetQuery() + "exec GetRptContarPersonalSubTareo '" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "';"
+                            RunMain.gettin_pages.api_get() + "exec GetRptContarPersonalSubTareo '" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "';"
                     );
                     tabla.GetDatosHTTP();
                     load.dispose();

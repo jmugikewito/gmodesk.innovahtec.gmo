@@ -1,6 +1,7 @@
 package gmo.rpt;
 
 import app.RunMain;
+
 import gmo.utils.jkeys;
 import java.awt.CardLayout;
 import java.awt.Window;
@@ -67,7 +68,7 @@ public class RptEsperaTareos extends javax.swing.JInternalFrame {
                             "cul,idusuario,nombres,LUN,MAR,MIE,JUE,VIE,SAB,DOM",
                             "idcultivo,idusuario,nombres,LUN,MAR,MIE,JUE,VIE,SAB,DOM",
                             "Stringx3,Integerx7",
-                            RunMain.gettin_pages.GetQuery() + "exec GetRptEsperaTareo '" + jkeys.IDEMPRESA + "','" + FECHA_DATE + "';"
+                            RunMain.gettin_pages.api_get() + "exec GetRptEsperaTareo '" + jkeys.IDEMPRESA + "','" + FECHA_DATE + "';"
                     );
                     tabla.GetDatosHTTP();
                     load.dispose();

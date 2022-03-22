@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gmo.rpt;
 
 import app.RunMain;
@@ -81,7 +76,7 @@ public class RptAsignacionBono extends javax.swing.JInternalFrame {
                 "dni,nombres,cargo,asistencia,bono",
                 "dni,nombres,cargo,asistencia,bono",
                 "Stringx3,Doublex2",
-                RunMain.gettin_pages.GetQuery()
+                RunMain.gettin_pages.api_get()
                 + "EXEC GetRptAsignacionBono "
                 + "'" + jkeys.IDDATABASE + "', "
                 + "'" + jkeys.IDEMPRESA + "','"

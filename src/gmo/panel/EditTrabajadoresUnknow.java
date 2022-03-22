@@ -2,6 +2,7 @@ package gmo.panel;
 
 import acore.principalvalues;
 import app.RunMain;
+import static gmo.core.MainLite.*;
 import color.MaterialColor;
 import gmo.dialog.BuscarDialog;
 import gmo.utils.jkeys;
@@ -88,7 +89,7 @@ public class EditTrabajadoresUnknow extends javax.swing.JPanel {
                             "iddatabase,idempresa,idvehiculo,idestado,ruc,razonsocial,dni,nombres,placa,tipomovilidad,capacidad,modelo,fechacontrato,procedencia",
                             "iddatabase,idempresa,idvehiculo,idestado,ruc,razonsocial,dni,nombres,placa,tipomovilidad,capacidad,modelo,fechacontrato,procedencia",
                             "Stringx3,Integerx1,Stringx6,Integerx1,Stringx3",
-                            RunMain.gettin_pages.GetQuery() + "exec GetLisTareoTrabajadoresUnknow '" + IDTAREO + "';"
+                            gettin_pages.api_get() + "exec GetLisTareoTrabajadoresUnknow '" + IDTAREO + "';"
                     );
                     tabla.GetDatosHTTP();
                     load.dispose();
@@ -139,10 +140,10 @@ public class EditTrabajadoresUnknow extends javax.swing.JPanel {
         if (!LISTACHANGES.isEmpty()) {
 
             ExecHTTP.ExecPostProcedure(Frame,
-                    RunMain.gettin_pages.SetQuery(),
+                    gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
                     new Object[]{
-                        jkeys.BD2,
+                        jkeys.IDDATABASE2,
                         ExecHTTP.parseQL("exec " + procedure,
                                 detalleChanges, (isNisira ? 1 : 0)
                         )

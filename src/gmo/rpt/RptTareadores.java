@@ -81,7 +81,7 @@ public class RptTareadores extends javax.swing.JInternalFrame {
                     "idusuario,nombres,LUN,MAR,MIE,JUE,VIE,SAB,DOM,TOTAL",
                     "idusuario,nombres,LUN,MAR,MIE,JUE,VIE,SAB,DOM,TOTAL",
                     "Stringx2,Integerx8",
-                    RunMain.gettin_pages.GetQuery() + "exec GetRptTareadores " + TYPE + ",'" + jkeys.IDEMPRESA + "','" + FECHA_DATE + "';"
+                    RunMain.gettin_pages.api_get() + "exec GetRptTareadores " + TYPE + ",'" + jkeys.IDEMPRESA + "','" + FECHA_DATE + "';"
             );
             tabla.GetDatosHTTP();
 
@@ -89,7 +89,7 @@ public class RptTareadores extends javax.swing.JInternalFrame {
                     "idusuario,nombres,LUN,MAR,MIE,JUE,VIE,SAB,DOM,TOTAL",
                     "idusuario,nombres,LUN,MAR,MIE,JUE,VIE,SAB,DOM,TOTAL",
                     "Stringx2,Integerx8",
-                    RunMain.gettin_pages.GetQuery() + "exec GetRptTareadoresError " + TYPE + ",'" + jkeys.IDEMPRESA + "','" + FECHA_DATE + "';"
+                    RunMain.gettin_pages.api_get() + "exec GetRptTareadoresError " + TYPE + ",'" + jkeys.IDEMPRESA + "','" + FECHA_DATE + "';"
             );
             tablaError.GetDatosHTTP();
 

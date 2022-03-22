@@ -64,7 +64,7 @@ public class RptTopCosecha extends javax.swing.JInternalFrame {
                 "idconsumidor,consumidor,activo",
                 "idconsumidor,consumidor,activo",
                 "Stringx2,Booleanx1",
-                RunMain.gettin_pages.GetQuery() + "SELECT DISTINCT\n"
+                RunMain.gettin_pages.api_get() + "SELECT DISTINCT\n"
                 + "  c2.idconsumidor,\n"
                 + "  cons.descripcion,"
                 + "  0 activo\n"
@@ -87,7 +87,7 @@ public class RptTopCosecha extends javax.swing.JInternalFrame {
                 (swi_detallado.isOnOff() ? ("dni,nombres,SEXO,edad," + tit + ",total") : "dni,nombres,SEXO,edad,jabas"),
                 (swi_detallado.isOnOff() ? ("dni,nombres,SEXO,edad," + tit + ",total") : "dni,nombres,SEXO,edad,jabas"),
                 "Stringx3,Integerx1,Doublex" + (cant + 1),
-                RunMain.gettin_pages.GetQuery()
+                RunMain.gettin_pages.api_get()
                 + "exec GetRptTopCosecha '" + jkeys.IDDATABASE + "', '" + jkeys.IDEMPRESA + "', '" + FECHA_DATE1 + "', '" + FECHA_DATE2 + "', " + "'" + selected() + "'," + (swi_detallado.isOnOff() ? 1 : 0) + ", 0;"
         );
         tablaDetalle.GetDatosHTTP();

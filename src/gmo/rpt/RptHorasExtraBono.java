@@ -108,7 +108,7 @@ public class RptHorasExtraBono extends javax.swing.JInternalFrame {
                 titles,
                 titles,
                 _tipes,
-                RunMain.gettin_pages.GetQuery() + "EXEC GetRptExtraBono '" + jkeys.IDDATABASE + "', '" + jkeys.IDEMPRESA + "',"
+                RunMain.gettin_pages.api_get() + "EXEC GetRptExtraBono '" + jkeys.IDDATABASE + "', '" + jkeys.IDEMPRESA + "',"
                 + " '" + FECHA_DATE1 + "', '" + FECHA_DATE2 + "', '" + IDACTIVIDAD + "', '" + IDLABOR + "', "
                 + edtMeta.getText() + ", "
                 + edtCalculo.getText() + ","

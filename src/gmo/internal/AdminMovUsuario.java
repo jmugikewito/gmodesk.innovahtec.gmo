@@ -1,6 +1,8 @@
 package gmo.internal;
 
 import app.RunMain;
+import color.MaterialColor;
+import static gmo.core.MainLite.*;
 import gmo.utils.jkeys;
 import java.awt.CardLayout;
 import java.awt.Window;
@@ -67,7 +69,7 @@ public class AdminMovUsuario extends javax.swing.JInternalFrame {
                             "usuario,area,observaciones,activo",
                             "usuario,area,observaciones,activo",
                             "Stringx3,Integerx1",
-                            RunMain.gettin_pages.GetQuery() + "exec GetDataMovUsuario '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "','" + IDUSUARIO1 + "';"
+                            gettin_pages.api_get() + "exec GetDataMovUsuario '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "','" + IDUSUARIO1 + "';"
                     );
                     tabla.GetDatosHTTP();
                     load.dispose();
@@ -85,10 +87,10 @@ public class AdminMovUsuario extends javax.swing.JInternalFrame {
         IDUSUARIO2 = cboUsers2.getCellRenderer().getLabel().getText();
 
         ExecHTTP.ExecPostProcedure(Frame,
-                RunMain.gettin_pages.SetQuery(),
+                gettin_pages.api_set(),
                 new String[]{"iddatabase2", "query"},
                 new Object[]{
-                    jkeys.BD2,
+                    jkeys.IDDATABASE2,
                     ExecHTTP.parseQL("exec SetMovUsuario ",
                             new Object[]{
                                 jkeys.IDDATABASE,
@@ -331,7 +333,7 @@ public class AdminMovUsuario extends javax.swing.JInternalFrame {
 //        IDUSUARIO1 = jvalues.LIST_USUARIOS.get(cboUser1.getSelectedIndex()).getIdusuario();
         IDUSUARIO1 = cboUser1.getIditem().toString();
         ArrayList<Object[]> LISTA = jsonmethods.GetData2(null,
-                RunMain.gettin_pages.GetQuery()
+                gettin_pages.api_get()
                 + ExecHTTP.parseQL("exec GetDataMovUsuario ", new Object[]{jkeys.IDDATABASE, jkeys.IDEMPRESA, IDUSUARIO1, 1}),
                 "idusuario",
                 new jsonmethods.COLUMN[]{jsonmethods.COLUMN.String}

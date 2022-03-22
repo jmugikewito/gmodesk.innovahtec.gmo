@@ -43,7 +43,7 @@ public class RptSuperJornal extends javax.swing.JInternalFrame {
                 "fecha,idtrabajador,nombres,total",
                 "fecha,idtrabajador,nombres,total",
                 "DateSQLx1,Stringx2,Doublex1",
-                RunMain.gettin_pages.GetQuery() + ExecHTTP.parseQL(
+                RunMain.gettin_pages.api_get() + ExecHTTP.parseQL(
                 "exec GetRptSobreJornal ", jkeys.IDDATABASE, jkeys.IDEMPRESA, inicio.toStringDate(), fin.toStringDate(), Integer.parseInt(spnHora.getValue().toString()), cboPlanillas.getIditem().toString()
         )
         );
