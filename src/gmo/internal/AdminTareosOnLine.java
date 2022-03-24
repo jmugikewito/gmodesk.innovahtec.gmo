@@ -89,7 +89,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
         lblModloLigero.setVisible(false);
         swi_modoLigero.setVisible(false);
 
-        switch (jkeys.IDCLIENTE) {
+        switch (jkeys.RUC) {
             case "20103272964":
                 mi_detallecons.setVisible(false);
                 break;
@@ -102,8 +102,9 @@ public class AdminTareosOnLine extends GMOInternalFrame {
     public void iniAccess() {
         edt_usuario.setText(jkeys.IDUSUARIO);
         PUEDE_EDITAR = jvalues.USUARIO.getTipousuario().getEsdigitador1() == 1 || jvalues.USUARIO.getTipousuario().getEsdigitador1() == 1;
-        if (PUEDE_EDITAR == false)
+        if (PUEDE_EDITAR == false) {
             PUEDE_EDITAR = jvalues.USUARIO.getTipousuario().getEdita() == 1;
+        }
 
         toolbar1.setEDITAR(false);
         toolbar1.setRECARGAR(true);
@@ -375,9 +376,9 @@ public class AdminTareosOnLine extends GMOInternalFrame {
     }
 
     /**
-     APROBAR - APROBARPE - RECHAZARA - OBSERVAR - NISIRA - NISIRADU
-
-     @param e
+     * APROBAR - APROBARPE - RECHAZARA - OBSERVAR - NISIRA - NISIRADU
+     *
+     * @param e
      */
     private void settinMenu(boolean... e) {
         mi_aprobar.setVisible(e[0]);
@@ -1251,8 +1252,9 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
     private void swi_porEsteMesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_swi_porEsteMesMouseClicked
         chooserDate1.setEnabled(!swi_porEsteMes.isOnOff());
-        if (!jkeys.IDCLIENTE.equals("20554556192"))
+        if (!jkeys.RUC.equals("20554556192")) {
             validateConsolidado();
+        }
     }//GEN-LAST:event_swi_porEsteMesMouseClicked
 
     private void btnDesconocidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesconocidosActionPerformed

@@ -15,8 +15,8 @@ import jmugi.voids.JMethods;
 import utils.ExecHTTP;
 
 /**
-
- @author Asus
+ *
+ * @author Asus
  */
 public class NuevoSubTareoOnLine extends javax.swing.JDialog {
 
@@ -126,7 +126,7 @@ public class NuevoSubTareoOnLine extends javax.swing.JDialog {
                 : ExecHTTP.parseQuery("select ltrim(rtrim(idconsumidor)) idconsumidor,ltrim(rtrim(descripcion)) descripcion "
                         + "from consumidor "
                         + "where TIPO in ('T','F','R','M','O','X') and idempresa=?1  "
-                        + (jkeys.IDCLIENTE.equals("20103272964") ? " and estado=1 and FECHA_BAJA IS NULL" : " and estado=1 and FECHA_BAJA IS NULL;"), true,
+                        + (jkeys.RUC.equals("20103272964") ? " and estado=1 and FECHA_BAJA IS NULL" : " and estado=1 and FECHA_BAJA IS NULL;"), true,
                         jkeys.IDEMPRESA),
                 true,
                 true
@@ -406,7 +406,7 @@ public class NuevoSubTareoOnLine extends javax.swing.JDialog {
     }//GEN-LAST:event_edtIdConsumidorKeyPressed
 
     /**
-     @param args the command line arguments
+     * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
