@@ -89,7 +89,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
         lblModloLigero.setVisible(false);
         swi_modoLigero.setVisible(false);
 
-        switch (jkeys.IDCLIENTE) {
+        switch (jkeys.RUC) {
             case "20103272964":
                 mi_detallecons.setVisible(false);
                 break;
@@ -1251,7 +1251,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
     private void swi_porEsteMesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_swi_porEsteMesMouseClicked
         chooserDate1.setEnabled(!swi_porEsteMes.isOnOff());
-        if (!jkeys.IDCLIENTE.equals("20554556192"))
+        if (!jkeys.RUC.equals("20554556192"))
             validateConsolidado();
     }//GEN-LAST:event_swi_porEsteMesMouseClicked
 

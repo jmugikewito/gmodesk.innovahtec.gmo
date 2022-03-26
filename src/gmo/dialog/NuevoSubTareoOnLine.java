@@ -126,7 +126,7 @@ public class NuevoSubTareoOnLine extends javax.swing.JDialog {
                 : ExecHTTP.parseQuery("select ltrim(rtrim(idconsumidor)) idconsumidor,ltrim(rtrim(descripcion)) descripcion "
                         + "from consumidor "
                         + "where TIPO in ('T','F','R','M','O','X') and idempresa=?1  "
-                        + (jkeys.IDCLIENTE.equals("20103272964") ? " and estado=1 and FECHA_BAJA IS NULL" : " and estado=1 and FECHA_BAJA IS NULL;"), true,
+                        + (jkeys.RUC.equals("20103272964") ? " and estado=1 and FECHA_BAJA IS NULL" : " and estado=1 and FECHA_BAJA IS NULL;"), true,
                         jkeys.IDEMPRESA),
                 true,
                 true

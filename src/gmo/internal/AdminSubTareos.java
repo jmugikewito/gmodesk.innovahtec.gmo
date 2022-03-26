@@ -155,7 +155,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
             PUEDE_EDITAR = false;
         }
 
-        switch (jkeys.IDCLIENTE) {
+        switch (jkeys.RUC) {
             case "20103272964":
                 chkConfigSubTareos.setSelected(true);
                 break;
@@ -201,7 +201,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
             PUEDE_EDITAR = jvalues.USUARIO.getTipousuario().getEdita() == 1;
         }
 
-        switch (jkeys.IDCLIENTE) {
+        switch (jkeys.RUC) {
             case "20103272964":
                 chkConfigSubTareos.setSelected(true);
                 break;
@@ -2019,7 +2019,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cboPlanillaActionPerformed
 
     private void showRpt() {
-        if (jkeys.IDCLIENTE.equals("20554556192")) {
+        if (jkeys.RUC.equals("20554556192")) {
 
             edtPromRendim.setText(tablaSubTareos.getValueAt(tablaSubTareos.getSelectedRow(), 6).toString());
             edtPromJornal.setText(tablaSubTareos.getValueAt(tablaSubTareos.getSelectedRow(), 7).toString());
