@@ -15,8 +15,8 @@ import jmugi.voids.JMethods;
 import utils.ExecHTTP;
 
 /**
-
- @author Asus
+ *
+ * @author Asus
  */
 public class NuevoSubTareoOnLine extends javax.swing.JDialog {
 
@@ -406,7 +406,7 @@ public class NuevoSubTareoOnLine extends javax.swing.JDialog {
     }//GEN-LAST:event_edtIdConsumidorKeyPressed
 
     /**
-     @param args the command line arguments
+     * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
