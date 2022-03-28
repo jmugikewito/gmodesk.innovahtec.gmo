@@ -70,7 +70,7 @@ public class RptEsperaTareos extends javax.swing.JInternalFrame {
                             "Stringx3,Integerx7",
                             RunMain.gettin_pages.api_get() + "exec GetRptEsperaTareo '" + jkeys.IDEMPRESA + "','" + FECHA_DATE + "';"
                     );
-                    tabla.GetDatosHTTP();
+                    tabla.GetDatosHTTP2022();
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });

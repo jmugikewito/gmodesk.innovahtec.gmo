@@ -64,7 +64,7 @@ public class RptDesconocidos extends javax.swing.JInternalFrame {
                             "doc,idusuario,fecha,dni,nombres,itemid,item,jor,rend,ava",
                             "Stringx2,DateSQLx1,Stringx4,Doublex3",
                             RunMain.gettin_pages.api_get() + ExecHTTP.parseQL("exec GetLisTareoTrabajadoresUnknow  ", "", jkeys.IDEMPRESA, inicio.toStringDate(), fin.toStringDate(), 1));
-                    tabla.GetDatosHTTP();
+                    tabla.GetDatosHTTP2022();
                     JMethods.updateInternalJTable(this, tabla);
 
                     tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatTareoEspera());

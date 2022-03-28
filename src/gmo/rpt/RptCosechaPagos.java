@@ -121,7 +121,7 @@ public class RptCosechaPagos extends javax.swing.JInternalFrame {
                 "Descargando Datos de Cosecha",
                 "Se estan Descargando los Datos de Cosecha Seleccionados...",
                 (Window frame) -> {
-                    tabla.GetDatosHTTP();
+                    tabla.GetDatosHTTP2022();
                     JMethods.updateInternalJTable(internal, tabla);
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);

@@ -118,7 +118,7 @@ public class RptHorasExtraBono extends javax.swing.JInternalFrame {
                 + "1;"
         );
 
-        tabla.GetDatosHTTP();
+        tabla.GetDatosHTTP2022();
         tabla.setDefaultRenderer(Object.class, new FormatExtraBono());
         DATA = tabla.getDATA();
         CARDLAYOUT.show(contenedor, "cardData");

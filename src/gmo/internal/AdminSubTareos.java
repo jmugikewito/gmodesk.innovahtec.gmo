@@ -285,7 +285,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                                 + "'" + cboEstado.getSelectedItem().toString() + "',"
                                 + (chkCargaTrab.isSelected() ? 0 : 1) + ";"
                         );
-                        tablaSubTareos.GetDatosHTTP();
+                        tablaSubTareos.GetDatosHTTP2022();
                         TITLES_TRABAJADORES = new String[]{"idtareo", "dni", "nombres", "itemid", 
                             "item", "hora_inicio", "hora_fin", "inicio_pausa", "fin_pausa", "idmotivo", 
                             "motivo", "esjor", "esrend", "JOR", "REND", "AVA", "JORNO", "JOR_COMP", "RENDEX", 

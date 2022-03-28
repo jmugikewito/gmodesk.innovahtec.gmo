@@ -58,7 +58,7 @@ public class RptAlertPendientes extends javax.swing.JInternalFrame {
                             + "'" + chooserFecha2.toStringDate() + "',"
                             + "" + (chkGeneroAsistencia.isSelected() ? 1 : 0) + ";"
                     );
-                    tabla.GetDatosHTTP();
+                    tabla.GetDatosHTTP2022();
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });

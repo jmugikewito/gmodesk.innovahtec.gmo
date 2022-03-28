@@ -91,7 +91,7 @@ public class EditTrabajadoresUnknow extends javax.swing.JPanel {
                             "Stringx3,Integerx1,Stringx6,Integerx1,Stringx3",
                             gettin_pages.api_get() + "exec GetLisTareoTrabajadoresUnknow '" + IDTAREO + "';"
                     );
-                    tabla.GetDatosHTTP();
+                    tabla.GetDatosHTTP2022();
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });

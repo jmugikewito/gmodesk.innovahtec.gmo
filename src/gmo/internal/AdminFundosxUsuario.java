@@ -78,7 +78,7 @@ public class AdminFundosxUsuario extends javax.swing.JInternalFrame {
                             "Stringx4",
                             gettin_pages.api_get() + ExecHTTP.parseQuery("exec GetListFundoUsuario ", false, jkeys.IDDATABASE, "1")
                     );
-                    tabla.GetDatosHTTP();
+                    tabla.GetDatosHTTP2022();
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });

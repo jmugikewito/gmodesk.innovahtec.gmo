@@ -59,7 +59,7 @@ public class RptAnalisisTareo extends javax.swing.JInternalFrame {
                             "idtareo, numero, fecha, item, actividad, observacion, trabajadores",
                             "Stringx2,DateSQLx1,Stringx3,Integerx1",
                             RunMain.gettin_pages.api_get() + "EXEC GetRptTareoAnalisis '" + jkeys.IDEMPRESA + "','" + chooserFecha1.toStringDate() + "', '" + chooserFecha2.toStringDate() + "';");
-                    tabla.GetDatosHTTP();
+                    tabla.GetDatosHTTP2022();
                     JMethods.updateInternalJTable(this, tabla);
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);

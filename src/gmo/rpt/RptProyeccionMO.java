@@ -103,7 +103,7 @@ public class RptProyeccionMO extends javax.swing.JInternalFrame implements ImpAd
                             "Stringx2,Integerx2,Stringx8,Doublex1,Stringx2,Doublex1,Stringx3,Doublex31",
                             RunMain.gettin_pages.api_get() + ExecHTTP.parseQL("exec GetRptProyectadovsReal ", jkeys.IDDATABASE, jkeys.IDEMPRESA, edtAnio.getText(), cboSemana.getLabelText().replace(" ", ""), "", "", "", "", "PROVSEJE")
                     );
-                    tabla.GetDatosHTTP();
+                    tabla.GetDatosHTTP2022();
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });

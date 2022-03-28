@@ -50,7 +50,7 @@ public class SendNisira extends javax.swing.JDialog {
                 "idtareo, idusuario, documento, idestado, fecha, semana, idplanilla, idturno,estado",
                 "Stringx4,DateSQLx1,Integerx1,Stringx2,Integerx1",
                 gettin_pages.api_get() + "exec GetListTareoFilter '" + this.idtareos + "';");
-        tabla.GetDatosHTTP();
+        tabla.GetDatosHTTP2022();
         tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatSendNisira());
 
     }

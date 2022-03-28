@@ -74,7 +74,7 @@ public class RptGeneralTipoPago extends javax.swing.JInternalFrame implements Im
                             "exec GetRptGeneralTipoPago",
                             jkeys.IDDATABASE, jkeys.IDEMPRESA, cboCultivo.getSelectedItemString(), rbRendimiento.isSelected() ? "RENDIMIENTO" : "CONDICIONAL", date1.toStringDate(), date1.toStringDate())
                     );
-                    tabla.GetDatosHTTP();
+                    tabla.GetDatosHTTP2022();
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });

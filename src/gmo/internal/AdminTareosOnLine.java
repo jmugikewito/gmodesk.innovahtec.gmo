@@ -223,7 +223,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
         load = new SmartLoader((java.awt.Frame) Frame, true,
                 "Descargando Datos",
                 "Actualizando Lista de Tareos con estado \"" + cbo_estado.getSelectedItem().toString().trim() + "\"", (Window frame) -> {
-            tabla.GetDatosHTTP();
+            tabla.GetDatosHTTP2022();
             if (tabla.getRowCount() > 0) {
                 if (swi_ennisira.isOnOff()) {
                     tabla.setComponentPopupMenu(popupNisira);
@@ -422,7 +422,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                             "Stringx3,DateSQLx1,Stringx2,Doublex3",
                             gettin_pages.api_get() + ExecHTTP.parseQL("exec GetLisTareoTrabajadoresUnknow ", (""), jkeys.IDEMPRESA, chooserDate1.toStringDate(), chooserDate1.toStringDate(), 0)
                     );
-                    tablaUnknow.GetDatosHTTP();
+                    tablaUnknow.GetDatosHTTP2022();
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });

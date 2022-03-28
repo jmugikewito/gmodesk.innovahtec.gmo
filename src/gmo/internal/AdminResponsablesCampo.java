@@ -90,7 +90,7 @@ public class AdminResponsablesCampo extends javax.swing.JInternalFrame implement
                             "Stringx3,Integerx1,Stringx6,Integerx1,Stringx3",
                             gettin_pages.api_get() + "exec GetRptVehiculos '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "',1;"
                     );
-                    tabla.GetDatosHTTP();
+                    tabla.GetDatosHTTP2022();
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });

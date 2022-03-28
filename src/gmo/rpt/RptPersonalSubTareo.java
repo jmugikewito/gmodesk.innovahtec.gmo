@@ -65,7 +65,7 @@ public class RptPersonalSubTareo extends javax.swing.JInternalFrame {
                             "Stringx7,Integerx8",
                             RunMain.gettin_pages.api_get() + "exec GetRptContarPersonalSubTareo '" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "';"
                     );
-                    tabla.GetDatosHTTP();
+                    tabla.GetDatosHTTP2022();
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });

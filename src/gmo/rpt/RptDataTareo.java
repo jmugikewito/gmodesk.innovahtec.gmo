@@ -129,7 +129,7 @@ public class RptDataTareo extends GMOInternalFrame {
                             jkeys.IDUSUARIO
                     )
             );
-            tabla.GetDatosHTTP();
+            tabla.GetDatosHTTP2022();
             col_data = 17;
             JMethods.updateInternalJTable(this, tabla);
             tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatDataTareo());
@@ -164,7 +164,7 @@ public class RptDataTareo extends GMOInternalFrame {
                             jkeys.IDUSUARIO
                     )
             );
-            tabla.GetDatosHTTP();
+            tabla.GetDatosHTTP2022();
             col_data = 17;
             JMethods.updateInternalJTable(this, tabla);
             tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatDataTareo());

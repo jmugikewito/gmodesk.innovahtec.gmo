@@ -88,7 +88,7 @@ public class BuscarDialog extends javax.swing.JDialog {
                 SMART_TITLESJSON,
                 SMART_TYPES,
                 gettin_pages.api_get() + SMART_CONSULTA);
-        tabla.GetDatosHTTP();
+        tabla.GetDatosHTTP2022();
 
 //        tamsColumns(tabla.getTAMS());
     }

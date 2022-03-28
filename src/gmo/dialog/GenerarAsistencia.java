@@ -52,7 +52,7 @@ public class GenerarAsistencia extends javax.swing.JDialog {
                 "tipes",
                 gettin_pages.api_get() + "exec sptareo_getValidacionGenerarAsistencia '" + jkeys.IDEMPRESA + "','" + IDTAREO + "';"
         );
-        tabla.GetDatosHTTP();
+        tabla.GetDatosHTTP2022();
 
         JMethods.updateWindowJTable(this, tabla);
 
@@ -80,7 +80,7 @@ public class GenerarAsistencia extends javax.swing.JDialog {
                 "Stringx10",
                 gettin_pages.api_get() + ExecHTTP.parseQL("exec sptareo_getAsistenciaGeneradabyTareo ", jkeys.IDEMPRESA, IDTAREO)
         );
-        tabla.GetDatosHTTP();
+        tabla.GetDatosHTTP2022();
 
         JMethods.updateWindowJTable(this, tabla);
         DATA = tabla.getDATA();

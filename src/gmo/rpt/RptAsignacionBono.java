@@ -83,9 +83,7 @@ public class RptAsignacionBono extends javax.swing.JInternalFrame {
                 + JMethods.getDETALLE_Object_XML("bonos", "item", DNIS) + "','"
                 + FECHA_DATE1 + "', '" + FECHA_DATE2 + "';  "
         );
-        tabla.GetDatosHTTP();
-
-        tabla.GetDatosHTTP();
+        tabla.GetDatosHTTP2022();
         DATA = tabla.getDATA();
 
         CARDLAYOUT.show(contenedor, "cardData");

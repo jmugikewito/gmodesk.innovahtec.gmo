@@ -73,7 +73,7 @@ public class RptTopCosecha extends javax.swing.JInternalFrame {
                 + "WHERE C2.idestado = 'PE' and c2.iddatabase='" + jkeys.IDDATABASE + "' and c2.idempresa='" + jkeys.IDEMPRESA + "'  "
                 + " and idcosecha in (select idcosecha from cosecha where c2.fecha BETWEEN '" + FECHA_DATE1 + "' and '" + FECHA_DATE2 + "');"
         );
-        tabla.GetDatosHTTP();
+        tabla.GetDatosHTTP2022();
         JMethods.updateInternalJTable(this, tabla);
     }
 
@@ -90,7 +90,7 @@ public class RptTopCosecha extends javax.swing.JInternalFrame {
                 RunMain.gettin_pages.api_get()
                 + "exec GetRptTopCosecha '" + jkeys.IDDATABASE + "', '" + jkeys.IDEMPRESA + "', '" + FECHA_DATE1 + "', '" + FECHA_DATE2 + "', " + "'" + selected() + "'," + (swi_detallado.isOnOff() ? 1 : 0) + ", 0;"
         );
-        tablaDetalle.GetDatosHTTP();
+        tablaDetalle.GetDatosHTTP2022();
 
         JMethods.updateInternalJTable(this, tablaDetalle);
     }

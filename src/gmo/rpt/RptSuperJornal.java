@@ -47,7 +47,7 @@ public class RptSuperJornal extends javax.swing.JInternalFrame {
                 "exec GetRptSobreJornal ", jkeys.IDDATABASE, jkeys.IDEMPRESA, inicio.toStringDate(), fin.toStringDate(), Integer.parseInt(spnHora.getValue().toString()), cboPlanillas.getIditem().toString()
         )
         );
-        tabla.GetDatosHTTP();
+        tabla.GetDatosHTTP2022();
         JMethods.updateInternalJTable(this, tabla);
         DATA = tabla.getDATA();
     }

@@ -71,7 +71,7 @@ public class AdminMovUsuario extends javax.swing.JInternalFrame {
                             "Stringx3,Integerx1",
                             gettin_pages.api_get() + "exec GetDataMovUsuario '" + jkeys.IDDATABASE + "','" + jkeys.IDEMPRESA + "','" + IDUSUARIO1 + "';"
                     );
-                    tabla.GetDatosHTTP();
+                    tabla.GetDatosHTTP2022();
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });

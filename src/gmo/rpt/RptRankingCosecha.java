@@ -117,7 +117,7 @@ public class RptRankingCosecha extends javax.swing.JInternalFrame implements Imp
                             + "EXEC GetRptRankingCosechaResumen "
                             + "'" + jkeys.IDEMPRESA + "' , '" + IDCULTIVO + "', '', '', '', 0, 0, 0, '','" + cboOrden.getSelectedItem() + " desc', " + Integer.parseInt(edtAsistencias.getText()) + "," + Integer.parseInt(edtJabas.getText()) + "," + Integer.parseInt(edtEdad.getText()) + ",0;"
                     );
-                    tabla.GetDatosHTTP();
+                    tabla.GetDatosHTTP2022();
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });
@@ -127,7 +127,7 @@ public class RptRankingCosecha extends javax.swing.JInternalFrame implements Imp
 
         if (tabla.getRowCount() > 0) {
             panelGraph.setVisible(true);
-            jSplitPane1.setDividerLocation(RunMain.SYS_WEIDTH - 360);
+            jSplitPane1.setDividerLocation(defaults.SYS_WEIDTH - 360);
             for (int i = 0; i < tabla.getRowCount(); i++) {
 
                 countM = countM + (tabla.getValueAt(i, 3).toString().equals("M") ? 1 : 0);
