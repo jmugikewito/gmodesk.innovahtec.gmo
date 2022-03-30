@@ -13,8 +13,8 @@ import jmugi.voids.JCallback;
 import kevin.component.frame.FrameDialog;
 
 /**
-
- @author jmugi
+ *
+ * @author jmugi
  */
 public class SincronizacionPanel extends javax.swing.JPanel {
 
@@ -45,7 +45,7 @@ public class SincronizacionPanel extends javax.swing.JPanel {
     }
 
     public void openInstanceSQLITE(Window frame) {
-        RunMain.SINC_SQLITE = new SincTareo(frame, RunMain.CONECT, jkeys.IDDATABASE, jkeys.IDUSUARIO, jkeys.IDEMPRESA);
+        RunMain.SINC_SQLITE = new SincTareo(frame, RunMain.CONECT, jkeys.IDCLIENTE, jkeys.IDDATABASE, jkeys.IDUSUARIO, jkeys.IDEMPRESA);
     }
 
     public Window getFrame() {
@@ -634,8 +634,9 @@ public class SincronizacionPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_button13ActionPerformed
 
     private void buttonMaterialIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMaterialIcon1ActionPerformed
-        if (callback != null)
+        if (callback != null) {
             callback.action();
+        }
     }//GEN-LAST:event_buttonMaterialIcon1ActionPerformed
 
     private void btnContruirBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContruirBDActionPerformed
@@ -723,7 +724,7 @@ public class SincronizacionPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEstadoTrabajadorMouseClicked
 
     private void btnEstadoTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadoTrabajadorActionPerformed
-        
+
     }//GEN-LAST:event_btnEstadoTrabajadorActionPerformed
 
     private void btnViaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViaMouseClicked
@@ -755,7 +756,7 @@ public class SincronizacionPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnMonedaMouseClicked
 
     private void btnMonedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMonedaActionPerformed
-        
+
     }//GEN-LAST:event_btnMonedaActionPerformed
 
     private void btnBancoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBancoMouseClicked
