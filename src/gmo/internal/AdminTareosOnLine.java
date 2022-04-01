@@ -33,6 +33,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import jmugi.model.Parameter;
 import jmugi.voids.DateTimeUtil;
 import jmugi.voids.JCallback;
+import jmugi.voids.PrintMethods;
 import jmugi.voids.gmoEncript;
 import kevin.component.defaults;
 import kevin.component.dialog.MaterialSmartDialog;
@@ -267,7 +268,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                                 tabla.setValueAt(x, sel[i], 4);
                                 tabla.setValueAt("Supervisor Cambiado" , sel[i], 5);//NUEVO
                                 //String estado = tabla.getValueAt(0,9).toString();
-                                //System.out.println("El estado del tareo es: "+estado);
+                                //PrintMethods.printer("El estado del tareo es: "+estado);
                                 if (tabla.getValueAt(sel[i], tabla.getColumnCount() - 1).toString().equals("0"))
                                     tabla.setValueAt("1", sel[i], tabla.getColumnCount() - 1);
                             }
@@ -280,7 +281,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                         applyCambioSupervisor(PDialogInputArea.input);
                     },
                     () -> {
-                        System.out.println("");
+                        PrintMethods.printer("");
                     });
         } else {
             JOptionPane.showMessageDialog(this, "No se ha seleccionado un Tareo");
@@ -860,7 +861,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                                 applyCambioEstado(idestado);
                             },
                             () -> {
-                                System.out.println("");
+                                PrintMethods.printer("");
                             });
                 } else {
                     applyCambioEstado(idestado);
@@ -882,7 +883,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                     editarTareo();
                 },
                 (JCallback) () -> {
-                    System.out.println("");
+                    PrintMethods.printer("");
                 });
     }
 
@@ -903,20 +904,20 @@ public class AdminTareosOnLine extends GMOInternalFrame {
         }
         /*
         if(IDESTADO.equals("PE")){
-            System.out.println("HOLAAAAAAAAAAA PE");
+            PrintMethods.printer("HOLAAAAAAAAAAA PE");
             mi_supervisor.setVisible(true);
             }else{
-            System.out.println("HOLAAAAAAAAAAA 1");
+            PrintMethods.printer("HOLAAAAAAAAAAA 1");
                 if(IDESTADO.equals("AP")){
-                    System.out.println("HOLAAAAAAAAAAA 2");
+                    PrintMethods.printer("HOLAAAAAAAAAAA 2");
                     mi_supervisor.setVisible(true);
                 }else{
-                    System.out.println("HOLAAAAAAAAAAA 3");
+                    PrintMethods.printer("HOLAAAAAAAAAAA 3");
                         if(IDESTADO.equals("PA")){
-                            System.out.println("HOLAAAAAAAAAAA 4");
+                            PrintMethods.printer("HOLAAAAAAAAAAA 4");
                             mi_supervisor.setVisible(true);
                         }else{
-                            System.out.println("HOLAAAAAAAAAAA 5");
+                            PrintMethods.printer("HOLAAAAAAAAAAA 5");
                             mi_supervisor.setVisible(false);
                         }
                 }
@@ -926,7 +927,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
     public void applyCambioEstado(String idestado) {
         int ROW_COUNT = tabla.getSelectedRowCount();
-        System.out.println("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(IDTAREO));
+        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(IDTAREO));
         if (ROW_COUNT == 1) {
             ExecHTTP.ExecPostProcedure(Frame,
                     gettin_pages.api_set(),
@@ -945,7 +946,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
             );
         } else if (ROW_COUNT > 1) {
             String idtareo = JMethods.GetColumnSelect(tabla, 0);
-            System.out.println("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(idtareo));
+            PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(idtareo));
             ExecHTTP.ExecPostProcedure(Frame,
                     gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
@@ -965,7 +966,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
     public void applyCambioEstadobyToken(String idestado) {
         int ROW_COUNT = tabla.getSelectedRowCount();
-        System.out.println("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(IDTAREO));
+        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(IDTAREO));
         if (ROW_COUNT == 1) {
             ExecHTTP.ExecPostProcedure(Frame,
                     gettin_pages.api_set(),
@@ -984,7 +985,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
             );
         } else if (ROW_COUNT > 1) {
             String idtareo = JMethods.GetColumnSelect(tabla, 0);
-            System.out.println("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(idtareo));
+            PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(idtareo));
             ExecHTTP.ExecPostProcedure(Frame,
                     gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
@@ -1004,7 +1005,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
     public void applyCambioSupervisor(String idsupervisorlinea) {
         int ROW_COUNT = tabla.getSelectedRowCount();
-        System.out.println("TAREO QUE SERA CAMBIADO DE SUPERVISOR: " + gmoEncript.encriptar(IDTAREO));
+        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE SUPERVISOR: " + gmoEncript.encriptar(IDTAREO));
         MaterialSmartDialog.showConfirmation(Frame, "Esta seguro de guardar los cambios???",
                 (JCallback) () -> {
 
@@ -1027,7 +1028,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
                     } else if (ROW_COUNT > 1) {
                         String idtareo = JMethods.GetColumnSelect(tabla, 0);
-                        System.out.println("TAREO QUE SERA CAMBIADO DE SUPERVISOR: " + gmoEncript.encriptar(idtareo));
+                        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE SUPERVISOR: " + gmoEncript.encriptar(idtareo));
                         ExecHTTP.ExecPostProcedure(Frame,
                                 gettin_pages.api_set(),
                                 new String[]{"iddatabase2", "query"},
@@ -1057,7 +1058,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 //        OBJ.setSize(300, 200);
 //        OBJ.setCallbackFrame((Window frame1) -> {
 //            this.TOKEN = OBJ.getTOKEN();
-//            System.out.println("TOKEEEEEEEEEEEEEEEEEEEEEEN: " + TOKEN);
+//            PrintMethods.printer("TOKEEEEEEEEEEEEEEEEEEEEEEN: " + TOKEN);
 //            OBJ.dispose();
         cambioEstado("AP");
 //        });
@@ -1163,7 +1164,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
                 },
                 (JCallback) () -> {
-                    System.out.println("");
+                    PrintMethods.printer("");
                 });
     }//GEN-LAST:event_mi_toNisiraActionPerformed
 
@@ -1244,7 +1245,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                     gettin_data();
                 },
                 (JCallback) () -> {
-                    System.out.println("");
+                    PrintMethods.printer("");
                 });
 
     }//GEN-LAST:event_btnConsultarActionPerformed
@@ -1311,7 +1312,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
                 },
                 (JCallback) () -> {
-                    System.out.println("");
+                    PrintMethods.printer("");
                 });
     }//GEN-LAST:event_mi_toNisiraAPActionPerformed
 

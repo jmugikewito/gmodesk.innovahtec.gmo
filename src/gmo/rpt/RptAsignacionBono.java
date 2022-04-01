@@ -124,7 +124,7 @@ public class RptAsignacionBono extends javax.swing.JInternalFrame {
                     }
                     v = 0;
                     DNIS.add(val);
-//                    System.out.println(Arrays.toString(val));
+//                    PrintMethods.printer(Arrays.toString(val));
                     etiqueta3.setText(DNIS.size() + " Trabajadores Cargados...");
                     if (DNIS.size() > 0)
                         btnAplicar.setEnabled(true);

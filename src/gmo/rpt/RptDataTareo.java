@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import jmugi.voids.DateTimeUtil;
 import jmugi.voids.JMethods;
+import jmugi.voids.PrintMethods;
 import jmugi.voids.gmoEncript;
 import kevin.component.defaults;
 import kevin.component.dialog.MaterialSmartDialog;
@@ -60,7 +61,7 @@ public class RptDataTareo extends GMOInternalFrame {
         initComponents();
         internal = this;
 
-        System.out.println("INPUT FILTERING: " + idtrabajador + "\t" + fecha1 + "\t" + fecha2);
+        PrintMethods.printer("INPUT FILTERING: " + idtrabajador + "\t" + fecha1 + "\t" + fecha2);
         tabla.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         jmethods.cargarUsuarios(cboUsuario);
@@ -429,7 +430,7 @@ public class RptDataTareo extends GMOInternalFrame {
 
     private void cboUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboUsuarioActionPerformed
         IDUSER = cboUsuario.DATA.get(cboUsuario.getSelectedIndex())[0].toString();
-        System.out.println("USUARIO SELECCIONADO: " + IDUSER);
+        PrintMethods.printer("USUARIO SELECCIONADO: " + IDUSER);
         gettin_dataHorarios();
 //        gettin_data();
     }//GEN-LAST:event_cboUsuarioActionPerformed

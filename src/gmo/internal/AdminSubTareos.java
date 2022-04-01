@@ -37,6 +37,7 @@ import kevin.component.dialog.SmartLoader;
 import kevin.component.models.JMTableModel;
 import kevin.component.toast.Toast;
 import gmo.panel.EditTrabajadoresUnknow;
+import jmugi.voids.PrintMethods;
 import utils.ExecHTTP;
 import utils.jsonmethods;
 import views.JMDialog.PDialogInputArea;
@@ -125,7 +126,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
         this.IDPLANILLA = idplanilla;
         this.isNisira = isnisira;
         this.IDESTADO = idestado;
-        System.out.println("EN NISIRA? : " + isNisira);
+        PrintMethods.printer("EN NISIRA? : " + isNisira);
         initComponents();
         tabla2.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         tablemodelTRABAJADORES = new JMTableModel();
@@ -186,7 +187,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
 
         chooserFecha.setCallback(() -> {
             FECHA_DATE = DateTimeUtil.getDate_yyyyMMdd(chooserFecha.getDate());
-            System.out.println("FECHA SELECTED: " + FECHA_DATE);
+            PrintMethods.printer("FECHA SELECTED: " + FECHA_DATE);
             initUsuariosPlanillas();
         });
         tabla2.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -222,7 +223,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
         for (int i = 0; i < jvalues.LIST_PARAMETROS.size(); i++) {
             if (jvalues.LIST_PARAMETROS.get(i).getIdparametro().equals("ESTADOS_SUBTAREO")) {
                 p = jvalues.LIST_PARAMETROS.get(i);
-                System.out.println("ESTADO DTAREO: "+p.getValor1());
+                PrintMethods.printer("ESTADO DTAREO: "+p.getValor1());
                 cboEstado.setModel(new javax.swing.DefaultComboBoxModel(p.getValor1().split(",")));
             }
         }
@@ -1530,7 +1531,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                                 }
                             },
                             () -> {
-                                System.out.println("");
+                                PrintMethods.printer("");
                             });
                     break;
                 case 9:
@@ -1724,7 +1725,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                         try {
                             def.removeRow(sel[i]);
                         } catch (Exception e) {
-                            System.out.println(e.getMessage());
+                            PrintMethods.printer(e.getMessage());
                         }
                         tablaSubTareos.revalidate();
                     }
@@ -1747,7 +1748,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                                                           tabla2.getValueAt(sel[i], 4)
                             });
                         } else {
-                            System.out.println("Eliminando del Registro pero no de BD porque era un Agregado");
+                            PrintMethods.printer("Eliminando del Registro pero no de BD porque era un Agregado");
                         }
 
                     }
@@ -1757,7 +1758,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                         try {
                             def.removeRow(sel[i]);
                         } catch (Exception e) {
-                            System.out.println(e.getMessage());
+                            PrintMethods.printer(e.getMessage());
                         }
                         tabla2.revalidate();
                     }
@@ -1847,7 +1848,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                     try {
                         def.removeRow(sel[i]);
                     } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                        PrintMethods.printer(e.getMessage());
                     }
                 }
                 tabla2.revalidate();
@@ -1897,11 +1898,11 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                         }
 
                         Object[] dat = JMethods.validarSubTareoDuplicado(LISTC);
-                        System.out.println(Arrays.toString(dat));
+                        PrintMethods.printer(Arrays.toString(dat));
 
                         if (!((boolean) dat[0])) {
                             String DETALLEENVIAR = JMethods.getDETALLE_Object_XML("dtareo", "item", LISTACHANGES);
-                            System.out.println(DETALLEENVIAR);
+                            PrintMethods.printer(DETALLEENVIAR);
                             aplicarCambios(DETALLEENVIAR, "UpSubTareoSmart2020");
                         } else {
                             Toast.makeText((JFrame) Frame, "Existen SubTareos Duplicados: " + dat[1].toString(), Toast.Style.ERROR, Toast.LENGTH_LONG).display();
@@ -1975,7 +1976,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                         }
 
                         String DETALLEENVIAR = JMethods.getDETALLE_Object_XML("ddtareo", "item", LISTACHANGES);
-                        System.out.println(DETALLEENVIAR);
+                        PrintMethods.printer(DETALLEENVIAR);
 
                         aplicarCambios(DETALLEENVIAR, "UpTrabajadoresSmart2022");
                     } else {
@@ -1994,9 +1995,9 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
 
     private void cboPlanillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPlanillaActionPerformed
         if (cboPlanilla.getItemCount() > 0) {
-            System.out.println("--------------------------------->>>>>>>>>>>>>>> SELECTED INDEX: " + cboPlanilla.getSelectedIndex());
+            PrintMethods.printer("--------------------------------->>>>>>>>>>>>>>> SELECTED INDEX: " + cboPlanilla.getSelectedIndex());
             IDPLANILLA = cboPlanilla.getIditem().toString();
-            System.out.println("NUEVA PLANILLA : " + IDPLANILLA);
+            PrintMethods.printer("NUEVA PLANILLA : " + IDPLANILLA);
             buscarTrabajadores = new BuscarDialog(
                     (Frame) Frame,
                     true,
@@ -2264,7 +2265,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                         cargarSubTareos();
                         tablaSubTareos.setRowSelectionInterval(ROW1, ROW1);
                         cargarDistribucion();
-                        System.out.println(DETALLE_AGREGAR);
+                        PrintMethods.printer(DETALLE_AGREGAR);
                     },
                     () -> {//ACTION WARN
                         CancelAll();
@@ -2279,7 +2280,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
             hizeCambios2 = false;
 
         } else {
-            System.out.println("No se encontraron datos para Agregar");            
+            PrintMethods.printer("No se encontraron datos para Agregar");            
         }
     }
 

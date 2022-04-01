@@ -22,6 +22,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import jmugi.voids.JMethods;
 import jmugi.voids.JOptionPane_methods;
+import jmugi.voids.PrintMethods;
 import kevin.component.defaults;
 import kevin.component.dialog.SmartLoader;
 import utils.ExecHTTP;
@@ -193,7 +194,7 @@ public class EditTrabajadoresUnknow extends javax.swing.JPanel {
                     case 10:
                         int a = JOptionPane_methods.Input_Integer(Frame, (String) "Ingrese el Nuevo Valor");
                         if (a > 0) {
-                            System.out.println("VALOR SELECCIONADO: a: " + a);
+                            PrintMethods.printer("VALOR SELECCIONADO: a: " + a);
                             for (int i = 0; i < sel.length; i++) {
                                 tabla.setValueAt(a, sel[i], tabla.getSelectedColumn());
                                 tabla.setValueAt("1", sel[i], tabla.getColumnCount() - 1);
@@ -376,7 +377,7 @@ public class EditTrabajadoresUnknow extends javax.swing.JPanel {
                 }
             }
             String DETALLEENVIAR = JMethods.getDETALLE_Object_XML("ddtareo", "item", LISTACHANGES);
-            System.out.println(DETALLEENVIAR);
+            PrintMethods.printer(DETALLEENVIAR);
             applyChanges(DETALLEENVIAR, "UpTrabajadores");
         } else {
             JOptionPane.showMessageDialog(this, "No encontramos Modificaciones");

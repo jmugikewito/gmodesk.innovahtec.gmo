@@ -352,7 +352,7 @@ public class NuevoSubTareoOnLine extends javax.swing.JDialog {
 //                        ESRENDIM.equals("SI") ? 0 : 1,
 //                        ESRENDIM.equals("SI") ? 1 : 0},
 //                    4, null);
-//            System.out.println("RESULT: " + Arrays.toString(O));
+//            PrintMethods.printer("RESULT: " + Arrays.toString(O));
 //            if (O[3].toString().equals("menu_state_ok")) {
 //                if (callback != null) {
 //                    dispose();

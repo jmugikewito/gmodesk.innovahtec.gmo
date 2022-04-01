@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import jmugi.voids.JMethods;
 import jmugi.voids.JOptionPane_methods;
 import gmo.model.Fundo;
+import jmugi.voids.PrintMethods;
 
 /**
 
@@ -88,7 +89,7 @@ public class AdminFundos extends javax.swing.JInternalFrame {
 
         //<editor-fold defaultstate="collapsed" desc="Cancelar la Edicion de una Entrada Seleccionada">
         toolbar.setCANCELARCallback(() -> {
-            System.out.println("CANCELAR");
+            PrintMethods.printer("CANCELAR");
             CARDLAYOUT.show(contenedor, "cardGeneral");
             toolbar.applyCancelar();
         });
