@@ -2,8 +2,6 @@ package gmo.internal;
 
 import app.RunMain;
 import color.MaterialColor;
-import gmo.dialog.AprobarTareoToken;
-import color.MaterialColor;
 import static gmo.core.MainLite.*;
 import gmo.dialog.DuplicarTareo;
 import gmo.dialog.GenerarAsistencia;
