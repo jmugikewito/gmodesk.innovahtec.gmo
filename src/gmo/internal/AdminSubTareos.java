@@ -167,7 +167,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                 chkConfigSubTareos.setSelected(false);
         }
 
-        jmethods.cargarPlanillas(cboPlanilla, " 'u','9' ");
+        jmethods.cargarPlanillas2022(cboPlanilla, " 'u','9' ");
         GetParameterEstados();
         
         sm_corregirdni.setVisible(false); //MVS cree que esta de más
@@ -213,7 +213,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                 chkConfigSubTareos.setSelected(false);
         }
 
-        jmethods.cargarPlanillas(cboPlanilla, " 'u','9' ");
+        jmethods.cargarPlanillas2022(cboPlanilla, " 'u','9' ");
         GetParameterEstados();
         sm_corregirdni.setVisible(false); //MVS cree que esta de más
     }

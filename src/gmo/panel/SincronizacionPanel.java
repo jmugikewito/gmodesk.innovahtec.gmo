@@ -32,7 +32,7 @@ public class SincronizacionPanel extends javax.swing.JPanel {
         this.frame = frame;
         openInstanceSQLITE(frame);
         etDirBD.setText(RunMain.DIR_SQLITEDB);
-        jmethods.cargarPlanillas(cboPlanilla, " 'u','9' ");
+        jmethods.cargarPlanillas2022(cboPlanilla, " 'u','9' ");
     }
 
     public SincronizacionPanel(Window frame, JCallback callbackDispose) {
@@ -41,7 +41,7 @@ public class SincronizacionPanel extends javax.swing.JPanel {
         this.callback = callbackDispose;
         openInstanceSQLITE(frame);
         etDirBD.setText(RunMain.DIR_SQLITEDB);
-        jmethods.cargarPlanillas(cboPlanilla, " 'u','9' ");
+        jmethods.cargarPlanillas2022(cboPlanilla, " 'u','9' ");
     }
 
     public void openInstanceSQLITE(Window frame) {
