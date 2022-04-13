@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gmo.internal;
 
 import color.MaterialColor;
@@ -13,14 +8,15 @@ import java.awt.Window;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import jmugi.model.Acceso;
 import jmugi.model.iKubeForm;
 import jmugi.voids.JMethods;
 import kevin.component.dialog.SmartLoader;
 import utils.ExecHTTP;
 
 /**
-
- @author Miguel
+ *
+ * @author Miguel
  */
 public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeForm {
 
@@ -29,9 +25,11 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
     SmartLoader load;
     JInternalFrame internal;
 
-    public AdminMotivos(Window frame) {
+    public AdminMotivos(Window frame, Acceso acceso) {
         initComponents();
         this.FRAME = frame;
+        toolbar1.setAcceso(acceso);
+//        toolbar1.setAcceso(jvalues.USUARIO.foundAcceso(getTitle()));
 
         toolbar1.setRECARGAR_CALLBACK(() -> {
             Consultar();
@@ -41,11 +39,9 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
             tabla.exportExcel((JFrame) FRAME, getTitle());
         });
 
-        toolbar1.setANULAR(jvalues.USUARIO.getTipousuario().getRechaza() == 1);
         toolbar1.setANULAR_CALLBACK(() -> {
             Anular();
         });
-        toolbar1.setELIMINAR(jvalues.USUARIO.getTipousuario().getElimina() == 1);
         toolbar1.setELIMINAR_CALLBACK(() -> {
             Eliminar();
         });
@@ -74,6 +70,31 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
         JMethods.settingGlassPane((JFrame) FRAME, load, MaterialColor.BLUEGREY_900, 0.8f);
         load = null;
         JMethods.updateInternalJTable(this, tabla);
+    }
+
+    @Override
+    public void Anular() {
+
+    }
+
+    @Override
+    public void Guardar() {
+
+    }
+
+    @Override
+    public void Eliminar() {
+
+    }
+
+    @Override
+    public void Editar() {
+
+    }
+
+    @Override
+    public void Agregar() {
+
     }
 
     @SuppressWarnings("unchecked")
@@ -291,9 +312,9 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(edtIdMotivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(edtNombreCorto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(comboBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -420,53 +441,28 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void Anular() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void Guardar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void Eliminar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void Eliminar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override
     public void Eliminar(Object[] data) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    public void Agregar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void Editar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void Editar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override
     public void Editar(Object[] data) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override
     public void Cancelar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
 }
