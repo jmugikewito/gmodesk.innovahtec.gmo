@@ -21,7 +21,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-39,0,0,3,-127"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-27,0,0,3,-127"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -64,7 +64,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane" pref="677" max="32767" attributes="0"/>
+                      <Component id="jScrollPane" pref="689" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -78,7 +78,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="kevin.component.tabla.TablaSmart" name="tabla3">
+                <Component class="kevin.component.tabla.TablaSmart" name="tabla">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="0" rowCount="0"/>
@@ -110,49 +110,74 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="35" ipadY="0" insetsTop="11" insetsLeft="10" insetsBottom="255" insetsRight="10" anchor="18" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="184" ipadY="115" insetsTop="11" insetsLeft="59" insetsBottom="124" insetsRight="93" anchor="18" weightX="0.0" weightY="0.0"/>
                 </Constraint>
               </Constraints>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel2" pref="657" max="32767" attributes="0"/>
-                              <Component id="jLabel8" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="edtDescripcionn" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="edtIdMotivo" min="-2" pref="202" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="edtNombreCorto" min="-2" pref="202" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jPanel3" max="32767" attributes="0"/>
+                                      <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="edtIdMotivo" pref="150" max="32767" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="edtNombreCorto" min="-2" pref="191" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="jLabel1" min="-2" pref="64" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="edtDescripcionn" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="comboBox1" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jScrollPane4" alignment="1" pref="683" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel8" min="-2" pref="83" max="-2" attributes="0"/>
+                                          <EmptySpace pref="590" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="edtIdMotivo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="edtNombreCorto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="edtIdMotivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="edtNombreCorto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="comboBox1" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="edtDescripcionn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel2" max="32767" attributes="0"/>
-                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel2" pref="228" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane4" min="-2" pref="116" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane4" pref="108" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -166,9 +191,6 @@
                       <Value id="NUMEROS_CANTIDAD"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtIdMotivoActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="kevin.component.edittext.EditText" name="edtNombreCorto">
                   <Properties>
@@ -178,9 +200,6 @@
                       <Value id="NORMAL"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtNombreCortoActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel8">
                   <Properties>
@@ -201,6 +220,11 @@
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel2">
                   <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Controles"/>
+                      </Border>
+                    </Property>
                     <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
 
@@ -211,151 +235,81 @@
                     <Property name="verticalGap" type="int" value="5"/>
                   </Layout>
                   <SubComponents>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkCntrEstados">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Control de Estados"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkCntrEstadosActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkProgramacion">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Programacion"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkProgramacionActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkMaquinaria">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Maquinaria"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkMaquinariaActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkCosecha">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Cosecha"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkCosechaActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkCostos">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Costos"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkCostosActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkRecepcion">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Recepcion"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkRecepcionActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkRiego">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Riego"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkRiegoActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkCntProceso">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Control de Procesos"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkCntProcesoActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkAlerta">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Alerta"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAlertaActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkFSanidad">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="FitoSanidad"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkFSanidadActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="kevin.component.checkbox.CheckBox" name="chkTareo">
                       <Properties>
                         <Property name="selected" type="boolean" value="true"/>
                         <Property name="text" type="java.lang.String" value="Tareo"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkTareoActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkAviso">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Aviso"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAvisoActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkAsisPerson">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Asis Personal"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAsisPersonActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkAsisTransp">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Asis Transportistas"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAsisTranspActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkDespacho">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Despacho"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkDespachoActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkActivo">
-                      <Properties>
-                        <Property name="selected" type="boolean" value="true"/>
-                        <Property name="text" type="java.lang.String" value="Activo"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkActivoActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="kevin.component.checkbox.CheckBox" name="chkPreTareo">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="PreTareo"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkPreTareoActionPerformed"/>
-                      </Events>
                     </Component>
-                    <Component class="kevin.component.checkbox.CheckBox" name="chkCtrlBoletas">
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkCosecha">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Control de Boletas"/>
+                        <Property name="text" type="java.lang.String" value="Cosecha"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkCtrlBoletasActionPerformed"/>
-                      </Events>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkProgramacion">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Programacion"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkAsisPerson">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Asis Personal"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkPacking">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Packing"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkRecepcion">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Recepcion"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkDespacho">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Despacho"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkRiego">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Riego"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkFSanidad">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="FitoSanidad"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkCntProceso">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Control de Procesos"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkMaquinaria">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Maquinaria"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkCostos">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Costos"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkCntrEstados">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Control de Estados"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkAsisTransp">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Asis Transportistas"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -367,9 +321,56 @@
                       <Value id="NORMAL"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtDescripcionnActionPerformed"/>
-                  </Events>
+                </Component>
+                <Container class="javax.swing.JPanel" name="jPanel3">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Otros"/>
+                      </Border>
+                    </Property>
+                    <Property name="opaque" type="boolean" value="false"/>
+                  </Properties>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                    <Property name="columns" type="int" value="0"/>
+                    <Property name="rows" type="int" value="2"/>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkAlerta">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Envia Alertas"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkAviso">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Envia Avisos"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkCtrlBoletas">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Impresion Boletas"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkActivo">
+                      <Properties>
+                        <Property name="selected" type="boolean" value="true"/>
+                        <Property name="text" type="java.lang.String" value="Activo"/>
+                      </Properties>
+                    </Component>
+                    <Component class="kevin.component.checkbox.CheckBox" name="chkParaDocID">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="para Docum. Identidad"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="kevin.component.combobox.ComboBox" name="comboBox1">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tipo"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -389,18 +390,18 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="814" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" pref="825" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="622" max="-2" attributes="0"/>
-                      <EmptySpace pref="66" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" pref="691" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
