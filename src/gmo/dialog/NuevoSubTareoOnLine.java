@@ -337,31 +337,6 @@ public class NuevoSubTareoOnLine extends javax.swing.JDialog {
 
             NEWITEM = Integer.parseInt(ULTIMOITEM) + 1;
 
-//            Object[] O = TrySQL.exec_procedureReturn(
-//                    RunMain.CONECT_JDATA.con,
-//                    "exec SetNuevoSubTareo ?,?,?,?,?,?,?,?,?,?;",
-//                    new Object[]{
-//                        IDTAREO,
-//                        jkeys.IDDATABASE,
-//                        jkeys.IDEMPRESA,
-//                        edtIdCultivo.getText() + "_" + edtIdVariedad.getText(),
-//                        JMethods.completar3_item(NEWITEM),
-//                        edtIdActividad.getText(),
-//                        edtIdLabor.getText(),
-//                        edtIdConsumidor.getText(),
-//                        ESRENDIM.equals("SI") ? 0 : 1,
-//                        ESRENDIM.equals("SI") ? 1 : 0},
-//                    4, null);
-//            PrintMethods.printer("RESULT: " + Arrays.toString(O));
-//            if (O[3].toString().equals("menu_state_ok")) {
-//                if (callback != null) {
-//                    dispose();
-//                    callback.action();
-//                }
-//
-//            } else {
-//                JOptionPane.showMessageDialog(this, O[2], "Mensaje del Sistema", JOptionPane.WARNING_MESSAGE);
-//            }
         }
     }//GEN-LAST:event_btnValidateActionPerformed
 

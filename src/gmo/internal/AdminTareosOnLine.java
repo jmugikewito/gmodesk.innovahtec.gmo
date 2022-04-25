@@ -1230,7 +1230,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
     }//GEN-LAST:event_tablaMouseClicked
 
     private void mi_toNisiraDuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_toNisiraDuActionPerformed
-        DuplicarTareo OBJ = new DuplicarTareo(IDTAREO, IDPLANILLA, IDTURNO, IDUSUARIO, DOCUMENTO, (java.awt.Frame) Frame, true);
+        DuplicarTareo OBJ = new DuplicarTareo(IDTAREO, IDPLANILLA, IDUSUARIO, TIPOTAREO, (java.awt.Frame) Frame, closable);
         OBJ.setCallbackFrame((Window frame1) -> {
             gettin_data();
         });

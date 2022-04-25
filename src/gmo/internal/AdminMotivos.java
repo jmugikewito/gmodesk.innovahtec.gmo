@@ -3,7 +3,6 @@ package gmo.internal;
 import color.MaterialColor;
 import static gmo.core.MainLite.gettin_pages;
 import gmo.utils.jkeys;
-import gmo.utils.jvalues;
 import java.awt.Window;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -15,8 +14,8 @@ import kevin.component.dialog.SmartLoader;
 import utils.ExecHTTP;
 
 /**
- *
- * @author Miguel
+
+ @author Miguel
  */
 public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeForm {
 
@@ -28,8 +27,8 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
     public AdminMotivos(Window frame, Acceso acceso) {
         initComponents();
         this.FRAME = frame;
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>> IMPRIMIENDO ACCESO >>>>>>>>>>>>>>>>>>>>>>>>");
         toolbar1.setAcceso(acceso);
-//        toolbar1.setAcceso(jvalues.USUARIO.foundAcceso(getTitle()));
 
         toolbar1.setRECARGAR_CALLBACK(() -> {
             Consultar();
@@ -150,6 +149,7 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
         contenedor.setBackground(new java.awt.Color(255, 255, 255));
         contenedor.setLayout(new java.awt.CardLayout());
 
+        panelData.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 0)));
         panelData.setOpaque(false);
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -160,7 +160,7 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
 
             }
         ));
-        tabla.setColumnSelectionAllowed(true);
+        tabla.setIsBooleanColumn(true);
         jScrollPane.setViewportView(tabla);
 
         javax.swing.GroupLayout panelDataLayout = new javax.swing.GroupLayout(panelData);
@@ -169,14 +169,14 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
             panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDataLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 825, Short.MAX_VALUE)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelDataLayout.setVerticalGroup(
             panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDataLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

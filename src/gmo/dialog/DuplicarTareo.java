@@ -1,9 +1,9 @@
 package gmo.dialog;
 
 import app.RunMain;
-import color.MaterialColor;
 import static gmo.core.MainLite.*;
 import gmo.utils.jkeys;
+import static gmo.utils.jkeys.*;
 import java.awt.Frame;
 import java.util.Calendar;
 import java.util.Date;
@@ -17,9 +17,8 @@ import utils.ExecHTTP;
  */
 public class DuplicarTareo extends javax.swing.JDialog {
 
-    String IDTAREO, IDPLANILLA, IDTURNO, IDUSUARIO;
+    String IDTAREO, IDPLANILLA, IDUSUARIO;
     String NUMEROTAREO;
-    String FECHA;
     JFrame Frame;
     JCallbackFrame callbackFrame;
 
@@ -33,24 +32,13 @@ public class DuplicarTareo extends javax.swing.JDialog {
 
     }
 
-    public DuplicarTareo(java.awt.Frame parent, boolean modal, String IDREGISTRO, String FECHA, String ACTION) {
-        super(parent, modal);
-        initComponents();
-        this.IDTAREO = IDREGISTRO;
-        this.FECHA = FECHA;
-        this.ACTION = ACTION;
-        init();
-
-    }
-
-    public DuplicarTareo(String IDTAREO, String IDPLANILLA, String IDTURNO, String IDUSUARIO, String NUMEROTAREO, Frame owner, boolean modal) {
+    public DuplicarTareo(String IDTAREO, String IDPLANILLA, String IDUSUARIO, String NUMEROTAREO, Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
         this.ACTION = "DUPLI_TAREO";
         this.Frame = (JFrame) owner;
         this.IDTAREO = IDTAREO;
         this.IDPLANILLA = IDPLANILLA;
-        this.IDTURNO = IDTURNO;
         this.IDUSUARIO = IDUSUARIO;
         this.NUMEROTAREO = NUMEROTAREO;
         init();
@@ -60,61 +48,35 @@ public class DuplicarTareo extends javax.swing.JDialog {
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         cal.add(Calendar.DATE, 1);
-        chooserFecha.setDate(cal.getTime());
+        chooserFechaActual.setDate(cal.getTime());
         setSize(280, 220);
-        etUsuario.setText(IDUSUARIO);
-        etTareo.setText(NUMEROTAREO);
+        edtUsuario.setText(IDUSUARIO);
+        etEmpresa.setText(NUMEROTAREO);
     }
 
     private void Duplicar() {
-
-        switch (ACTION) {
-            case "DUPLI_TAREO":
-
-                ExecHTTP.ExecPostProcedure(Frame,
-                        gettin_pages.api_set(),
-                        new String[]{"iddatabase2", "query"},
-                        new Object[]{
-                            jkeys.IDDATABASE2,
-                            ExecHTTP.parseQL("exec SetTareoNiDu ",
-                                    IDTAREO,
-                                    chooserFecha.toStringDate(),
-                                    IDUSUARIO,
-                                    jkeys.IDDATABASE,
-                                    IDPLANILLA,
-                                    IDTURNO,
-                                    RunMain.INFO_HOST
-                            )
-                        },
-                        () -> {//ACTION DONE
-                            this.dispose();
-                            if (callbackFrame != null)
-                                callbackFrame.action(Frame);
-                        },
-                        () -> {//ACTION WARN
-                        });
-                break;
-            case "CHANGEDATE_COSECHA":
-                ExecHTTP.ExecPostProcedure(Frame,
-                        gettin_pages.api_set(),
-                        new String[]{"iddatabase2", "query"},
-                        new Object[]{
-                            jkeys.IDDATABASE2,
-                            ExecHTTP.parseQL("exec upChangeDate  ",
-                                    jkeys.IDDATABASE,
-                                    jkeys.IDEMPRESA,
-                                    "COSECHA",
-                                    IDTAREO,
-                                    RunMain.INFO_HOST
-                            )
-                        },
-                        Toast.makeText((JFrame) Frame, "Se Cambiaron los Datos Correctamente!", Toast.Style.SUCCESS)::display,
-                        Toast.makeText((JFrame) Frame, "HA OCURRIDO UN INCIDENTE, VALIDAR LOS DATOS", Toast.Style.ERROR)::display
-                );
-                break;
-            case "CHANGEDATE_TAREO":
-                break;
-        }
+        ExecHTTP.ExecPostProcedure_2022(Frame,
+                gettin_pages.api_set(),
+                "iddatabase,query",
+                new Object[]{
+                    jkeys.IDDATABASE2,
+                    ExecHTTP.parseQL("exec UpDuplicarTareo ",
+                            IDDATABASE,
+                            IDEMPRESA,
+                            IDPLANILLA,
+                            chooserFechaActual.toStringDate(),
+                            chooserFechaNueva.toStringDate(),
+                            IDUSUARIO,
+                            IDTAREO,
+                            RunMain.INFO_HOST
+                    )
+                }, (String string) -> {
+                    this.dispose();
+                    if (callbackFrame != null)
+                        callbackFrame.action(Frame);
+                },
+                () -> {//ACTION WARN
+                });
 
     }
 
@@ -129,20 +91,31 @@ public class DuplicarTareo extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        checkBox1 = new kevin.component.checkbox.CheckBox();
+        checkBox2 = new kevin.component.checkbox.CheckBox();
+        jPanel3 = new javax.swing.JPanel();
         etiqueta2 = new kevin.component.label.Etiqueta();
         etiqueta3 = new kevin.component.label.Etiqueta();
-        etTareo = new kevin.component.label.Etiqueta();
-        etUsuario = new kevin.component.label.Etiqueta();
-        chooserFecha = new kevin.component.date.MaterialDateChooser();
         etiqueta6 = new kevin.component.label.Etiqueta();
+        etiqueta7 = new kevin.component.label.Etiqueta();
+        etiqueta8 = new kevin.component.label.Etiqueta();
+        jPanel4 = new javax.swing.JPanel();
+        edtUsuario = new kevin.component.edittext.EditText();
+        etEmpresa = new kevin.component.label.Etiqueta();
+        edtPlanilla = new kevin.component.edittext.EditText();
+        chooserFechaActual = new kevin.component.date.MaterialDateChooser();
+        chooserFechaNueva = new kevin.component.date.MaterialDateChooser();
         btnDuplicar = new kevin.component.button.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Duplicidad de Tareo");
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(330, 420));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -150,18 +123,46 @@ public class DuplicarTareo extends javax.swing.JDialog {
 
         jPanel2.setOpaque(false);
         jPanel2.setPreferredSize(new java.awt.Dimension(320, 80));
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        jPanel5.setOpaque(false);
+
+        checkBox1.setText("Respetar Usuarios Originales");
+
+        checkBox2.setText("Respetar Planillas Originales");
+
+        jPanel3.setOpaque(false);
+        jPanel3.setLayout(new java.awt.GridLayout(5, 1, 0, 10));
 
         etiqueta2.setText("Usuario");
+        jPanel3.add(etiqueta2);
 
-        etiqueta3.setText("# Registro");
+        etiqueta3.setText("Empresa");
+        jPanel3.add(etiqueta3);
 
-        etTareo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        etTareo.setText("");
+        etiqueta6.setText("Planilla");
+        jPanel3.add(etiqueta6);
 
-        etUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        etUsuario.setText("");
+        etiqueta7.setText("Fecha Origen");
+        jPanel3.add(etiqueta7);
 
-        etiqueta6.setText("Fecha");
+        etiqueta8.setText("Fecha Nueva");
+        jPanel3.add(etiqueta8);
+
+        jPanel4.setOpaque(false);
+        jPanel4.setLayout(new java.awt.GridLayout(5, 1, 0, 10));
+
+        edtUsuario.setLabel("Ingresar Usuario");
+        jPanel4.add(edtUsuario);
+
+        etEmpresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etEmpresa.setText("");
+        jPanel4.add(etEmpresa);
+
+        edtPlanilla.setLabel("Ingresar Planilla");
+        jPanel4.add(edtPlanilla);
+        jPanel4.add(chooserFechaActual);
+        jPanel4.add(chooserFechaNueva);
 
         btnDuplicar.setText("Aplicar");
         btnDuplicar.addActionListener(new java.awt.event.ActionListener() {
@@ -170,48 +171,48 @@ public class DuplicarTareo extends javax.swing.JDialog {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(etiqueta2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addComponent(etUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(etiqueta3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(checkBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(etTareo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(etiqueta6, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(chooserFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
-                    .addComponent(btnDuplicar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDuplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(checkBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(checkBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDuplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etiqueta2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(etUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etiqueta3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(etTareo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etiqueta6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(chooserFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(6, 6, 6)
-                .addComponent(btnDuplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipady = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 10, 35, 14);
+        jPanel2.add(jPanel5, gridBagConstraints);
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.CENTER);
 
@@ -269,13 +270,22 @@ public class DuplicarTareo extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private kevin.component.button.Button btnDuplicar;
-    private kevin.component.date.MaterialDateChooser chooserFecha;
-    private kevin.component.label.Etiqueta etTareo;
-    private kevin.component.label.Etiqueta etUsuario;
+    private kevin.component.checkbox.CheckBox checkBox1;
+    private kevin.component.checkbox.CheckBox checkBox2;
+    private kevin.component.date.MaterialDateChooser chooserFechaActual;
+    private kevin.component.date.MaterialDateChooser chooserFechaNueva;
+    private kevin.component.edittext.EditText edtPlanilla;
+    private kevin.component.edittext.EditText edtUsuario;
+    private kevin.component.label.Etiqueta etEmpresa;
     private kevin.component.label.Etiqueta etiqueta2;
     private kevin.component.label.Etiqueta etiqueta3;
     private kevin.component.label.Etiqueta etiqueta6;
+    private kevin.component.label.Etiqueta etiqueta7;
+    private kevin.component.label.Etiqueta etiqueta8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }

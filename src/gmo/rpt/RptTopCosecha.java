@@ -14,6 +14,7 @@ import jmugi.voids.DateTimeUtil;
 import jmugi.voids.JMethods;
 import jmugi.voids.JOptionPane_methods;
 import kevin.component.defaults;
+import utils.ExecHTTP;
 
 /**
 
@@ -60,20 +61,15 @@ public class RptTopCosecha extends javax.swing.JInternalFrame {
     private void gettin_data() {
         tabla.setTYPES(new Class[]{String.class, String.class, Boolean.class});
         tabla.setIsBooleanColumn(true);
-        tabla.initHttp("",
-                "idconsumidor,consumidor,activo",
-                "idconsumidor,consumidor,activo",
-                "Stringx2,Booleanx1",
-                RunMain.gettin_pages.api_get() + "SELECT DISTINCT\n"
-                + "  c2.idconsumidor,\n"
-                + "  cons.descripcion,"
-                + "  0 activo\n"
-                + "FROM dcosecha c2\n"
-                + "  INNER JOIN " + jkeys.IDDATABASE + "..consumidor cons ON cons.idconsumidor = c2.idconsumidor AND c2.idempresa = cons.idempresa\n"
-                + "WHERE C2.idestado = 'PE' and c2.iddatabase='" + jkeys.IDDATABASE + "' and c2.idempresa='" + jkeys.IDEMPRESA + "'  "
-                + " and idcosecha in (select idcosecha from cosecha where c2.fecha BETWEEN '" + FECHA_DATE1 + "' and '" + FECHA_DATE2 + "');"
+        tabla.GetDatosHTTP_2022(
+                RunMain.gettin_pages.api_get()
+                + ExecHTTP.parseQuery2022("exec GetRptTopCosechaResume ?1,?2,?3", false,
+                        jkeys.IDDATABASE,
+                        jkeys.IDEMPRESA,
+                        FECHA_DATE1,
+                        FECHA_DATE2
+                )
         );
-        tabla.GetDatosHTTP2022();
         JMethods.updateInternalJTable(this, tabla);
     }
 
@@ -83,14 +79,17 @@ public class RptTopCosecha extends javax.swing.JInternalFrame {
         int cant = Integer.parseInt(fechasx[0].toString());
         String tit = fechasx[1].toString();
 
-        tablaDetalle.initHttp((swi_detallado.isOnOff() ? "" : ""),
-                (swi_detallado.isOnOff() ? ("dni,nombres,SEXO,edad," + tit + ",total") : "dni,nombres,SEXO,edad,jabas"),
-                (swi_detallado.isOnOff() ? ("dni,nombres,SEXO,edad," + tit + ",total") : "dni,nombres,SEXO,edad,jabas"),
-                "Stringx3,Integerx1,Doublex" + (cant + 1),
+        tablaDetalle.GetDatosHTTP_2022(
                 RunMain.gettin_pages.api_get()
-                + "exec GetRptTopCosecha '" + jkeys.IDDATABASE + "', '" + jkeys.IDEMPRESA + "', '" + FECHA_DATE1 + "', '" + FECHA_DATE2 + "', " + "'" + selected() + "'," + (swi_detallado.isOnOff() ? 1 : 0) + ", 0;"
+                + ExecHTTP.parseQuery2022("exec GetRptTopCosecha ?1,?2,?3,?4,?5,?6,?7", false,
+                        jkeys.IDDATABASE,
+                        jkeys.IDEMPRESA,
+                        FECHA_DATE1,
+                        FECHA_DATE2,
+                        selected(),
+                        (swi_detallado.isOnOff() ? 1 : 0),
+                        0)
         );
-        tablaDetalle.GetDatosHTTP2022();
 
         JMethods.updateInternalJTable(this, tablaDetalle);
     }
