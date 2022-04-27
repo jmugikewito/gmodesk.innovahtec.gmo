@@ -6,6 +6,7 @@ import static gmo.core.MainLite.*;
 import gmo.dialog.DuplicarTareo;
 import gmo.dialog.GenerarAsistencia;
 import gmo.dialog.SendNisira;
+import gmo.dialog.panDuplicarTareo;
 import java.awt.CardLayout;
 import java.awt.Window;
 import java.awt.event.KeyEvent;
@@ -1230,11 +1231,8 @@ public class AdminTareosOnLine extends GMOInternalFrame {
     }//GEN-LAST:event_tablaMouseClicked
 
     private void mi_toNisiraDuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_toNisiraDuActionPerformed
-        DuplicarTareo OBJ = new DuplicarTareo(IDTAREO, IDPLANILLA, IDUSUARIO, TIPOTAREO, (java.awt.Frame) Frame, closable);
-        OBJ.setCallbackFrame((Window frame1) -> {
-            gettin_data();
-        });
-        JMethods.settingGlassPane((JFrame) Frame, OBJ, defaults.colorPrimary, 0.6f);
+        panDuplicarTareo p = new panDuplicarTareo(Frame, true, "Diplicar Tareo", false, IDPLANILLA, IDTAREO);
+        p.mostrar();
     }//GEN-LAST:event_mi_toNisiraDuActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
