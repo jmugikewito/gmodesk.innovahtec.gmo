@@ -167,7 +167,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                 chkConfigSubTareos.setSelected(false);
         }
 
-        jmethods.cargarPlanillas2022(cboPlanilla, " 'u','9' ");
+        jmethods.cargarPlanillas2022(cboPlanilla, " 'u','8' ");
         GetParameterEstados();
         
         sm_corregirdni.setVisible(false); //MVS cree que esta de más
@@ -213,13 +213,14 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                 chkConfigSubTareos.setSelected(false);
         }
 
-        jmethods.cargarPlanillas2022(cboPlanilla, " 'u','9' ");
+        jmethods.cargarPlanillas2022(cboPlanilla, " 'u','8' ");
         GetParameterEstados();
         sm_corregirdni.setVisible(false); //MVS cree que esta de más
     }
 
     private void GetParameterEstados() {
         Parameter p;
+        /*
         for (int i = 0; i < jvalues.LIST_PARAMETROS.size(); i++) {
             if (jvalues.LIST_PARAMETROS.get(i).getIdparametro().equals("ESTADOS_SUBTAREO")) {
                 p = jvalues.LIST_PARAMETROS.get(i);
@@ -227,6 +228,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                 cboEstado.setModel(new javax.swing.DefaultComboBoxModel(p.getValor1().split(",")));
             }
         }
+*/
     }
 
     private void initUsuariosPlanillas() {

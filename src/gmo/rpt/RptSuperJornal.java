@@ -8,6 +8,7 @@ import java.awt.Window;
 import javax.swing.JFrame;
 import jmugi.voids.JMethods;
 import jmugi.voids.gmoEncript;
+import jmugi.voids.gmoEncript2022;
 import kevin.component.defaults;
 import utils.ExecHTTP;
 
@@ -33,7 +34,7 @@ public class RptSuperJornal extends javax.swing.JInternalFrame {
         toolbar1.setEXCEL_CALLBACK(() -> {
             tabla.exportExcel((JFrame) Frame, getTitle());
         });
-        jmethods.cargarPlanillas(cboPlanillas, " 'u','9' ", jvalues.USUARIO.getFirma().length() > 0 ? gmoEncript.encriptar(JMethods.splitStringComa(jvalues.USUARIO.getFirma())) : "''");
+        jmethods.cargarPlanillas(cboPlanillas, " 'u','8' ", jvalues.USUARIO.getFirma().length() > 0 ? gmoEncript2022.encriptar(JMethods.splitStringComa(jvalues.USUARIO.getFirma())) : "''");
         gettin_data();
     }
 

@@ -33,6 +33,7 @@ import jmugi.voids.DateTimeUtil;
 import jmugi.voids.JCallback;
 import jmugi.voids.PrintMethods;
 import jmugi.voids.gmoEncript;
+import jmugi.voids.gmoEncript2022;
 import kevin.component.defaults;
 import kevin.component.dialog.MaterialSmartDialog;
 import kevin.component.dialog.SmartLoader;
@@ -85,8 +86,8 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
         validateConsolidado();
 
-        lblModloLigero.setVisible(false);
-        swi_modoLigero.setVisible(false);
+        lblModloLigero.setVisible(true);
+        swi_modoLigero.setVisible(true);
 
         switch (jkeys.RUC) {
             case "20103272964":
@@ -94,7 +95,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                 break;
         }
 
-        jmethods.cargarPlanillas(cboPlanillas, " 'u','9' ", jvalues.USUARIO.getFirma().length() > 0 ? gmoEncript.encriptar(JMethods.splitStringComa(jvalues.USUARIO.getFirma())) : "''");
+        jmethods.cargarPlanillas(cboPlanillas, " 'u','8' ", jvalues.USUARIO.getFirma().length() > 0 ? gmoEncript2022.encriptar(JMethods.splitStringComa(jvalues.USUARIO.getFirma())) : "''");
         iniAccess();
     }
 
@@ -925,7 +926,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
     public void applyCambioEstado(String idestado) {
         int ROW_COUNT = tabla.getSelectedRowCount();
-        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(IDTAREO));
+        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript2022.encriptar(IDTAREO));
         if (ROW_COUNT == 1) {
             ExecHTTP.ExecPostProcedure(Frame,
                     gettin_pages.api_set(),
@@ -944,7 +945,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
             );
         } else if (ROW_COUNT > 1) {
             String idtareo = JMethods.GetColumnSelect(tabla, 0);
-            PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(idtareo));
+            PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript2022.encriptar(idtareo));
             ExecHTTP.ExecPostProcedure(Frame,
                     gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
@@ -964,7 +965,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
     public void applyCambioEstadobyToken(String idestado) {
         int ROW_COUNT = tabla.getSelectedRowCount();
-        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(IDTAREO));
+        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript2022.encriptar(IDTAREO));
         if (ROW_COUNT == 1) {
             ExecHTTP.ExecPostProcedure(Frame,
                     gettin_pages.api_set(),
@@ -983,7 +984,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
             );
         } else if (ROW_COUNT > 1) {
             String idtareo = JMethods.GetColumnSelect(tabla, 0);
-            PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript.encriptar(idtareo));
+            PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript2022.encriptar(idtareo));
             ExecHTTP.ExecPostProcedure(Frame,
                     gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
@@ -1003,7 +1004,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
     public void applyCambioSupervisor(String idsupervisorlinea) {
         int ROW_COUNT = tabla.getSelectedRowCount();
-        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE SUPERVISOR: " + gmoEncript.encriptar(IDTAREO));
+        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE SUPERVISOR: " + gmoEncript2022.encriptar(IDTAREO));
         MaterialSmartDialog.showConfirmation(Frame, "Esta seguro de guardar los cambios???",
                 (JCallback) () -> {
 
@@ -1026,7 +1027,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
                     } else if (ROW_COUNT > 1) {
                         String idtareo = JMethods.GetColumnSelect(tabla, 0);
-                        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE SUPERVISOR: " + gmoEncript.encriptar(idtareo));
+                        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE SUPERVISOR: " + gmoEncript2022.encriptar(idtareo));
                         ExecHTTP.ExecPostProcedure(Frame,
                                 gettin_pages.api_set(),
                                 new String[]{"iddatabase2", "query"},

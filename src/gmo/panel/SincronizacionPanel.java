@@ -32,7 +32,7 @@ public class SincronizacionPanel extends javax.swing.JPanel {
         this.frame = frame;
         openInstanceSQLITE(frame);
         etDirBD.setText(RunMain.DIR_SQLITEDB);
-        jmethods.cargarPlanillas2022(cboPlanilla, " 'u','9' ");
+        jmethods.cargarPlanillas2022(cboPlanilla, " 'u','8' ");
     }
 
     public SincronizacionPanel(Window frame, JCallback callbackDispose) {
@@ -41,7 +41,7 @@ public class SincronizacionPanel extends javax.swing.JPanel {
         this.callback = callbackDispose;
         openInstanceSQLITE(frame);
         etDirBD.setText(RunMain.DIR_SQLITEDB);
-        jmethods.cargarPlanillas2022(cboPlanilla, " 'u','9' ");
+        jmethods.cargarPlanillas2022(cboPlanilla, " 'u','8' ");
     }
 
     public void openInstanceSQLITE(Window frame) {
@@ -656,7 +656,7 @@ public class SincronizacionPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnResponsablesActionPerformed
 
     private void btnParametrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParametrosActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnParametrosActionPerformed
 
     private void btnSemanasLocalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSemanasLocalesActionPerformed

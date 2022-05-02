@@ -21,6 +21,7 @@ import jmugi.voids.DateTimeUtil;
 import jmugi.voids.JMethods;
 import jmugi.voids.PrintMethods;
 import jmugi.voids.gmoEncript;
+import jmugi.voids.gmoEncript2022;
 import kevin.component.defaults;
 import kevin.component.dialog.MaterialSmartDialog;
 import kevin.component.dialog.SmartLoader;
@@ -50,7 +51,7 @@ public class RptDataTareo extends GMOInternalFrame {
 
 //        FixedColumnTable fixed = new FixedColumnTable(4, jScrollPane2);
         menuReportes.setVisible(false);
-        jmethods.cargarPlanillas(cboPlanillas, " 'u','9' ", jvalues.USUARIO.getFirma().length() > 0 ? gmoEncript.encriptar(JMethods.splitStringComa(jvalues.USUARIO.getFirma())) : "''");
+        jmethods.cargarPlanillas(cboPlanillas, " 'u','8' ", jvalues.USUARIO.getFirma().length() > 0 ? gmoEncript2022.encriptar(JMethods.splitStringComa(jvalues.USUARIO.getFirma())) : "''");
 
         lblPlanilla.setVisible(cboDestino.getSelectedIndex() == 3);
         cboPlanillas.setVisible(cboDestino.getSelectedIndex() == 3);
@@ -78,7 +79,7 @@ public class RptDataTareo extends GMOInternalFrame {
 
         JMethods.actionBackend(this::gettin_dataHorarios, 1200);
 //        JMethods.actionBackend(this::gettin_data, 1200);
-        jmethods.cargarPlanillas(cboPlanillas, " 'u','9' ", jvalues.USUARIO.getFirma().length() > 0 ? gmoEncript.encriptar(JMethods.splitStringComa(jvalues.USUARIO.getFirma())) : "''");
+        jmethods.cargarPlanillas(cboPlanillas, " 'u','8' ", jvalues.USUARIO.getFirma().length() > 0 ? gmoEncript2022.encriptar(JMethods.splitStringComa(jvalues.USUARIO.getFirma())) : "''");
     }
 
     private void generarExcelDirecto(int rpt) {
