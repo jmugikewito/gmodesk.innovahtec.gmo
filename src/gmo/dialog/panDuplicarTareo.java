@@ -15,8 +15,9 @@ import java.awt.Window;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JFrame;
-import jmugi.voids.JCallbackBool;
 import jmugi.voids.JCallbackFrame;
+import jmugi.voids.JMethods;
+import kevin.component.defaults;
 import kevin.component.frame.MaterialDialog;
 import utils.ExecHTTP;
 
@@ -30,24 +31,39 @@ public class panDuplicarTareo extends javax.swing.JPanel {
     public Window FRAME;
     public String TITLE;
 
-    String IDTAREO, IDPLANILLA, IDUSUARIO;
+    String IDREFERENCIA, IDPLANILLA, IDUSUARIO;
     String NUMEROTAREO;
     JFrame Frame;
     JCallbackFrame callbackFrame;
 
-    public panDuplicarTareo() {
+    public static void main(String[] args) {
+        panDuplicarTareo p = new panDuplicarTareo(null, true, "panDuplicarTareo");
+        p.mostrar();
+    }
+
+    public panDuplicarTareo(Window frame,
+                            boolean modal,
+                            String title) {
+        this.FRAME = frame;
+        this.TITLE = title;
+        DIALOG = new MaterialDialog((Frame) FRAME, true);
+        DIALOG.setTitle(TITLE);
         initComponents();
     }
 
     public panDuplicarTareo(Window frame,
                             boolean modal,
                             String title,
-                            boolean encript
+                            boolean encript,
+                            String IDPLANILLA,
+                            String IDREFERENCIA
     ) {
         this.FRAME = frame;
         this.TITLE = title;
         DIALOG = new MaterialDialog((Frame) FRAME, true);
         DIALOG.setTitle(TITLE);
+        this.IDPLANILLA = IDPLANILLA;
+        this.IDREFERENCIA = IDREFERENCIA;
 
         init();
 
@@ -56,7 +72,10 @@ public class panDuplicarTareo extends javax.swing.JPanel {
     private void init() {
 
         chkPlanOrigi.setEvent((boolean estado) -> {
-
+            edtPlanilla.setEnabled(estado);
+        });
+        chkUserOrigi.setEvent((boolean estado) -> {
+            edtUsuario.setEnabled(estado);
         });
 
         this.initComponents();
@@ -64,7 +83,6 @@ public class panDuplicarTareo extends javax.swing.JPanel {
         cal.setTime(new Date());
         cal.add(Calendar.DATE, 1);
         dateFechaActual.setDate(cal.getTime());
-        setSize(280, 220);
         edtUsuario.setText(IDUSUARIO);
         etEmpresa.setText(NUMEROTAREO);
     }
@@ -82,8 +100,10 @@ public class panDuplicarTareo extends javax.swing.JPanel {
                             dateFechaActual.toStringDate(),
                             dateFechaNueva.toStringDate(),
                             IDUSUARIO,
-                            IDTAREO,
-                            RunMain.INFO_HOST
+                            IDREFERENCIA,
+                            RunMain.INFO_HOST,
+                            chkPlanOrigi.getEstate(),
+                            chkUserOrigi.getEstate()
                     )
                 }, (String string) -> {
                     DIALOG.dispose();
@@ -93,6 +113,18 @@ public class panDuplicarTareo extends javax.swing.JPanel {
                 () -> {//ACTION WARN
                 });
 
+    }
+
+    public void mostrar() {
+        DIALOG.addPanel(this);
+        DIALOG.setSize(360, 440);
+        DIALOG.revalidate();
+        if (Frame != null) {
+            JMethods.settingGlassPane((JFrame) Frame, DIALOG, defaults.colorPrimary, 0.6f);
+        } else {
+            DIALOG.setLocationRelativeTo(FRAME);
+            DIALOG.setVisible(true);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -191,36 +223,35 @@ public class panDuplicarTareo extends javax.swing.JPanel {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(chkUserOrigi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(chkPlanOrigi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(chkUserOrigi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkPlanOrigi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                .addGap(70, 70, 70))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(chkUserOrigi, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkPlanOrigi, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(btnAplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 10, 100, 10);
+        gridBagConstraints.insets = new java.awt.Insets(11, 10, 14, 10);
         add(jPanel5, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
