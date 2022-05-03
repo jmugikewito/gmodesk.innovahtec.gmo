@@ -5,11 +5,14 @@ import gmo.methods.jmethods;
 import gmo.utils.jkeys;
 import gmo.utils.jvalues;
 import java.awt.Window;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import jmugi.voids.JMethods;
+import jmugi.voids.PrintMethods;
 import jmugi.voids.gmoEncript;
 import jmugi.voids.gmoEncript2022;
 import kevin.component.defaults;
+import kevin.component.dialog.SmartLoader;
 import utils.ExecHTTP;
 
 /**
@@ -22,6 +25,7 @@ public class RptSuperJornal extends javax.swing.JInternalFrame {
     public Window Frame;
     String FECHA_DATE;
     String IDCULTIVO = "";
+    SmartLoader load;
 
     public RptSuperJornal(Window w) {
         this.Frame = w;
@@ -39,7 +43,7 @@ public class RptSuperJornal extends javax.swing.JInternalFrame {
     }
 
     private void gettin_data() {
-
+ /*
         tabla.initHttp("",
                 "fecha,idtrabajador,nombres,total",
                 "fecha,idtrabajador,nombres,total",
@@ -51,6 +55,26 @@ public class RptSuperJornal extends javax.swing.JInternalFrame {
         tabla.GetDatosHTTP2022();
         JMethods.updateInternalJTable(this, tabla);
         DATA = tabla.getDATA();
+         */
+        JDialog.setDefaultLookAndFeelDecorated(false);
+        load = new SmartLoader((java.awt.Frame) Frame, true,
+                "Descargando Datos del Personal Observado",
+                "Se estan Descargando el personal que se ha suspendido temporalmente...",
+                (Window frame) -> {                    
+                    tabla.loadApiDataSmart(
+                                        "api/desk/gestion-humana/rpt-sobre-jornal",
+                                        "iddatabase,idempresa,inicio,fin,par,idplanilla",
+                                        jkeys.IDDATABASE, jkeys.IDEMPRESA, inicio.toStringDate(), fin.toStringDate(), Integer.parseInt(spnHora.getValue().toString()), cboPlanillas.getIditem().toString()
+                                );                   
+                    load.dispose();
+                    JDialog.setDefaultLookAndFeelDecorated(true);
+                });
+        
+        JMethods.settingGlassPane((JFrame) Frame, load, defaults.colorPrimary, 0.5f);
+        load = null;
+        JMethods.updateInternalJTable(this, tabla); 
+         
+       
     }
 
     @SuppressWarnings("unchecked")
