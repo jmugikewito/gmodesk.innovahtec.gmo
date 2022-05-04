@@ -927,58 +927,61 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
     public void applyCambioEstado(String idestado) {
         int ROW_COUNT = tabla.getSelectedRowCount();
-        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript2022.encriptar(IDTAREO));
-        if (ROW_COUNT == 1) {    
-            ExecHTTP.sendApiDataSmart(
-                frame,
-                "api/desk/mano-de-obra/baja-cambio-estado2",
-                "iddatos,iddocumento,idestado,observaciones,host,datainfo,idusuario",
-                new Object[]{
-                    IDTAREO,
-                    "TAR",
-                    idestado,
-                    OBSERVACIONES,
-                    INFO_HOST,
-                    RunMain.INFO_HOST,
-                    jkeys.IDUSUARIO
-                },  (String s) -> {
-                        SAVE_CALLBACK.action(frame);
-                        Toast.mostrarSuccess(frame, "Se cambió el estado correctamente", false);
-                    },
-                () -> {
-                    Toast.mostarError(frame, "Ocurrio un Incidente", false);
-                });
+        String idtareo = IDTAREO;
+        if (ROW_COUNT == 1) {
+            idtareo = IDTAREO;            
         } else if (ROW_COUNT > 1) {
-            String idtareo = JMethods.GetColumnSelect(tabla, 0);
-            PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript2022.encriptar(idtareo));
-            
-            ExecHTTP.sendApiDataSmart(
-                frame,
-                "api/desk/mano-de-obra/baja-cambio-estado2",
-                "iddatos,iddocumento,idestado,observaciones,host,datainfo,idusuario",
-                new Object[]{
-                    IDTAREO,
-                    "TAR",
-                    idestado,
-                    OBSERVACIONES,
-                    INFO_HOST,
-                    RunMain.INFO_HOST,
-                    jkeys.IDUSUARIO
-                },  (String s) -> {
-                        SAVE_CALLBACK.action(frame);
-                        Toast.mostrarSuccess(frame, "Se cambió el estado correctamente", false);
-                    },
-                () -> {
-                    Toast.mostarError(frame, "Ocurrio un Incidente", false);
-                });
+            idtareo = JMethods.GetColumnSelect(tabla, 0);
         }
+        
+        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript2022.encriptar(IDTAREO));        
+        ExecHTTP.sendApiDataSmart(
+            frame,
+            "api/desk/mano-de-obra/baja-cambio-estado2",
+            "iddatos,iddocumento,idestado,observaciones,host,datainfo,idusuario",
+            new Object[]{
+                idtareo,
+                "TAR",
+                idestado,
+                OBSERVACIONES,
+                INFO_HOST,
+                RunMain.INFO_HOST,
+                jkeys.IDUSUARIO
+            },  (String s) -> {
+                    SAVE_CALLBACK.action(frame);
+                    Toast.mostrarSuccess(frame, "Se cambió el estado correctamente", false);
+                },
+            () -> {
+                Toast.mostarError(frame, "Ocurrio un Incidente", false);
+            });
     }
 
     public void applyCambioEstadobyToken(String idestado) {
         int ROW_COUNT = tabla.getSelectedRowCount();
-        PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript2022.encriptar(IDTAREO));
         if (ROW_COUNT == 1) {
-            ExecHTTP.ExecPostProcedure(Frame,
+            PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript2022.encriptar(IDTAREO));
+    
+            ExecHTTP.sendApiDataSmart(
+                frame,
+                "api/desk/mano-de-obra/baja-cambio-estado2021",
+                "iddatos,iddocumento,idestado,observaciones,host,datainfo,token",
+                new Object[]{
+                    IDTAREO,
+                    "TAR",
+                    idestado,
+                    OBSERVACIONES,
+                    INFO_HOST,
+                    RunMain.INFO_HOST,
+                    TOKEN
+                },  (String s) -> {
+                        SAVE_CALLBACK.action(frame);
+                        Toast.mostrarSuccess(frame, "Se cambió el estado correctamente", false);
+                    },
+                () -> {
+                    Toast.mostarError(frame, "Ocurrio un Incidente", false);
+                });
+            
+            /*ExecHTTP.ExecPostProcedure(Frame,
                     gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},
                     new Object[]{
@@ -992,25 +995,12 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                     },
                     () -> {//ACTION WARN
                     }
-            );
+            );*/
         } else if (ROW_COUNT > 1) {
             String idtareo = JMethods.GetColumnSelect(tabla, 0);
             PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript2022.encriptar(idtareo));
-            ExecHTTP.ExecPostProcedure(Frame,
-                    gettin_pages.api_set(),
-                    new String[]{"iddatabase2", "query"},
-                    new Object[]{
-                        jkeys.IDDATABASE2,
-                        ExecHTTP.parseQL("exec UpCambioEstado2021 ",
-                                new Object[]{idtareo, "TAR", idestado, OBSERVACIONES, INFO_HOST, RunMain.INFO_HOST, TOKEN}
-                        )
-                    },
-                    () -> {//ACTION DONE
-                        gettin_data();
-                    },
-                    () -> {//ACTION WARN
-                    });
         }
+        
     }
 
     public void applyCambioSupervisor(String idsupervisorlinea) {
