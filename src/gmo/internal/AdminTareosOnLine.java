@@ -23,6 +23,7 @@ import gmo.utils.jvalues;
 import iconfont.MATERIALICON;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Frame;
 import java.awt.event.MouseEvent;
 import java.beans.PropertyVetoException;
 import java.util.Date;
@@ -32,6 +33,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import jmugi.model.Parameter;
 import jmugi.voids.DateTimeUtil;
 import jmugi.voids.JCallback;
+import jmugi.voids.JCallbackFrame;
 import jmugi.voids.PrintMethods;
 import jmugi.voids.gmoEncript;
 import jmugi.voids.gmoEncript2022;
@@ -68,9 +70,13 @@ public class AdminTareosOnLine extends GMOInternalFrame {
     boolean viewFilter = true;
 
     public String TOKEN = "";
-
+    
+    JFrame frame;
+    JCallbackFrame SAVE_CALLBACK;
+    
     public AdminTareosOnLine(Window w) {
         this.Frame = w;
+        this.frame = (JFrame) (java.awt.Frame) w;
         initComponents();
 
         chooserDate1.setDate(new Date());
@@ -179,45 +185,9 @@ public class AdminTareosOnLine extends GMOInternalFrame {
             VALUE = 1;
             setTitle("Seguimiento de Tareos en ERP Externo");
 
-            /*tabla.initHttp("0,13, 15,16,17,18",
-                    "idtareo, Usuario, DNI, Nombres, DNISupervisor, Supervisor, Planilla, Documento, Total, Estado, Turno, Sem, Fecha, observaciones, p1, p2, p3, p4, p5",
-                    "idtareo, idusuario, idtrabajador, nombres, dnisupervisor, supervisor, idplanilla, documento, cant, idestado, idturnotrabajo, sem, fechacreacion, observaciones, p1, p2, p3, p4, p5    ",
-                    "Stringx8,Integerx1,Stringx3,DateSQLx1,Stringx6",
-                    gettin_pages.api_get() + "exec  " + (swi_modoLigero.isOnOff() ? "GetListTareosSwift_2 " : "GetListTareos ")
-                    + VALUE + ",'"
-                    + jkeys.IDDATABASE + "','"
-                    + jkeys.IDEMPRESA + "','"
-                    + edt_usuario.getText() + "','"
-                    + cbo_estado.getSelectedItem().toString().trim() + "','"
-                    + FECHA_DATE1.replace("-", "") + "',"
-                    + (swi_porEsteMes.isOnOff() ? 1 : 0) + ","
-                    + "'" + cboPlanillas.getIditem() + "'"
-                    + ";"
-            );
-            tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatAdminTareosNisira(true));*/
-
         } else {
             VALUE = 0;
             setTitle("Seguimiento de Tareos en el Servidor");
-
-            /*tabla.initHttp("0, 13,14,16",
-                    "idtareo, Usuario, DNI, Nombres, DNISupervisor, Supervisor, Planilla, Documento, cant, Estado, Turno, Sem, Fecha, observaciones, p1, p2, p3, p4, p5",
-                    "idtareo, idusuario, idtrabajador, nombres, dnisupervisor, supervisor, idplanilla, documento, cant, idestado, idturnotrabajo, sem, fechacreacion, observaciones, p1, p2, p3, p4, p5    ",
-                    "Stringx12,DateSQLx1,Stringx6",
-                    gettin_pages.api_get() + "exec  " + (swi_modoLigero.isOnOff() ? "GetListTareosSwift_2 " : "GetListTareos ")
-                    + VALUE + ",'"
-                    + jkeys.IDDATABASE + "','"
-                    + jkeys.IDEMPRESA + "','"
-                    + edt_usuario.getText() + "','"
-                    + cbo_estado.getSelectedItem().toString().trim() + "','"
-                    + FECHA_DATE1.replace("-", "") + "',"
-                    + (swi_porEsteMes.isOnOff() ? 1 : 0) + ","
-                    + "'" + cboPlanillas.getIditem() + "'"
-                    + ";"
-            );
-            tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatAdminTareosOnline());
-            
-            Toast.makeText((JFrame) Frame, "Lista de Tareos Actualizados", Toast.Style.SUCCESS).display();*/
         }
                 
         JDialog.setDefaultLookAndFeelDecorated(false);
@@ -419,16 +389,23 @@ public class AdminTareosOnLine extends GMOInternalFrame {
             IDTAREO = tabla.getValueAt(tabla.getSelectedRow(), 0).toString();
             DETALLE = tabla.getValueAt(tabla.getSelectedRow(), 13).toString();
 
-            JDialog dialog;
-            dialog = new TableDialog(
-                    "Detalle de Tareo",
-                    (JFrame) Frame,
-                    true,
-                    "idtareo, dni, nombres, itemid, item, hora_inicio, hora_fin, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, idmotivo, motivo, esjor, esrend, JOR, REND, AVA, JOREX, tipobono, conceptobono, bono, observaciones",
-                    "Stringx15,Integerx2,Doublex4,Stringx2,Doublex1,Stringx1",
-                    "0, 100, 360, 80, 80, 120, 120, 120, 300, 120, 300, 120, 300, 90, 160, 100, 100, 100, 100, 100, 100, 120, 240, 100, 300",
-                    gettin_pages.api_get() + ExecHTTP.parseQL("exec GetDetalleTareo ", jkeys.IDDATABASE, IDTAREO, 0));
-            JMethods.settingGlassPane((JFrame) Frame, dialog, MaterialColor.BLUEGREY_700, 0.4f);
+            JDialog.setDefaultLookAndFeelDecorated(false);
+            load = new SmartLoader((java.awt.Frame) Frame, true,
+                    "Descargando Datos del Personal SubTareado",
+                    "Se estan Descargando los datos de los subtareos",
+                    (Window frame) -> {                    
+                        tabla.loadApiDataSmart(
+                                            "api/desk/mano-de-obra/detalle-tareo",
+                                            "iddatabase,idtareo,esnisira,resumido",
+                                            jkeys.IDEMPRESA, IDTAREO, 0, 0
+                                    );                   
+                        load.dispose();
+                        JDialog.setDefaultLookAndFeelDecorated(true);
+                    });
+
+            JMethods.settingGlassPane((JFrame) Frame, load, defaults.colorPrimary, 0.5f);
+            load = null;
+            JMethods.updateInternalJTable(this, tabla);
         } else {
             Toast.mostarInfo((JFrame) Frame, "Seleccione un Tareo", true);
         }
@@ -951,39 +928,49 @@ public class AdminTareosOnLine extends GMOInternalFrame {
     public void applyCambioEstado(String idestado) {
         int ROW_COUNT = tabla.getSelectedRowCount();
         PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript2022.encriptar(IDTAREO));
-        if (ROW_COUNT == 1) {
-            ExecHTTP.ExecPostProcedure(Frame,
-                    gettin_pages.api_set(),
-                    new String[]{"iddatabase2", "query"},
-                    new Object[]{
-                        jkeys.IDDATABASE2,
-                        ExecHTTP.parseQL("exec UpCambioEstado2 ",
-                                new Object[]{IDTAREO, "TAR", idestado, OBSERVACIONES, INFO_HOST, RunMain.INFO_HOST, jkeys.IDUSUARIO}
-                        )
+        if (ROW_COUNT == 1) {    
+            ExecHTTP.sendApiDataSmart(
+                frame,
+                "api/desk/mano-de-obra/baja-cambio-estado2",
+                "iddatos,iddocumento,idestado,observaciones,host,datainfo,idusuario",
+                new Object[]{
+                    IDTAREO,
+                    "TAR",
+                    idestado,
+                    OBSERVACIONES,
+                    INFO_HOST,
+                    RunMain.INFO_HOST,
+                    jkeys.IDUSUARIO
+                },  (String s) -> {
+                        SAVE_CALLBACK.action(frame);
+                        Toast.mostrarSuccess(frame, "Se cambió el estado correctamente", false);
                     },
-                    () -> {//ACTION DONE
-                        gettin_data();
-                    },
-                    () -> {//ACTION WARN
-                    }
-            );
+                () -> {
+                    Toast.mostarError(frame, "Ocurrio un Incidente", false);
+                });
         } else if (ROW_COUNT > 1) {
             String idtareo = JMethods.GetColumnSelect(tabla, 0);
             PrintMethods.printer("TAREO QUE SERA CAMBIADO DE ESTADO: " + gmoEncript2022.encriptar(idtareo));
-            ExecHTTP.ExecPostProcedure(Frame,
-                    gettin_pages.api_set(),
-                    new String[]{"iddatabase2", "query"},
-                    new Object[]{
-                        jkeys.IDDATABASE2,
-                        ExecHTTP.parseQL("exec UpCambioEstado2 ",
-                                new Object[]{idtareo, "TAR", idestado, OBSERVACIONES, INFO_HOST, RunMain.INFO_HOST, jkeys.IDUSUARIO}
-                        )
+            
+            ExecHTTP.sendApiDataSmart(
+                frame,
+                "api/desk/mano-de-obra/baja-cambio-estado2",
+                "iddatos,iddocumento,idestado,observaciones,host,datainfo,idusuario",
+                new Object[]{
+                    IDTAREO,
+                    "TAR",
+                    idestado,
+                    OBSERVACIONES,
+                    INFO_HOST,
+                    RunMain.INFO_HOST,
+                    jkeys.IDUSUARIO
+                },  (String s) -> {
+                        SAVE_CALLBACK.action(frame);
+                        Toast.mostrarSuccess(frame, "Se cambió el estado correctamente", false);
                     },
-                    () -> {//ACTION DONE
-                        gettin_data();
-                    },
-                    () -> {//ACTION WARN
-                    });
+                () -> {
+                    Toast.mostarError(frame, "Ocurrio un Incidente", false);
+                });
         }
     }
 
@@ -1241,17 +1228,6 @@ public class AdminTareosOnLine extends GMOInternalFrame {
             JMethods.settingGlassPane((JFrame) Frame, load, defaults.colorPrimary, 0.5f);
             load = null;
             JMethods.updateInternalJTable(this, tabla);
-            
-            
-            /*TableDialog tableDialog = new TableDialog(
-                    (java.awt.Frame) Frame,
-                    true,
-                    "idtareo, item, cultivo, variedad, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, JORNAL, REND, AVA",
-                    "Stringx10,Doublex3",
-                    "0, 80, 100, 110, 100, 160, 100, 160, 100, 160, 90, 90, 90",
-                    gettin_pages.api_get() + "exec GetListConsumidorbyTareo '" + IDTAREO + "';"
-            );
-            JMethods.settingGlassPane((JFrame) Frame, tableDialog, MaterialColor.BLUEGREY_700, 0.4f);*/
 
         } else {
             Toast.mostarInfo((JFrame) Frame, "Seleccione un Tareo", true);
