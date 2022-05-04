@@ -43,23 +43,10 @@ public class RptSuperJornal extends javax.swing.JInternalFrame {
     }
 
     private void gettin_data() {
- /*
-        tabla.initHttp("",
-                "fecha,idtrabajador,nombres,total",
-                "fecha,idtrabajador,nombres,total",
-                "DateSQLx1,Stringx2,Doublex1",
-                RunMain.gettin_pages.api_get() + ExecHTTP.parseQL(
-                "exec GetRptSobreJornal ", jkeys.IDDATABASE, jkeys.IDEMPRESA, inicio.toStringDate(), fin.toStringDate(), Integer.parseInt(spnHora.getValue().toString()), cboPlanillas.getIditem().toString()
-        )
-        );
-        tabla.GetDatosHTTP2022();
-        JMethods.updateInternalJTable(this, tabla);
-        DATA = tabla.getDATA();
-         */
         JDialog.setDefaultLookAndFeelDecorated(false);
         load = new SmartLoader((java.awt.Frame) Frame, true,
-                "Descargando Datos del Personal Observado",
-                "Se estan Descargando el personal que se ha suspendido temporalmente...",
+                "Descargando Datos del Reporte Sobre Jornal",
+                "Se estan Descargando los datos...",
                 (Window frame) -> {                    
                     tabla.loadApiDataSmart(
                                         "api/desk/gestion-humana/rpt-sobre-jornal",
@@ -72,8 +59,7 @@ public class RptSuperJornal extends javax.swing.JInternalFrame {
         
         JMethods.settingGlassPane((JFrame) Frame, load, defaults.colorPrimary, 0.5f);
         load = null;
-        JMethods.updateInternalJTable(this, tabla); 
-         
+        JMethods.updateInternalJTable(this, tabla);
        
     }
 

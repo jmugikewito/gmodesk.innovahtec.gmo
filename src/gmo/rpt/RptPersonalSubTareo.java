@@ -53,22 +53,21 @@ public class RptPersonalSubTareo extends javax.swing.JInternalFrame {
         });
     }
 
-    private void gettin_data() {
+    private void gettin_data() {        
         JDialog.setDefaultLookAndFeelDecorated(false);
         load = new SmartLoader((java.awt.Frame) Frame, true,
                 "Descargando Datos del Personal SubTareado",
                 "Se estan Descargando los datos de los subtareos",
-                (Window frame) -> {
-                    tabla.initHttp("",
-                            "SEM, IDCONS, CONS, ACTIVIDAD, ACT, LABOR, LABO, LUN, MAR, MIE, JUE, VIE, SAB, DOM, TOTAL",
-                            "SEM, IDCONS, CONS, ACTIVIDAD, ACT, LABOR, LABO, LUN, MAR, MIE, JUE, VIE, SAB, DOM, TOTAL",
-                            "Stringx7,Integerx8",
-                            RunMain.gettin_pages.api_get() + "exec GetRptContarPersonalSubTareo '" + jkeys.IDEMPRESA + "','" + FECHA_DATE1 + "','" + FECHA_DATE2 + "';"
-                    );
-                    tabla.GetDatosHTTP2022();
+                (Window frame) -> {                    
+                    tabla.loadApiDataSmart(
+                                        "api/desk/gestion-humana/rpt-contarpersonal-subtareo",
+                                        "idempresa,inicio,fin",
+                                        jkeys.IDEMPRESA, FECHA_DATE1, FECHA_DATE2
+                                );                   
                     load.dispose();
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });
+        
         JMethods.settingGlassPane((JFrame) Frame, load, defaults.colorPrimary, 0.5f);
         load = null;
         JMethods.updateInternalJTable(this, tabla);

@@ -179,7 +179,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
             VALUE = 1;
             setTitle("Seguimiento de Tareos en ERP Externo");
 
-            tabla.initHttp("0,13, 15,16,17,18",
+            /*tabla.initHttp("0,13, 15,16,17,18",
                     "idtareo, Usuario, DNI, Nombres, DNISupervisor, Supervisor, Planilla, Documento, Total, Estado, Turno, Sem, Fecha, observaciones, p1, p2, p3, p4, p5",
                     "idtareo, idusuario, idtrabajador, nombres, dnisupervisor, supervisor, idplanilla, documento, cant, idestado, idturnotrabajo, sem, fechacreacion, observaciones, p1, p2, p3, p4, p5    ",
                     "Stringx8,Integerx1,Stringx3,DateSQLx1,Stringx6",
@@ -194,13 +194,13 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                     + "'" + cboPlanillas.getIditem() + "'"
                     + ";"
             );
-            tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatAdminTareosNisira(true));
+            tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatAdminTareosNisira(true));*/
 
         } else {
             VALUE = 0;
             setTitle("Seguimiento de Tareos en el Servidor");
 
-            tabla.initHttp("0, 13,14,16",
+            /*tabla.initHttp("0, 13,14,16",
                     "idtareo, Usuario, DNI, Nombres, DNISupervisor, Supervisor, Planilla, Documento, cant, Estado, Turno, Sem, Fecha, observaciones, p1, p2, p3, p4, p5",
                     "idtareo, idusuario, idtrabajador, nombres, dnisupervisor, supervisor, idplanilla, documento, cant, idestado, idturnotrabajo, sem, fechacreacion, observaciones, p1, p2, p3, p4, p5    ",
                     "Stringx12,DateSQLx1,Stringx6",
@@ -216,15 +216,38 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                     + ";"
             );
             tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatAdminTareosOnline());
+            
+            Toast.makeText((JFrame) Frame, "Lista de Tareos Actualizados", Toast.Style.SUCCESS).display();*/
+        }
+                
+        JDialog.setDefaultLookAndFeelDecorated(false);
+        load = new SmartLoader((java.awt.Frame) Frame, true,
+                "Descargando Datos del Seguimiento de Tareos",
+                "Se estan Descargando los datos...",
+                (Window frame) -> {                    
+                    tabla.loadApiDataSmart(
+                                        swi_modoLigero.isOnOff() ? "api/desk/mano-de-obra/listar-tareos-swift" : "api/desk/mano-de-obra/listar-tareos-swift2",
+                                        "denisira,iddatabase,idempresa,idusuario,idestado,fecha,deestemes,idplanilla",
+                                        VALUE, jkeys.IDDATABASE, jkeys.IDEMPRESA, edt_usuario.getText(), cbo_estado.getSelectedItem().toString().trim(), 
+                                        FECHA_DATE1.replace("-", ""), (swi_porEsteMes.isOnOff() ? 1 : 0), cboPlanillas.getIditem()
+                                );                   
+                    load.dispose();
+                    JDialog.setDefaultLookAndFeelDecorated(true);
+                });
+        
+        JMethods.settingGlassPane((JFrame) Frame, load, defaults.colorPrimary, 0.5f);
+        load = null;
+        JMethods.updateInternalJTable(this, tabla);
+        
+        if (!swi_ennisira.isOnOff()) {
             Toast.makeText((JFrame) Frame, "Lista de Tareos Actualizados", Toast.Style.SUCCESS).display();
-
         }
 
         JDialog.setDefaultLookAndFeelDecorated(false);
         load = new SmartLoader((java.awt.Frame) Frame, true,
                 "Descargando Datos",
                 "Actualizando Lista de Tareos con estado \"" + cbo_estado.getSelectedItem().toString().trim() + "\"", (Window frame) -> {
-            tabla.GetDatosHTTP2022();
+            //tabla.GetDatosHTTP2022();
             if (tabla.getRowCount() > 0) {
                 if (swi_ennisira.isOnOff()) {
                     tabla.setComponentPopupMenu(popupNisira);
@@ -1200,7 +1223,27 @@ public class AdminTareosOnLine extends GMOInternalFrame {
             DETALLE = tabla.getValueAt(tabla.getSelectedRow(), 13).toString();
 
             IDTAREO = tabla.getValueAt(tabla.getSelectedRow(), 0).toString();
-            TableDialog tableDialog = new TableDialog(
+            
+            JDialog.setDefaultLookAndFeelDecorated(false);
+            load = new SmartLoader((java.awt.Frame) Frame, true,
+                    "Descargando Datos del Personal SubTareado",
+                    "Se estan Descargando los datos de los subtareos",
+                    (Window frame) -> {                    
+                        tabla.loadApiDataSmart(
+                                            "api/desk/mano-de-obra/consumidor-por-tareo",
+                                            "idtareo",
+                                            IDTAREO
+                                    );                   
+                        load.dispose();
+                        JDialog.setDefaultLookAndFeelDecorated(true);
+                    });
+
+            JMethods.settingGlassPane((JFrame) Frame, load, defaults.colorPrimary, 0.5f);
+            load = null;
+            JMethods.updateInternalJTable(this, tabla);
+            
+            
+            /*TableDialog tableDialog = new TableDialog(
                     (java.awt.Frame) Frame,
                     true,
                     "idtareo, item, cultivo, variedad, idactividad, actividad, idlabor, labor, idconsumidor, consumidor, JORNAL, REND, AVA",
@@ -1208,7 +1251,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                     "0, 80, 100, 110, 100, 160, 100, 160, 100, 160, 90, 90, 90",
                     gettin_pages.api_get() + "exec GetListConsumidorbyTareo '" + IDTAREO + "';"
             );
-            JMethods.settingGlassPane((JFrame) Frame, tableDialog, MaterialColor.BLUEGREY_700, 0.4f);
+            JMethods.settingGlassPane((JFrame) Frame, tableDialog, MaterialColor.BLUEGREY_700, 0.4f);*/
 
         } else {
             Toast.mostarInfo((JFrame) Frame, "Seleccione un Tareo", true);
