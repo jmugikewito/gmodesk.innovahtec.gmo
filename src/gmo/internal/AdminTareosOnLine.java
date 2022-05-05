@@ -938,8 +938,10 @@ public class AdminTareosOnLine extends GMOInternalFrame {
         ExecHTTP.sendApiDataSmart(
             frame,
             "api/desk/mano-de-obra/baja-cambio-estado2",
-            "iddatos,iddocumento,idestado,observaciones,host,datainfo,idusuario",
+            "iddatabase,idempresa,iddatos,iddocumento,idestado,observaciones,host,datainfo,idusuario",
             new Object[]{
+                jkeys.IDDATABASE,
+                jkeys.IDEMPRESA,
                 idtareo,
                 "TAR",
                 idestado,

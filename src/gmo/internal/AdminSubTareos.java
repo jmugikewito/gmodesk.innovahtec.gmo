@@ -554,7 +554,6 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
         btnClose = new kevin.component.button.ButtonMaterialIcon();
         btnGuardar = new kevin.component.button.ButtonMaterialIcon();
         btnExportExcel = new kevin.component.button.ButtonMaterialIcon();
-        jScrollPane1 = new javax.swing.JScrollPane();
         panelALL = new javax.swing.JPanel();
         panelCabecera = new kevin.component.panel.Panel();
         panelGeneralTareo = new javax.swing.JPanel();
@@ -590,59 +589,6 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
         edtMaximo = new kevin.component.edittext.EditText();
         edtTotalPlantas = new kevin.component.edittext.EditText();
         edtTotalTrab = new kevin.component.edittext.EditText();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jPanel3 = new javax.swing.JPanel();
-        panelEditarTareo1 = new javax.swing.JPanel();
-        btnDistribucion1 = new kevin.component.button.ButtonMaterialIcon();
-        btnEditar1 = new kevin.component.button.ButtonMaterialIcon();
-        btnAgregar1 = new kevin.component.button.ButtonMaterialIcon();
-        btnDel1 = new kevin.component.button.ButtonMaterialIcon();
-        btnDelRow1 = new kevin.component.button.ButtonMaterialIcon();
-        btnClose1 = new kevin.component.button.ButtonMaterialIcon();
-        btnGuardar1 = new kevin.component.button.ButtonMaterialIcon();
-        btnExportExcel1 = new kevin.component.button.ButtonMaterialIcon();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        panelALL1 = new javax.swing.JPanel();
-        panelCabecera1 = new kevin.component.panel.Panel();
-        panelGeneralTareo1 = new javax.swing.JPanel();
-        etiqueta6 = new kevin.component.label.Etiqueta();
-        buttonMaterialIcon4 = new kevin.component.button.ButtonMaterialIcon();
-        cboPlanilla1 = new kevin.component.combobox.ComboBox();
-        jLabel5 = new javax.swing.JLabel();
-        etiqueta7 = new kevin.component.label.Etiqueta();
-        cboEstado1 = new kevin.component.combobox.ComboBox();
-        jLabel6 = new javax.swing.JLabel();
-        etiqueta8 = new kevin.component.label.Etiqueta();
-        buttonMaterialIcon5 = new kevin.component.button.ButtonMaterialIcon();
-        chooserFecha1 = new kevin.component.date.MaterialDateChooser();
-        etiqueta9 = new kevin.component.label.Etiqueta();
-        buttonMaterialIcon6 = new kevin.component.button.ButtonMaterialIcon();
-        cboUser1 = new kevin.component.combobox.ComboBox();
-        jLabel7 = new javax.swing.JLabel();
-        button2 = new kevin.component.button.Button();
-        jLabel8 = new javax.swing.JLabel();
-        chkCargaTrab1 = new kevin.component.checkbox.CheckBox();
-        contenedor1 = new javax.swing.JPanel();
-        panelSubTareos1 = new kevin.component.panel.Panel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tablaSubTareos1 = new kevin.component.tabla.TablaSmart();
-        panelDistribucion1 = new kevin.component.panel.Panel();
-        scrollDistirbucion1 = new javax.swing.JScrollPane();
-        tabla3 = new kevin.component.tabla.Tabla();
-        etiqueta10 = new kevin.component.label.Etiqueta();
-        paneDashboard1 = new javax.swing.JPanel();
-        edtPromRendim1 = new kevin.component.edittext.EditText();
-        edtPromJornal1 = new kevin.component.edittext.EditText();
-        edtMinimo1 = new kevin.component.edittext.EditText();
-        edtMaximo1 = new kevin.component.edittext.EditText();
-        edtTotalPlantas1 = new kevin.component.edittext.EditText();
-        edtTotalTrab1 = new kevin.component.edittext.EditText();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        chkConfigSubTareos1 = new javax.swing.JCheckBoxMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         chkConfigSubTareos = new javax.swing.JCheckBoxMenuItem();
@@ -670,7 +616,6 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(720, 645));
-        jPanel1.setLayout(new java.awt.BorderLayout());
 
         panelEditarTareo.setOpaque(false);
         panelEditarTareo.setPreferredSize(new java.awt.Dimension(32, 48));
@@ -759,10 +704,6 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
             }
         });
         panelEditarTareo.add(btnExportExcel);
-
-        jPanel1.add(panelEditarTareo, java.awt.BorderLayout.WEST);
-
-        jScrollPane1.setToolTipText("");
 
         panelALL.setOpaque(false);
         panelALL.setPreferredSize(new java.awt.Dimension(800, 645));
@@ -896,6 +837,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
             }
         ));
         tablaSubTareos.setColumnSelectionAllowed(true);
+        tablaSubTareos.setIsBooleanColumn(true);
         tablaSubTareos.setIsFilterable(false);
         tablaSubTareos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -915,20 +857,18 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
             panelSubTareosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSubTareosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1137, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelSubTareosLayout.setVerticalGroup(
             panelSubTareosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSubTareosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         contenedor.add(panelSubTareos, "card1");
-
-        panelDistribucion.setLayout(new java.awt.BorderLayout());
 
         scrollDistirbucion.setOpaque(false);
 
@@ -949,12 +889,35 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
         });
         scrollDistirbucion.setViewportView(tabla2);
 
-        panelDistribucion.add(scrollDistirbucion, java.awt.BorderLayout.CENTER);
-
         etiqueta1.setESITALIC(true);
         etiqueta1.setFONT_SIZE(17.0F);
-        etiqueta1.setPreferredSize(new java.awt.Dimension(59, 35));
-        panelDistribucion.add(etiqueta1, java.awt.BorderLayout.PAGE_START);
+
+        javax.swing.GroupLayout panelDistribucionLayout = new javax.swing.GroupLayout(panelDistribucion);
+        panelDistribucion.setLayout(panelDistribucionLayout);
+        panelDistribucionLayout.setHorizontalGroup(
+            panelDistribucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDistribucionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(etiqueta1, javax.swing.GroupLayout.DEFAULT_SIZE, 1137, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(panelDistribucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelDistribucionLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(scrollDistirbucion, javax.swing.GroupLayout.DEFAULT_SIZE, 1137, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        panelDistribucionLayout.setVerticalGroup(
+            panelDistribucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDistribucionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(etiqueta1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(471, Short.MAX_VALUE))
+            .addGroup(panelDistribucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDistribucionLayout.createSequentialGroup()
+                    .addGap(48, 48, 48)
+                    .addComponent(scrollDistirbucion, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
 
         contenedor.add(panelDistribucion, "card2");
 
@@ -1009,432 +972,24 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
 
         panelALL.add(paneDashboard, java.awt.BorderLayout.PAGE_END);
 
-        jScrollPane1.setViewportView(panelALL);
-
-        jPanel1.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(panelEditarTareo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelALL, javax.swing.GroupLayout.PREFERRED_SIZE, 1165, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelALL, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
+            .addComponent(panelEditarTareo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         jTabbedPane1.addTab("Edicion por SubTareos", jPanel1);
 
         getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
-
-        jInternalFrame1.setClosable(true);
-        jInternalFrame1.setIconifiable(true);
-        jInternalFrame1.setMaximizable(true);
-        jInternalFrame1.setResizable(true);
-        jInternalFrame1.setTitle("Administracion de SubTareos");
-
-        jTabbedPane2.setPreferredSize(new java.awt.Dimension(720, 673));
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setPreferredSize(new java.awt.Dimension(720, 645));
-
-        panelEditarTareo1.setOpaque(false);
-        panelEditarTareo1.setPreferredSize(new java.awt.Dimension(32, 48));
-
-        btnDistribucion1.setText("buttonMaterialIcon1");
-        btnDistribucion1.setICO(iconfont.MATERIALICON.MATERIALICONIC.LIST);
-        btnDistribucion1.setICO_color(defaults.colorPrimaryDark);
-        btnDistribucion1.setPreferredSize(new java.awt.Dimension(56, 56));
-        btnDistribucion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDistribucion1ActionPerformed(evt);
-            }
-        });
-        panelEditarTareo1.add(btnDistribucion1);
-
-        btnEditar1.setText("buttonMaterialIcon1");
-        btnEditar1.setICO(iconfont.MATERIALICON.MATERIALICONIC.EDIT);
-        btnEditar1.setICO_color(defaults.colorPrimaryDark);
-        btnEditar1.setPreferredSize(new java.awt.Dimension(56, 56));
-        btnEditar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditar1ActionPerformed(evt);
-            }
-        });
-        panelEditarTareo1.add(btnEditar1);
-
-        btnAgregar1.setText("buttonMaterialIcon1");
-        btnAgregar1.setICO(iconfont.MATERIALICON.MATERIALICONIC.ADD);
-        btnAgregar1.setPreferredSize(new java.awt.Dimension(56, 56));
-        btnAgregar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregar1ActionPerformed(evt);
-            }
-        });
-        panelEditarTareo1.add(btnAgregar1);
-
-        btnDel1.setText("buttonMaterialIcon1");
-        btnDel1.setICO(iconfont.MATERIALICON.MATERIALICONIC.DELETE);
-        btnDel1.setICO_color(defaults.colorPrimaryDark);
-        btnDel1.setPreferredSize(new java.awt.Dimension(56, 56));
-        btnDel1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDel1ActionPerformed(evt);
-            }
-        });
-        panelEditarTareo1.add(btnDel1);
-
-        btnDelRow1.setText("buttonMaterialIcon1");
-        btnDelRow1.setICO(iconfont.MATERIALICON.MATERIALICONIC.DELETE_FOREVER);
-        btnDelRow1.setPreferredSize(new java.awt.Dimension(56, 56));
-        btnDelRow1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelRow1ActionPerformed(evt);
-            }
-        });
-        panelEditarTareo1.add(btnDelRow1);
-
-        btnClose1.setText("buttonMaterialIcon1");
-        btnClose1.setICO(iconfont.MATERIALICON.MATERIALICONIC.CLOSE);
-        btnClose1.setICO_color(defaults.colorPrimaryDark);
-        btnClose1.setPreferredSize(new java.awt.Dimension(56, 56));
-        btnClose1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClose1ActionPerformed(evt);
-            }
-        });
-        panelEditarTareo1.add(btnClose1);
-
-        btnGuardar1.setText("buttonMaterialIcon1");
-        btnGuardar1.setICO(iconfont.MATERIALICON.MATERIALICONIC.SAVE);
-        btnGuardar1.setICO_color(defaults.colorPrimaryDark);
-        btnGuardar1.setPreferredSize(new java.awt.Dimension(56, 56));
-        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardar1ActionPerformed(evt);
-            }
-        });
-        panelEditarTareo1.add(btnGuardar1);
-
-        btnExportExcel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/excelgreen24.png"))); // NOI18N
-        btnExportExcel1.setText("buttonMaterialIcon4");
-        btnExportExcel1.setPreferredSize(new java.awt.Dimension(56, 56));
-        btnExportExcel1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportExcel1ActionPerformed(evt);
-            }
-        });
-        panelEditarTareo1.add(btnExportExcel1);
-
-        panelALL1.setOpaque(false);
-        panelALL1.setPreferredSize(new java.awt.Dimension(800, 645));
-        panelALL1.setLayout(new java.awt.BorderLayout());
-
-        panelCabecera1.setPreferredSize(new java.awt.Dimension(1116, 52));
-        panelCabecera1.setLayout(new java.awt.BorderLayout());
-
-        panelGeneralTareo1.setOpaque(false);
-        panelGeneralTareo1.setPreferredSize(new java.awt.Dimension(401, 42));
-
-        etiqueta6.setText("Planilla");
-        panelGeneralTareo1.add(etiqueta6);
-
-        buttonMaterialIcon4.setText("buttonMaterialIcon1");
-        buttonMaterialIcon4.setICO(iconfont.MATERIALICON.MATERIALICONIC.CLOSE);
-        buttonMaterialIcon4.setICO_size(18.0F);
-        buttonMaterialIcon4.setPreferredSize(new java.awt.Dimension(28, 27));
-        buttonMaterialIcon4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonMaterialIcon4ActionPerformed(evt);
-            }
-        });
-        panelGeneralTareo1.add(buttonMaterialIcon4);
-
-        cboPlanilla1.setPreferredSize(new java.awt.Dimension(220, 32));
-        cboPlanilla1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboPlanilla1ActionPerformed(evt);
-            }
-        });
-        panelGeneralTareo1.add(cboPlanilla1);
-
-        jLabel5.setText("      ");
-        panelGeneralTareo1.add(jLabel5);
-
-        etiqueta7.setText("Estado  ");
-        panelGeneralTareo1.add(etiqueta7);
-
-        cboEstado1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PE", "AP" }));
-        cboEstado1.setPreferredSize(new java.awt.Dimension(56, 34));
-        cboEstado1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboEstado1ActionPerformed(evt);
-            }
-        });
-        panelGeneralTareo1.add(cboEstado1);
-
-        jLabel6.setText("       ");
-        panelGeneralTareo1.add(jLabel6);
-
-        etiqueta8.setText("Fecha");
-        panelGeneralTareo1.add(etiqueta8);
-
-        buttonMaterialIcon5.setText("buttonMaterialIcon1");
-        buttonMaterialIcon5.setICO(iconfont.MATERIALICON.MATERIALICONIC.CLOSE);
-        buttonMaterialIcon5.setICO_size(18.0F);
-        buttonMaterialIcon5.setPreferredSize(new java.awt.Dimension(28, 27));
-        buttonMaterialIcon5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonMaterialIcon5ActionPerformed(evt);
-            }
-        });
-        panelGeneralTareo1.add(buttonMaterialIcon5);
-
-        chooserFecha1.setPreferredSize(new java.awt.Dimension(130, 36));
-        chooserFecha1.setWeekOfYearVisible(false);
-        panelGeneralTareo1.add(chooserFecha1);
-
-        etiqueta9.setText("      Usuario");
-        panelGeneralTareo1.add(etiqueta9);
-
-        buttonMaterialIcon6.setText("buttonMaterialIcon1");
-        buttonMaterialIcon6.setICO(iconfont.MATERIALICON.MATERIALICONIC.CLOSE);
-        buttonMaterialIcon6.setICO_size(18.0F);
-        buttonMaterialIcon6.setPreferredSize(new java.awt.Dimension(28, 27));
-        buttonMaterialIcon6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonMaterialIcon6ActionPerformed(evt);
-            }
-        });
-        panelGeneralTareo1.add(buttonMaterialIcon6);
-
-        cboUser1.setPreferredSize(new java.awt.Dimension(200, 32));
-        cboUser1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboUser1ActionPerformed(evt);
-            }
-        });
-        panelGeneralTareo1.add(cboUser1);
-
-        jLabel7.setText("      ");
-        panelGeneralTareo1.add(jLabel7);
-
-        button2.setText("Cargar");
-        button2.setPreferredSize(new java.awt.Dimension(120, 32));
-        button2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button2ActionPerformed(evt);
-            }
-        });
-        panelGeneralTareo1.add(button2);
-
-        jLabel8.setText("             ");
-        panelGeneralTareo1.add(jLabel8);
-
-        chkCargaTrab1.setText("Omitir Trabajadores");
-        chkCargaTrab1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkCargaTrab1ActionPerformed(evt);
-            }
-        });
-        panelGeneralTareo1.add(chkCargaTrab1);
-
-        panelCabecera1.add(panelGeneralTareo1, java.awt.BorderLayout.CENTER);
-
-        panelALL1.add(panelCabecera1, java.awt.BorderLayout.NORTH);
-
-        contenedor1.setBackground(new java.awt.Color(255, 255, 255));
-        contenedor1.setLayout(new java.awt.CardLayout());
-
-        tablaSubTareos1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        tablaSubTareos1.setColumnSelectionAllowed(true);
-        tablaSubTareos1.setIsFilterable(false);
-        tablaSubTareos1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaSubTareos1MouseClicked(evt);
-            }
-        });
-        tablaSubTareos1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tablaSubTareos1KeyPressed(evt);
-            }
-        });
-        jScrollPane4.setViewportView(tablaSubTareos1);
-
-        javax.swing.GroupLayout panelSubTareos1Layout = new javax.swing.GroupLayout(panelSubTareos1);
-        panelSubTareos1.setLayout(panelSubTareos1Layout);
-        panelSubTareos1Layout.setHorizontalGroup(
-            panelSubTareos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelSubTareos1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        panelSubTareos1Layout.setVerticalGroup(
-            panelSubTareos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSubTareos1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        contenedor1.add(panelSubTareos1, "card1");
-
-        scrollDistirbucion1.setOpaque(false);
-
-        tabla3.setCOLUMNA("");
-        tabla3.setCOLUMNAS(19);
-        tabla3.setTAMS(TAM_TRABAJADORES);
-        tabla3.setColumnSelectionAllowed(true);
-        tabla3.setFocusable(true);
-        tabla3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabla3MouseClicked(evt);
-            }
-        });
-        tabla3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tabla3KeyPressed(evt);
-            }
-        });
-        scrollDistirbucion1.setViewportView(tabla3);
-
-        etiqueta10.setESITALIC(true);
-        etiqueta10.setFONT_SIZE(17.0F);
-
-        javax.swing.GroupLayout panelDistribucion1Layout = new javax.swing.GroupLayout(panelDistribucion1);
-        panelDistribucion1.setLayout(panelDistribucion1Layout);
-        panelDistribucion1Layout.setHorizontalGroup(
-            panelDistribucion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDistribucion1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(etiqueta10, javax.swing.GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(panelDistribucion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelDistribucion1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(scrollDistirbucion1, javax.swing.GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        panelDistribucion1Layout.setVerticalGroup(
-            panelDistribucion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDistribucion1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(etiqueta10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(495, Short.MAX_VALUE))
-            .addGroup(panelDistribucion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDistribucion1Layout.createSequentialGroup()
-                    .addGap(48, 48, 48)
-                    .addComponent(scrollDistirbucion1, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-
-        contenedor1.add(panelDistribucion1, "card2");
-
-        panelALL1.add(contenedor1, java.awt.BorderLayout.CENTER);
-
-        paneDashboard1.setMinimumSize(new java.awt.Dimension(880, 48));
-        paneDashboard1.setOpaque(false);
-        paneDashboard1.setPreferredSize(new java.awt.Dimension(876, 48));
-        paneDashboard1.setLayout(new java.awt.GridLayout(1, 5, 20, 0));
-
-        edtPromRendim1.setEditable(false);
-        edtPromRendim1.setText("0.0");
-        edtPromRendim1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        edtPromRendim1.setLabel("Promedio Rendim");
-        edtPromRendim1.setModo(kevin.component.edittext.EditText.MODO.NUMEROS_DECIMAL);
-        paneDashboard1.add(edtPromRendim1);
-
-        edtPromJornal1.setEditable(false);
-        edtPromJornal1.setText("0.0");
-        edtPromJornal1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        edtPromJornal1.setLabel("Promedio Jornal");
-        edtPromJornal1.setModo(kevin.component.edittext.EditText.MODO.NUMEROS_DECIMAL);
-        paneDashboard1.add(edtPromJornal1);
-
-        edtMinimo1.setEditable(false);
-        edtMinimo1.setText("0.0");
-        edtMinimo1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        edtMinimo1.setLabel("Minimo");
-        edtMinimo1.setModo(kevin.component.edittext.EditText.MODO.NUMEROS_DECIMAL);
-        paneDashboard1.add(edtMinimo1);
-
-        edtMaximo1.setEditable(false);
-        edtMaximo1.setText("0.0");
-        edtMaximo1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        edtMaximo1.setLabel("Maximo");
-        edtMaximo1.setModo(kevin.component.edittext.EditText.MODO.NUMEROS_DECIMAL);
-        paneDashboard1.add(edtMaximo1);
-
-        edtTotalPlantas1.setEditable(false);
-        edtTotalPlantas1.setText("0.0");
-        edtTotalPlantas1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        edtTotalPlantas1.setLabel("Total Plantas");
-        edtTotalPlantas1.setModo(kevin.component.edittext.EditText.MODO.NUMEROS_DECIMAL);
-        paneDashboard1.add(edtTotalPlantas1);
-
-        edtTotalTrab1.setEditable(false);
-        edtTotalTrab1.setText("0.0");
-        edtTotalTrab1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        edtTotalTrab1.setLabel("Total Trabajadores");
-        edtTotalTrab1.setModo(kevin.component.edittext.EditText.MODO.NUMEROS_DECIMAL);
-        paneDashboard1.add(edtTotalTrab1);
-
-        panelALL1.add(paneDashboard1, java.awt.BorderLayout.PAGE_END);
-
-        jScrollPane3.setViewportView(panelALL1);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(panelEditarTareo1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(623, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(67, 67, 67)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelEditarTareo1, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(27, 27, 27)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-
-        jTabbedPane2.addTab("Edicion por SubTareos", jPanel3);
-
-        jInternalFrame1.getContentPane().add(jTabbedPane2, java.awt.BorderLayout.CENTER);
-
-        jMenu3.setText("Configuracion");
-
-        chkConfigSubTareos1.setSelected(true);
-        chkConfigSubTareos1.setText("Respetar Configuracion de SubTareos");
-        jMenu3.add(chkConfigSubTareos1);
-
-        jMenuBar2.add(jMenu3);
-
-        jMenu4.setText("Buscar");
-
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("Buscar Trabajador");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem2);
-
-        jMenuBar2.add(jMenu4);
-
-        jInternalFrame1.setJMenuBar(jMenuBar2);
-
-        getContentPane().add(jInternalFrame1, java.awt.BorderLayout.PAGE_START);
 
         jMenu1.setText("Configuracion");
 
@@ -2378,113 +1933,59 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private kevin.component.button.ButtonMaterialIcon btnAgregar;
-    private kevin.component.button.ButtonMaterialIcon btnAgregar1;
     private kevin.component.button.ButtonMaterialIcon btnClose;
-    private kevin.component.button.ButtonMaterialIcon btnClose1;
     private kevin.component.button.ButtonMaterialIcon btnDel;
-    private kevin.component.button.ButtonMaterialIcon btnDel1;
     private kevin.component.button.ButtonMaterialIcon btnDelRow;
-    private kevin.component.button.ButtonMaterialIcon btnDelRow1;
     private kevin.component.button.ButtonMaterialIcon btnDistribucion;
-    private kevin.component.button.ButtonMaterialIcon btnDistribucion1;
     private kevin.component.button.ButtonMaterialIcon btnEditar;
-    private kevin.component.button.ButtonMaterialIcon btnEditar1;
     private kevin.component.button.ButtonMaterialIcon btnExportExcel;
-    private kevin.component.button.ButtonMaterialIcon btnExportExcel1;
     private kevin.component.button.ButtonMaterialIcon btnGuardar;
-    private kevin.component.button.ButtonMaterialIcon btnGuardar1;
     private kevin.component.button.Button button1;
-    private kevin.component.button.Button button2;
     private kevin.component.button.ButtonMaterialIcon buttonMaterialIcon1;
     private kevin.component.button.ButtonMaterialIcon buttonMaterialIcon2;
     private kevin.component.button.ButtonMaterialIcon buttonMaterialIcon3;
-    private kevin.component.button.ButtonMaterialIcon buttonMaterialIcon4;
-    private kevin.component.button.ButtonMaterialIcon buttonMaterialIcon5;
-    private kevin.component.button.ButtonMaterialIcon buttonMaterialIcon6;
     private kevin.component.combobox.ComboBox cboEstado;
-    private kevin.component.combobox.ComboBox cboEstado1;
     private kevin.component.combobox.ComboBox cboPlanilla;
-    private kevin.component.combobox.ComboBox cboPlanilla1;
     private kevin.component.combobox.ComboBox cboUser;
-    private kevin.component.combobox.ComboBox cboUser1;
     private kevin.component.checkbox.CheckBox chkCargaTrab;
-    private kevin.component.checkbox.CheckBox chkCargaTrab1;
     private javax.swing.JCheckBoxMenuItem chkConfigSubTareos;
-    private javax.swing.JCheckBoxMenuItem chkConfigSubTareos1;
     private kevin.component.date.MaterialDateChooser chooserFecha;
-    private kevin.component.date.MaterialDateChooser chooserFecha1;
     private javax.swing.JPanel contenedor;
-    private javax.swing.JPanel contenedor1;
     private kevin.component.edittext.EditText edtMaximo;
-    private kevin.component.edittext.EditText edtMaximo1;
     private kevin.component.edittext.EditText edtMinimo;
-    private kevin.component.edittext.EditText edtMinimo1;
     private kevin.component.edittext.EditText edtPromJornal;
-    private kevin.component.edittext.EditText edtPromJornal1;
     private kevin.component.edittext.EditText edtPromRendim;
-    private kevin.component.edittext.EditText edtPromRendim1;
     private kevin.component.edittext.EditText edtTotalPlantas;
-    private kevin.component.edittext.EditText edtTotalPlantas1;
     private kevin.component.edittext.EditText edtTotalTrab;
-    private kevin.component.edittext.EditText edtTotalTrab1;
     private kevin.component.label.Etiqueta etiqueta1;
-    private kevin.component.label.Etiqueta etiqueta10;
     private kevin.component.label.Etiqueta etiqueta2;
     private kevin.component.label.Etiqueta etiqueta3;
     private kevin.component.label.Etiqueta etiqueta4;
     private kevin.component.label.Etiqueta etiqueta5;
-    private kevin.component.label.Etiqueta etiqueta6;
-    private kevin.component.label.Etiqueta etiqueta7;
-    private kevin.component.label.Etiqueta etiqueta8;
-    private kevin.component.label.Etiqueta etiqueta9;
-    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JPanel paneDashboard;
-    private javax.swing.JPanel paneDashboard1;
     private javax.swing.JPanel panelALL;
-    private javax.swing.JPanel panelALL1;
     private kevin.component.panel.Panel panelCabecera;
-    private kevin.component.panel.Panel panelCabecera1;
     private kevin.component.panel.Panel panelDistribucion;
-    private kevin.component.panel.Panel panelDistribucion1;
     private javax.swing.JPanel panelEditarTareo;
-    private javax.swing.JPanel panelEditarTareo1;
     private javax.swing.JPanel panelGeneralTareo;
-    private javax.swing.JPanel panelGeneralTareo1;
     private kevin.component.panel.Panel panelSubTareos;
-    private kevin.component.panel.Panel panelSubTareos1;
     private javax.swing.JScrollPane scrollDistirbucion;
-    private javax.swing.JScrollPane scrollDistirbucion1;
     private javax.swing.JMenuItem sm_corregirdni;
     private kevin.component.tabla.Tabla tabla2;
-    private kevin.component.tabla.Tabla tabla3;
     private kevin.component.tabla.TablaSmart tablaSubTareos;
-    private kevin.component.tabla.TablaSmart tablaSubTareos1;
     // End of variables declaration//GEN-END:variables
 
     public class MyTableCellRender extends DefaultTableCellRenderer {
