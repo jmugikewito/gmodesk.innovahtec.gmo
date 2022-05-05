@@ -950,6 +950,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                 RunMain.INFO_HOST,
                 jkeys.IDUSUARIO
             },  (String s) -> {
+                    gettin_data();
                     SAVE_CALLBACK.action(frame);
                     Toast.mostrarSuccess(frame, "Se cambió el estado correctamente", false);
                     gettin_data();
