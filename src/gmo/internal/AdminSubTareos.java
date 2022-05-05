@@ -232,8 +232,40 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
     }
 
     private void initUsuariosPlanillas() {
-
+        
         JDialog.setDefaultLookAndFeelDecorated(false);
+        load = new SmartLoader((java.awt.Frame) Frame, true,
+                "Descargando Datos",
+                "Se estan Cargando los Trabajadores y las Planillas de la Fecha Seleccionada", (Window frame) -> {
+                    ArrayList<Object[]> U1 = jsonmethods.GetApiDataSmart(
+                            "api/desk/mano-de-obra/usuarios-por-registrar",
+                            "iddatabase,idempresa,idplanilla,idestado,iddocumento,fecha",
+                            jkeys.IDDATABASE, jkeys.IDEMPRESA, IDPLANILLA, cboEstado.getSelectedItem().toString(), "TAR", chooserFecha.toStringDate()
+                    );
+
+                    cboUser.removeAll();
+                    cboUser.removeAllItems();
+                    if (U1.size() > 0) {
+                        cboUser.removeAll();
+                        cboUser.repaint();
+                        cboUser.addItem("");
+                        for (int i = 0; i < U1.size(); i++) {
+                        System.out.println(U1.get(i)[0] + "------------");
+                            cboUser.addItem(U1.get(i)[0]);
+                        }
+                    } else {
+                        cboUser.removeAll();
+                        cboUser.removeAllItems();
+                        cboUser.repaint();
+                        cboUser.addItem("");
+                    }
+                    load.dispose();
+                    JDialog.setDefaultLookAndFeelDecorated(true);
+                });
+        JMethods.settingGlassPane((JFrame) Frame, load, MaterialColor.BLUEGREY_900, 0.8f);
+        load = null;
+        
+        /*JDialog.setDefaultLookAndFeelDecorated(false);
         load = new SmartLoader((java.awt.Frame) Frame, true,
                 "Descargando Datos",
                 "Se estan Cargando los Trabajadores y las Planillas de la Fecha Seleccionada", (Window frame) -> {
@@ -262,7 +294,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });
         JMethods.settingGlassPane((JFrame) Frame, load, MaterialColor.BLUEGREY_900, 0.8f);
-        load = null;
+        load = null;*/
 
     }
 
