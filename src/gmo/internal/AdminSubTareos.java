@@ -250,7 +250,6 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                         cboUser.repaint();
                         cboUser.addItem("");
                         for (int i = 0; i < U1.size(); i++) {
-                        System.out.println(U1.get(i)[0] + "------------");
                             cboUser.addItem(U1.get(i)[0]);
                         }
                     } else {
@@ -300,7 +299,30 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
 
     private void cargarSubTareos() {
         tabla2.setComponentPopupMenu(null);
+        
         JDialog.setDefaultLookAndFeelDecorated(false);
+        load = new SmartLoader((java.awt.Frame) Frame, true,
+                "Descargando Datos del SubTareo",
+                "Se estan Descargando los SubTareos... un momento",
+                (Window frame) -> {                    
+                    tablaSubTareos.loadApiDataSmart(
+                                        "api/desk/mano-de-obra/detalle-subtareo-swift2022",
+                                        "iddatabase,idempresa,inicio,idplanilla,esnisira,idusuario,idestado,cargatrab",
+                                        jkeys.IDDATABASE, jkeys.IDEMPRESA, (chooserFecha.getDate() == null ? "" : DateTimeUtil.getDate_yyyyMMdd(chooserFecha.getDate()).replace("-", "")),
+                                        IDPLANILLA, 0, cboUser.getSelectedItem().toString(), cboEstado.getSelectedItem().toString(), (chkCargaTrab.isSelected() ? 0 : 1)
+                                );                   
+                    load.dispose();
+                    JDialog.setDefaultLookAndFeelDecorated(true);
+                });
+        
+        JMethods.settingGlassPane((JFrame) Frame, load, defaults.colorPrimary, 0.5f);
+        load = null;
+        JMethods.updateInternalJTable(this, tablaSubTareos);
+        
+        //System.out.println("========");
+        
+        /*JDialog.setDefaultLookAndFeelDecorated(false);
+        
         load = new SmartLoader((java.awt.Frame) Frame, true,
                 "Descargando Datos del SubTareo",
                 "Se estan Descargando los SubTareos... un momento",
@@ -335,7 +357,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });
         JMethods.settingGlassPane((JFrame) Frame, load, MaterialColor.BLUEGREY_900, 0.8f);
-        JMethods.updateInternalJTable(this, tablaSubTareos);
+        JMethods.updateInternalJTable(this, tablaSubTareos);*/
         load = null;
         hizeCambios1 = false;
         hizeCambios2 = false;
