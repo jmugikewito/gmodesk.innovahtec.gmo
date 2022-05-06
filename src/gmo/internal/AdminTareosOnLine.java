@@ -953,6 +953,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                     gettin_data();
                     SAVE_CALLBACK.action(frame);
                     Toast.mostrarSuccess(frame, "Se cambió el estado correctamente", false);
+                    gettin_data();
                 },
             () -> {
                 Toast.mostarError(frame, "Ocurrio un Incidente", false);
@@ -979,6 +980,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                 },  (String s) -> {
                         SAVE_CALLBACK.action(frame);
                         Toast.mostrarSuccess(frame, "Se cambió el estado correctamente", false);
+                        gettin_data();
                     },
                 () -> {
                     Toast.mostarError(frame, "Ocurrio un Incidente", false);
