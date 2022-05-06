@@ -35,7 +35,7 @@ import jmugi.voids.DateTimeUtil;
 import jmugi.voids.JCallback;
 import jmugi.voids.JCallbackFrame;
 import jmugi.voids.PrintMethods;
-import jmugi.voids.gmoEncript;
+import jmugi.voids.gmoEncript2022;
 import jmugi.voids.gmoEncript2022;
 import kevin.component.defaults;
 import kevin.component.dialog.MaterialSmartDialog;

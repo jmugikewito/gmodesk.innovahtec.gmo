@@ -20,7 +20,7 @@ import javax.swing.table.TableCellRenderer;
 import jmugi.voids.DateTimeUtil;
 import jmugi.voids.JMethods;
 import jmugi.voids.PrintMethods;
-import jmugi.voids.gmoEncript;
+import jmugi.voids.gmoEncript2022;
 import jmugi.voids.gmoEncript2022;
 import kevin.component.defaults;
 import kevin.component.dialog.MaterialSmartDialog;
