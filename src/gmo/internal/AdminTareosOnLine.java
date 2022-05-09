@@ -190,6 +190,51 @@ public class AdminTareosOnLine extends GMOInternalFrame {
             setTitle("Seguimiento de Tareos en el Servidor");
         }
                 
+        /*if (swi_ennisira.isOnOff()) {
+            VALUE = 1;
+            setTitle("Seguimiento de Tareos en ERP Externo");
+
+            tabla.initHttp("0,13, 15,16,17,18",
+                    "idtareo, Usuario, DNI, Nombres, DNISupervisor, Supervisor, Planilla, Documento, Total, Estado, Turno, Sem, Fecha, observaciones, p1, p2, p3, p4, p5",
+                    "idtareo, idusuario, idtrabajador, nombres, dnisupervisor, supervisor, idplanilla, documento, cant, idestado, idturnotrabajo, sem, fechacreacion, observaciones, p1, p2, p3, p4, p5    ",
+                    "Stringx8,Integerx1,Stringx3,DateSQLx1,Stringx6",
+                    gettin_pages.api_get() + "exec  " + (swi_modoLigero.isOnOff() ? "GetListTareosSwift_2 " : "GetListTareos ")
+                    + VALUE + ",'"
+                    + jkeys.IDDATABASE + "','"
+                    + jkeys.IDEMPRESA + "','"
+                    + edt_usuario.getText() + "','"
+                    + cbo_estado.getSelectedItem().toString().trim() + "','"
+                    + FECHA_DATE1.replace("-", "") + "',"
+                    + (swi_porEsteMes.isOnOff() ? 1 : 0) + ","
+                    + "'" + cboPlanillas.getIditem() + "'"
+                    + ";"
+            );
+            tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatAdminTareosNisira(true));
+
+        } else {
+            VALUE = 0;
+            setTitle("Seguimiento de Tareos en el Servidor");
+
+            tabla.initHttp("0, 13,14,16",
+                    "idtareo, Usuario, DNI, Nombres, DNISupervisor, Supervisor, Planilla, Documento, cant, Estado, Turno, Sem, Fecha, observaciones, p1, p2, p3, p4, p5",
+                    "idtareo, idusuario, idtrabajador, nombres, dnisupervisor, supervisor, idplanilla, documento, cant, idestado, idturnotrabajo, sem, fechacreacion, observaciones, p1, p2, p3, p4, p5    ",
+                    "Stringx12,DateSQLx1,Stringx6",
+                    gettin_pages.api_get() + "exec  " + (swi_modoLigero.isOnOff() ? "GetListTareosSwift_2 " : "GetListTareos ")
+                    + VALUE + ",'"
+                    + jkeys.IDDATABASE + "','"
+                    + jkeys.IDEMPRESA + "','"
+                    + edt_usuario.getText() + "','"
+                    + cbo_estado.getSelectedItem().toString().trim() + "','"
+                    + FECHA_DATE1.replace("-", "") + "',"
+                    + (swi_porEsteMes.isOnOff() ? 1 : 0) + ","
+                    + "'" + cboPlanillas.getIditem() + "'"
+                    + ";"
+            );
+            tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatAdminTareosOnline());
+            Toast.makeText((JFrame) Frame, "Lista de Tareos Actualizados", Toast.Style.SUCCESS).display();
+
+        }*/
+        
         JDialog.setDefaultLookAndFeelDecorated(false);
         load = new SmartLoader((java.awt.Frame) Frame, true,
                 "Descargando Datos del Seguimiento de Tareos",
@@ -209,7 +254,10 @@ public class AdminTareosOnLine extends GMOInternalFrame {
         load = null;
         JMethods.updateInternalJTable(this, tabla);
         
-        if (!swi_ennisira.isOnOff()) {
+        if (swi_ennisira.isOnOff()) {
+            tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatAdminTareosNisira(true));
+        } else {
+            tabla.setDefaultRenderer(Object.class, (TableCellRenderer) new FormatAdminTareosOnline());
             Toast.makeText((JFrame) Frame, "Lista de Tareos Actualizados", Toast.Style.SUCCESS).display();
         }
 

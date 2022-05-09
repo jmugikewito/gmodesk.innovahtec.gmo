@@ -123,6 +123,7 @@ public class BuscarDialog extends javax.swing.JDialog {
     private void iniApiSmart(boolean automatic, String nameApi, String titles, Object... parameters) {
         tabla.setIsAutomaticResize(automatic);
         tabla.loadApiDataSmart(
+                null,
                 nameApi,
                 titles,
                 parameters

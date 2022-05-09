@@ -239,8 +239,10 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                 "Se estan Cargando los Trabajadores y las Planillas de la Fecha Seleccionada", (Window frame) -> {
                     ArrayList<Object[]> U1 = jsonmethods.GetApiDataSmart(
                             "api/desk/mano-de-obra/usuarios-por-registrar",
-                            "iddatabase,idempresa,idplanilla,idestado,iddocumento,fecha",
-                            jkeys.IDDATABASE, jkeys.IDEMPRESA, IDPLANILLA, cboEstado.getSelectedItem().toString(), "TAR", chooserFecha.toStringDate()
+                            "idusuario", 
+                            false,
+                            "iddatabase,idempresa,idplanilla,idestado,iddocumento,fecha,tipolista", 
+                            jkeys.IDDATABASE, jkeys.IDEMPRESA, IDPLANILLA, cboEstado.getSelectedItem().toString(), "TAR", chooserFecha.toStringDate(), 0
                     );
 
                     cboUser.removeAll();
@@ -317,6 +319,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
         
         JMethods.settingGlassPane((JFrame) Frame, load, defaults.colorPrimary, 0.5f);
         load = null;
+        tablaSubTareos.setDefaultRenderer(Object.class, new FormatSubTareo());
         JMethods.updateInternalJTable(this, tablaSubTareos);
         
         //System.out.println("========");
@@ -1479,6 +1482,10 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cboUserActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        System.out.println("boton guardar acción");
+        System.out.println("positionContainer: " + positionContainer);
+        System.out.println("hice cambios 1: " + hizeCambios1);
+        System.out.println("hice cambios 2: " + hizeCambios2);
         switch (positionContainer) {
             case 1:
                 if (estaEliminando) {
@@ -1486,6 +1493,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                 } else {
                     if (hizeCambios1) {
                         for (int i = 0; i < tablaSubTareos.getRowCount(); i++) {
+                            System.out.println(tablaSubTareos.getValueAt(i, tablaSubTareos.getColumnCount() - 1) + " >> valor editado");
                             if (tablaSubTareos.getValueAt(i, tablaSubTareos.getColumnCount() - 1).toString().equals("1")) {
                                 LISTACHANGES.add(new Object[]{
                                     tablaSubTareos.getValueAt(i, 0),//IDTAREO
@@ -1496,6 +1504,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                                     tablaSubTareos.getValueAt(i, 15)});//IDCONSUMIDOR
                             }
                         }
+                        System.out.println("cambios: " + LISTACHANGES.size());
                         ArrayList<String[]> LISTC = new ArrayList<>();
                         for (int i = 0; i < tablaSubTareos.getRowCount(); i++) {
                             LISTC.add(new String[]{
@@ -1814,8 +1823,10 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     public void aplicarCambios(String detalleChanges, String procedure) {
+        System.out.println("LISTACHANGES: " + LISTACHANGES.isEmpty());
         if (!LISTACHANGES.isEmpty()) {
 
+            System.out.println("esta agregando: " + estaAgregando);
             ExecHTTP.ExecPostProcedure(Frame,
                     gettin_pages.api_set(),
                     new String[]{"iddatabase2", "query"},

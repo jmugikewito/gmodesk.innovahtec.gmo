@@ -45,13 +45,13 @@ public class AdminMovUsuario extends javax.swing.JInternalFrame {
         cboUser1.GetDataSQL(RunMain.CONECT.con,
                 ExecHTTP.parseQuery("SELECT idusuario, nombres\n"
                         + "FROM usuario\n"
-                        + "WHERE idtipousuario IN (SELECT idtipousuario FROM tipousuario WHERE idtipousuario LIKE '2767%' OR idtipousuario LIKE 'rpu7s%' OR idtipousuario LIKE 'rp057s%' OR idtipousuario LIKE ' x zmrq%' OR idtipousuario LIKE ' r3rq%')\n"
+                        + "WHERE idtipousuario IN (SELECT idtipousuario FROM tipousuario WHERE idtipousuario LIKE '1656%' OR idtipousuario LIKE 'rpu6s%' OR idtipousuario LIKE 'rp946s%' OR idtipousuario LIKE '0w0ylrq%' OR idtipousuario LIKE '0r2rq%')\n"
                         + "  AND activo = ?1 order by nombres", false, 1),
                 2);
         cboUsuario.GetDataSQL(RunMain.CONECT.con,
                 ExecHTTP.parseQuery("SELECT idusuario, nombres\n"
                         + "FROM usuario\n"
-                        + "WHERE idtipousuario IN (SELECT idtipousuario FROM tipousuario WHERE idtipousuario LIKE '2767%' OR idtipousuario LIKE 'rpu7s%' OR idtipousuario LIKE 'rp057s%' OR idtipousuario LIKE ' x zmrq%' OR idtipousuario LIKE ' r3rq%')\n"
+                        + "WHERE idtipousuario IN (SELECT idtipousuario FROM tipousuario WHERE idtipousuario LIKE '1656%' OR idtipousuario LIKE 'rpu6s%' OR idtipousuario LIKE 'rp946s%' OR idtipousuario LIKE '0w0ylrq%' OR idtipousuario LIKE '0r2rq%')\n"
                         + "  AND activo = ?1  order by nombres;", false, 1),
                 2);
 
