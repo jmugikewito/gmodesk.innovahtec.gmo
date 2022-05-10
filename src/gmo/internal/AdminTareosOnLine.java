@@ -439,8 +439,8 @@ public class AdminTareosOnLine extends GMOInternalFrame {
 
             JDialog.setDefaultLookAndFeelDecorated(false);
             load = new SmartLoader((java.awt.Frame) Frame, true,
-                    "Descargando Datos del Personal SubTareado",
-                    "Se estan Descargando los datos de los subtareos",
+                    "Detalle de Tareo",
+                    "Se estan Descargando los detalles del tareo",
                     (Window frame) -> {                    
                         tabla.loadApiDataSmart(
                                             "api/desk/mano-de-obra/detalle-tareo",
@@ -451,7 +451,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                         JDialog.setDefaultLookAndFeelDecorated(true);
                     });
 
-            JMethods.settingGlassPane((JFrame) Frame, load, defaults.colorPrimary, 0.5f);
+            JMethods.settingGlassPane((JFrame) Frame, load, MaterialColor.BLUEGREY_700, 0.4f);
             load = null;
             JMethods.updateInternalJTable(this, tabla);
         } else {
@@ -1256,8 +1256,8 @@ public class AdminTareosOnLine extends GMOInternalFrame {
             
             JDialog.setDefaultLookAndFeelDecorated(false);
             load = new SmartLoader((java.awt.Frame) Frame, true,
-                    "Descargando Datos del Personal SubTareado",
-                    "Se estan Descargando los datos de los subtareos",
+                    "Descargando Datos de Consumidores",
+                    "Se estan Descargando los datoss",
                     (Window frame) -> {                    
                         tabla.loadApiDataSmart(
                                             "api/desk/mano-de-obra/consumidor-por-tareo",
@@ -1268,7 +1268,7 @@ public class AdminTareosOnLine extends GMOInternalFrame {
                         JDialog.setDefaultLookAndFeelDecorated(true);
                     });
 
-            JMethods.settingGlassPane((JFrame) Frame, load, defaults.colorPrimary, 0.5f);
+            JMethods.settingGlassPane((JFrame) Frame, load, MaterialColor.BLUEGREY_700, 0.4f);
             load = null;
             JMethods.updateInternalJTable(this, tabla);
 
