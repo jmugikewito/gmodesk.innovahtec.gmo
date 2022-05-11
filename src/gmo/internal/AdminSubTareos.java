@@ -233,7 +233,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
 
     private void initUsuariosPlanillas() {
         
-        JDialog.setDefaultLookAndFeelDecorated(false);
+        /*JDialog.setDefaultLookAndFeelDecorated(false);
         load = new SmartLoader((java.awt.Frame) Frame, true,
                 "Descargando Datos",
                 "Se estan Cargando los Trabajadores y las Planillas de la Fecha Seleccionada", (Window frame) -> {
@@ -264,9 +264,9 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });
         JMethods.settingGlassPane((JFrame) Frame, load, MaterialColor.BLUEGREY_900, 0.8f);
-        load = null;
+        load = null;*/
         
-        /*JDialog.setDefaultLookAndFeelDecorated(false);
+        JDialog.setDefaultLookAndFeelDecorated(false);
         load = new SmartLoader((java.awt.Frame) Frame, true,
                 "Descargando Datos",
                 "Se estan Cargando los Trabajadores y las Planillas de la Fecha Seleccionada", (Window frame) -> {
@@ -295,7 +295,7 @@ public class AdminSubTareos extends javax.swing.JInternalFrame {
                     JDialog.setDefaultLookAndFeelDecorated(true);
                 });
         JMethods.settingGlassPane((JFrame) Frame, load, MaterialColor.BLUEGREY_900, 0.8f);
-        load = null;*/
+        load = null;
 
     }
 
