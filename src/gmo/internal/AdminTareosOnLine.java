@@ -40,7 +40,7 @@ import jmugi.voids.gmoEncript2022;
 import kevin.component.defaults;
 import kevin.component.dialog.MaterialSmartDialog;
 import kevin.component.dialog.SmartLoader;
-import kevin.component.dialog.TableDialog;
+import kevin.component.dialog.TableDialog2022;
 import kevin.component.frame.GMOInternalFrame;
 import kevin.component.toast.Toast;
 import other.tables.FormatAdminTareosNisira;
@@ -436,24 +436,15 @@ public class AdminTareosOnLine extends GMOInternalFrame {
         if (tabla.getSelectedRowCount() > 0) {
             IDTAREO = tabla.getValueAt(tabla.getSelectedRow(), 0).toString();
             DETALLE = tabla.getValueAt(tabla.getSelectedRow(), 13).toString();
-
-            JDialog.setDefaultLookAndFeelDecorated(false);
-            load = new SmartLoader((java.awt.Frame) Frame, true,
+            
+            JDialog dialog;
+            dialog = new TableDialog2022(
                     "Detalle de Tareo",
-                    "Se estan Descargando los detalles del tareo",
-                    (Window frame) -> {                    
-                        tabla.loadApiDataSmart(
-                                            "api/desk/mano-de-obra/detalle-tareo",
-                                            "iddatabase,idtareo,esnisira,resumido",
-                                            jkeys.IDEMPRESA, IDTAREO, 0, 0
-                                    );                   
-                        load.dispose();
-                        JDialog.setDefaultLookAndFeelDecorated(true);
-                    });
-
-            JMethods.settingGlassPane((JFrame) Frame, load, MaterialColor.BLUEGREY_700, 0.4f);
-            load = null;
-            JMethods.updateInternalJTable(this, tabla);
+                    (JFrame) Frame,
+                    true,
+                    "api/desk/mano-de-obra/detalle-tareo?iddatabase=" + jkeys.IDEMPRESA + "&idtareo=" + IDTAREO + "&esnisira=" + 0 + "&resumido=" + 0
+            );
+            JMethods.settingGlassPane((JFrame) Frame, dialog, MaterialColor.BLUEGREY_700, 0.4f);
         } else {
             Toast.mostarInfo((JFrame) Frame, "Seleccione un Tareo", true);
         }
@@ -1251,26 +1242,15 @@ public class AdminTareosOnLine extends GMOInternalFrame {
         if (tabla.getSelectedRowCount() > 0) {
             IDTAREO = tabla.getValueAt(tabla.getSelectedRow(), 0).toString();
             DETALLE = tabla.getValueAt(tabla.getSelectedRow(), 13).toString();
-
-            IDTAREO = tabla.getValueAt(tabla.getSelectedRow(), 0).toString();
             
-            JDialog.setDefaultLookAndFeelDecorated(false);
-            load = new SmartLoader((java.awt.Frame) Frame, true,
-                    "Descargando Datos de Consumidores",
-                    "Se estan Descargando los datoss",
-                    (Window frame) -> {                    
-                        tabla.loadApiDataSmart(
-                                            "api/desk/mano-de-obra/consumidor-por-tareo",
-                                            "idtareo",
-                                            IDTAREO
-                                    );                   
-                        load.dispose();
-                        JDialog.setDefaultLookAndFeelDecorated(true);
-                    });
-
-            JMethods.settingGlassPane((JFrame) Frame, load, MaterialColor.BLUEGREY_700, 0.4f);
-            load = null;
-            JMethods.updateInternalJTable(this, tabla);
+            JDialog dialog;
+            dialog = new TableDialog2022(
+                    "Detalle de Tareo",
+                    (JFrame) Frame,
+                    true,
+                    "api/desk/mano-de-obra/consumidor-por-tareo?idtareo=" + IDTAREO
+            );
+            JMethods.settingGlassPane((JFrame) Frame, dialog, MaterialColor.BLUEGREY_700, 0.4f);
 
         } else {
             Toast.mostarInfo((JFrame) Frame, "Seleccione un Tareo", true);
