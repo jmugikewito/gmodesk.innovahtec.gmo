@@ -143,6 +143,9 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
         toolbar1 = new kevin.component.toolbar.Toolbar();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
         setResizable(true);
         setTitle("Administracion de Motivos GMO");
 
@@ -169,14 +172,14 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
             panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDataLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelDataLayout.setVerticalGroup(
             panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDataLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 703, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -320,13 +323,13 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(edtDescripcionn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -360,14 +363,14 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
             panelImportarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelImportarLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 825, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
                 .addGap(10, 10, 10))
         );
         panelImportarLayout.setVerticalGroup(
             panelImportarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelImportarLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
                 .addGap(10, 10, 10))
         );
 
@@ -375,7 +378,6 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
 
         getContentPane().add(contenedor, java.awt.BorderLayout.CENTER);
 
-        toolbar1.setBackground(new java.awt.Color(255, 255, 255));
         toolbar1.setAGREGAR(true);
         toolbar1.setANULAR(true);
         toolbar1.setEDITAR(true);
@@ -390,7 +392,6 @@ public class AdminMotivos extends javax.swing.JInternalFrame implements iKubeFor
         toolbar1.setINDICADOR(false);
         toolbar1.setIREPORT(false);
         toolbar1.setRECARGAR(true);
-        toolbar1.setOpaque(true);
         getContentPane().add(toolbar1, java.awt.BorderLayout.WEST);
 
         pack();
